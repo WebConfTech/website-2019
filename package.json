@@ -33,7 +33,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "now-build": "npm run build"
+    "now-build": "npm run build",
+    "lambdas": "now-lambda"
   },
   "repository": {
     "type": "git",
