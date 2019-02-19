@@ -36,6 +36,7 @@ const _AddEmailForm = ({ isAdding, add }) => {
         value={email}
         onChange={e => setEmail(e.target.value)}
         hasError={!!errors}
+        disabled={isAdding}
         autoFocus
       />
       {!!errors
@@ -45,6 +46,7 @@ const _AddEmailForm = ({ isAdding, add }) => {
         type="submit"
         color="secondary"
         isLoading={isAdding}
+        disabled={isAdding}
         className={styles.button}
       >
         Registrarme
