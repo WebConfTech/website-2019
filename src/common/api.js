@@ -1,6 +1,6 @@
 import { API_BASE_URL } from './config';
 
-export const SAVE_EMAIL = `${API_BASE_URL}/save_email/`;
+export const SAVE_EMAIL = `${API_BASE_URL}/mail_save`;
 
 const makeHeaders = () =>
   new Headers({
