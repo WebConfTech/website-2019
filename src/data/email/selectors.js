@@ -1,1 +1,1 @@
-export const isAddingEmail = state => state.email.isAdding;
+export const isAddingEmail = state => state.email.adding;
