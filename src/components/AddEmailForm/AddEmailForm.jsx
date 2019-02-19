@@ -2,27 +2,44 @@ import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { addEmail } from 'data/email/actions';
 import { isAddingEmail } from 'data/email/selectors';
-import { Input, Button } from 'lib';
+import { addEmailSchema } from 'data/email/schemas';
+import { Input, ValidationError, Button } from 'lib';
 import styles from './styles.module.scss';
 
 const _AddEmailForm = ({ isAdding, add }) => {
   const [email, setEmail] = useState('');
+  const [errors, setErrors] = useState(null);
+
   const onSubmit = useCallback(
     e => {
       e.preventDefault();
-      add(email);
+
+      try {
+        // check if email is valid and clear errors if it's
+        addEmailSchema.validateSync(email);
+        setErrors(null);
+
+        // call the add action
+        add(addEmailSchema.cast(email));
+      } catch (validationError) {
+        // set validation errors
+        setErrors(validationError.errors);
+      }
     },
-    [add, email]
+    [email, setErrors, add]
   );
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
       <Input
-        type="email"
         placeholder="Tu e-mail"
         value={email}
         onChange={e => setEmail(e.target.value)}
+        hasError={!!errors}
       />
+      {!!errors
+        ? errors.map(error => <ValidationError key={error}>{error}</ValidationError>)
+        : null}
       <Button type="submit" color="secondary" className={styles.button}>
         Registrarme
       </Button>
