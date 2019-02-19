@@ -40,7 +40,12 @@ const _AddEmailForm = ({ isAdding, add }) => {
       {!!errors
         ? errors.map(error => <ValidationError key={error}>{error}</ValidationError>)
         : null}
-      <Button type="submit" color="secondary" className={styles.button}>
+      <Button
+        type="submit"
+        color="secondary"
+        isLoading={isAdding}
+        className={styles.button}
+      >
         Registrarme
       </Button>
     </form>
