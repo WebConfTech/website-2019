@@ -1,14 +1,11 @@
 import React from 'react';
 
-// Lib
-import { Button } from 'lib/Button';
-import { Input } from 'lib/Input';
-
 // Layouts
 import DefaultLayout from 'layouts/default';
 
 // Components
 import SEO from 'components/seo';
+import { AddEmailForm } from 'components/AddEmailForm';
 
 // Assets
 import styles from './index.module.scss';
@@ -56,15 +53,8 @@ const IndexPage = () => (
           <span className={styles.textComingSoon}>
             Dejanos tu e-mail y enterate al instante de las novedades!
           </span>
-          <div className={styles.registerForm}>
-            <Input placeholder="Tu e-mail" />
-            <Button
-              color="secondary"
-              className={styles.button}
-              onClick={() => console.log('Hola')}
-            >
-              Registrarme
-            </Button>
+          <div className={styles.addEmailFormContainer}>
+            <AddEmailForm />
           </div>
         </div>
         <div className={styles.bracketContainer}>
