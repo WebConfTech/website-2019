@@ -36,6 +36,7 @@ const _AddEmailForm = ({ isAdding, add }) => {
         value={email}
         onChange={e => setEmail(e.target.value)}
         hasError={!!errors}
+        autoFocus
       />
       {!!errors
         ? errors.map(error => <ValidationError key={error}>{error}</ValidationError>)
