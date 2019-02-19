@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    'gatsby-plugin-resolve-src',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-sass`,
@@ -51,5 +52,9 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
-  ]
+  ],
+  proxy: {
+    prefix: '/api',
+    url: 'http://localhost:8004'
+  }
 };
