@@ -26,7 +26,7 @@
   "license": "MIT",
   "scripts": {
     "clean-deploys": "now rm $NOW_INSTANCE_NAME --safe --token $NOW_TOKEN --yes",
-    "deploy": "now alias $NOW_INSTANCE_NAME --token=$NOW_TOKEN",
+    "deploy": "now alias $(now --name=$NOW_NAME --token=$NOW_TOKEN) $NOW_INSTANCE_NAME --token=$NOW_TOKEN",
     "dev": "gatsby develop",
     "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token $NOW_TOKEN",
     "build": "gatsby build",
