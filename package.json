@@ -25,11 +25,14 @@
   },
   "license": "MIT",
   "scripts": {
+    "clean-deploys": "now rm $NOW_INSTANCE_NAME --safe --token $NOW_TOKEN --yes",
+    "deploy": "now alias $(now --name=$NOW_INSTANCE_NAME) $NOW_INSTANCE_NAME --token=$NOW_TOKEN",
+    "dev": "gatsby develop",
+    "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token $NOW_TOKEN",
     "build": "gatsby build",
-    "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "test": "echo \"Write tests! -> D:\"",
     "now-build": "npm run build",
     "lambdas": "now-lambda"
   },

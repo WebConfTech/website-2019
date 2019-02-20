@@ -3,7 +3,6 @@
   "name": "website-2019",
   "alias": ["webconf.tech", "www.webconf.tech"],
   "builds": [
-    { "src": "api/*.js", "use": "@now/node" },
     {
       "src": "package.json",
       "use": "@now/static-build",
