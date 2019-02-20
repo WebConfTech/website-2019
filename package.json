@@ -30,7 +30,7 @@
     "dev": "gatsby develop",
     "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token $NOW_TOKEN",
     "build": "gatsby build",
-    "start": "npm run develop",
+    "start": "npm run dev",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> D:\"",
     "now-build": "npm run build",
