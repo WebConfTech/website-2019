@@ -142,32 +142,6 @@ $mobile-breakpoint: 45rem;
   }
 }
 
-.text-coming-soon {
-  text-transform: uppercase;
-  color: $secondary;
-
-  @media (max-width: $mobile-breakpoint) {
-    margin-top: 1.5625rem;
-    font-size: 1.375rem;
-    line-height: 1.375rem;
-  }
-
-  @media (min-width: $mobile-breakpoint) {
-    font-size: 1.625rem;
-    line-height: 1.625rem;
-  }
-}
-
-.add-email-form-container {
-  @media (max-width: $mobile-breakpoint) {
-    margin-top: 1rem;
-  }
-
-  @media (min-width: $mobile-breakpoint) {
-    margin-top: 2.1875rem;
-  }
-}
-
 .social-media {
   display: flex;
 

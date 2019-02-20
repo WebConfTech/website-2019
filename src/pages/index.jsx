@@ -50,9 +50,6 @@ const IndexPage = () => (
             Web del interior del país.{' '}
             <span className={styles.teaserEmphasis}>¿Te la vas a perder?</span>
           </span>
-          <span className={styles.textComingSoon}>
-            Dejanos tu e-mail y enterate al instante de las novedades!
-          </span>
           <div className={styles.addEmailFormContainer}>
             <AddEmailForm />
           </div>

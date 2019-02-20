@@ -1,9 +1,50 @@
+$mobile-breakpoint: 45rem;
+
+.container {
+  width: 19.188125rem;
+  .title,
+  .text {
+    margin: 0;
+  }
+  .title {
+    text-transform: uppercase;
+    color: $secondary;
+    font-weight: normal;
+  }
+  .text {
+    color: $primary;
+    margin-top: 1.6875rem;
+  }
+  @media (min-width: $mobile-breakpoint) {
+    .title,
+    .text {
+      font-size: 1.625rem;
+      line-height: 1.625rem;
+    }
+  }
+  @media (max-width: $mobile-breakpoint) {
+    width: auto;
+    margin-top: 1.5625rem;
+    .title,
+    .text {
+      font-size: 1.375rem;
+      line-height: 1.375rem;
+    }
+  }
+}
+
 .form {
   display: flex;
   flex-direction: column;
-
   .button {
     margin-top: 0.5rem;
     align-self: flex-end;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    margin-top: 1rem;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    margin-top: 2.1875rem;
   }
 }

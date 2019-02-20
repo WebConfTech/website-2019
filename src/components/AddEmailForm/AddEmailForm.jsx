@@ -30,28 +30,33 @@ const _AddEmailForm = ({ isAdding, add }) => {
   );
 
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
-      <Input
-        placeholder="Tu e-mail"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        hasError={!!errors}
-        disabled={isAdding}
-        autoFocus
-      />
-      {!!errors
-        ? errors.map(error => <ValidationError key={error}>{error}</ValidationError>)
-        : null}
-      <Button
-        type="submit"
-        color="secondary"
-        isLoading={isAdding}
-        disabled={isAdding}
-        className={styles.button}
-      >
-        Registrarme
-      </Button>
-    </form>
+    <div className={styles.container}>
+      <p className={styles.title}>
+        Dejanos tu e-mail y enterate al instante de las novedades!
+      </p>
+      <form className={styles.form} onSubmit={onSubmit}>
+        <Input
+          placeholder="Tu e-mail"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          hasError={!!errors}
+          disabled={isAdding}
+          autoFocus
+        />
+        {!!errors
+          ? errors.map(error => <ValidationError key={error}>{error}</ValidationError>)
+          : null}
+        <Button
+          type="submit"
+          color="secondary"
+          isLoading={isAdding}
+          disabled={isAdding}
+          className={styles.button}
+        >
+          Registrarme
+        </Button>
+      </form>
+    </div>
   );
 };
 
