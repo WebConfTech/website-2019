@@ -25,7 +25,12 @@ export const addEmail = email => async dispatch => {
   try {
     const response = await post(SAVE_EMAIL, { address: email });
     const message = await response.text();
-    dispatch(addEmailSuccess(message));
+
+    if (response.ok) {
+      dispatch(addEmailSuccess(message));
+    } else {
+      dispatch(addEmailFailure(message));
+    }
   } catch (e) {
     dispatch(addEmailFailure(e.message));
   }
