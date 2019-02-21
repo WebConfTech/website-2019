@@ -5,34 +5,31 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "clsx": "^1.0.2",
+    "axios": "^0.18.0",
     "dotenv": "^6.2.0",
     "gatsby": "^2.0.118",
     "gatsby-image": "^2.0.29",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.13",
-    "mailgun-js": "^0.22.0",
-    "prop-types": "^15.7.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "statuses": "^1.5.0",
     "styled-components": "^4.1.3",
     "yup": "^0.26.10"
   },
   "license": "MIT",
   "scripts": {
-    "clean-deploys": "now rm $NOW_INSTANCE_NAME --safe --token $NOW_TOKEN --yes",
-    "deploy": "now alias $NOW_INSTANCE_NAME --token=$NOW_TOKEN",
+    "clean-deploys": "now rm $NOW_INSTANCE_NAME --safe --token=$NOW_TOKEN --team=$NOW_TEAM --yes",
+    "deploy": "now alias $(now --name=$NOW_NAME -e GATSBY_API_BASE_URL=$GATSBY_API_BASE_URL  --token=$NOW_TOKEN --team=$NOW_TEAM) $NOW_INSTANCE_NAME --token=$NOW_TOKEN --team=$NOW_TEAM",
     "dev": "gatsby develop",
-    "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token $NOW_TOKEN",
+    "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token=$NOW_TOKEN --team=$NOW_TEAM",
     "build": "gatsby build",
-    "start": "npm run develop",
+    "start": "npm run dev",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> D:\"",
+    "test": "echo \"Warning: no test specified\" && exit 0",
     "now-build": "npm run build",
     "lambdas": "now-lambda"
   },
@@ -57,7 +54,8 @@
     "node-sass": "^4.11.0",
     "node-sass-chokidar": "^1.3.4",
     "pretty-quick": "^1.10.0",
-    "sass-resources-loader": "^2.0.0"
+    "sass-resources-loader": "^2.0.0",
+    "webpack-loader-append-prepend": "1.0.2"
   },
   "husky": {
     "hooks": {

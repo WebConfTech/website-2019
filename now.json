@@ -8,10 +8,5 @@
       "use": "@now/static-build",
       "config": { "distDir": "public" }
     }
-  ],
-  "routes": [
-    { "src": "/api/mail_save", "dest": "/api/mail_save.js" },
-    { "src": "/api/mail_send", "dest": "/api/mail_send.js" },
-    { "src": "/api/test_test", "dest": "/api/test_test.js" }
   ]
 }
