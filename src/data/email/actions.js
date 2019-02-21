@@ -9,8 +9,9 @@ const addEmailRequest = email => ({
   payload: email
 });
 
-const addEmailSuccess = () => ({
-  type: ADD_EMAIL_SUCCESS
+const addEmailSuccess = message => ({
+  type: ADD_EMAIL_SUCCESS,
+  message
 });
 
 const addEmailFailure = message => ({
@@ -22,8 +23,9 @@ export const addEmail = email => async dispatch => {
   dispatch(addEmailRequest(email));
 
   try {
-    await post(SAVE_EMAIL, { address: email });
-    dispatch(addEmailSuccess());
+    const response = await post(SAVE_EMAIL, { address: email });
+    const message = await response.text();
+    dispatch(addEmailSuccess(message));
   } catch (e) {
     dispatch(addEmailFailure(e.message));
   }
