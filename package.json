@@ -23,7 +23,7 @@
   "license": "MIT",
   "scripts": {
     "clean-deploys": "now rm $NOW_INSTANCE_NAME --safe --token=$NOW_TOKEN --team=$NOW_TEAM --yes",
-    "deploy": "now alias $(now --name=$NOW_NAME -e API_BASE_URL=$API_BASE_URL  --token=$NOW_TOKEN --team=$NOW_TEAM) $NOW_INSTANCE_NAME --token=$NOW_TOKEN --team=$NOW_TEAM",
+    "deploy": "now alias $(now --name=$NOW_NAME -e GATSBY_API_BASE_URL=$GATSBY_API_BASE_URL  --token=$NOW_TOKEN --team=$NOW_TEAM) $NOW_INSTANCE_NAME --token=$NOW_TOKEN --team=$NOW_TEAM",
     "dev": "gatsby develop",
     "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token=$NOW_TOKEN --team=$NOW_TEAM",
     "build": "gatsby build",
