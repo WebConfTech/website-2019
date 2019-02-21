@@ -9,6 +9,7 @@ const makeHeaders = () =>
   });
 
 export const post = async (url, data) => {
+  console.log(url);
   const response = await fetch(url, {
     headers: makeHeaders(),
     method: 'POST',
