@@ -1,20 +1,18 @@
-$mobile-breakpoint: 45rem;
-
 // utils
 .hidden-lg {
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     display: none;
   }
 }
 
 .visible-xs {
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     display: block;
   }
 }
 
 .hidden-xs {
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     display: none;
   }
 }
@@ -27,7 +25,7 @@ $mobile-breakpoint: 45rem;
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     background-image: url('assets/images/background.svg');
     background-size: cover;
     background-position: center;
@@ -42,14 +40,14 @@ $mobile-breakpoint: 45rem;
     height: 9rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     align-self: flex-start;
     margin-top: 3.4375rem;
     margin-left: 3.4375rem;
     align-items: flex-end;
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 3.125rem;
   }
 }
@@ -66,7 +64,7 @@ $mobile-breakpoint: 45rem;
     flex-direction: column;
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 1.5625rem;
 
     .middle-content {
@@ -74,7 +72,7 @@ $mobile-breakpoint: 45rem;
     }
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 3.4375rem;
     max-width: 26.5625rem;
   }
@@ -95,7 +93,7 @@ $mobile-breakpoint: 45rem;
     margin-bottom: 0.9375rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 3.4375rem;
     margin-right: 2.1875rem;
     .social-media-container {
@@ -103,7 +101,7 @@ $mobile-breakpoint: 45rem;
     }
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 2.5rem;
     .social-media-container {
       margin-bottom: 1.1875rem;
@@ -118,7 +116,7 @@ $mobile-breakpoint: 45rem;
   color: rgb(0, 0, 0);
   font-weight: lighter;
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     max-width: 28.125rem;
     margin-bottom: 1rem;
     margin-left: 3.75rem;
@@ -151,24 +149,24 @@ $mobile-breakpoint: 45rem;
   text-transform: uppercase;
   color: $secondary;
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 1.5625rem;
     font-size: 1.375rem;
     line-height: 1.375rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     font-size: 1.625rem;
     line-height: 1.625rem;
   }
 }
 
 .add-email-form-container {
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 1rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 2.1875rem;
   }
 }
@@ -198,12 +196,12 @@ $mobile-breakpoint: 45rem;
     margin-left: 2.5rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     flex-direction: row;
     align-items: center;
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-right: 1.125rem;
     flex-direction: column;
     align-items: flex-end;
