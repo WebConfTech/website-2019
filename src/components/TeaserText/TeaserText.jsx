@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { wasTheEmailSaved } from 'data/email/selectors';
 import styles from './styles.module.scss';
 
-console.log(styles);
-
 const _TeaserText = ({ wasSaved, className }) => (
   <div className={className}>
     <p className={`${styles.teaser} ${wasSaved ? styles.HideOnMobile : ''}`}>
