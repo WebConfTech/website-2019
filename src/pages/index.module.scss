@@ -68,7 +68,7 @@
     margin-top: 1.5625rem;
 
     .middle-content {
-      padding-right: 2.1875rem;
+      padding-right: 2.4375rem;
     }
   }
 
@@ -109,28 +109,13 @@
   }
 }
 
-// elements
-.teaser {
-  font-size: 1.375rem;
-  line-height: 1.625rem;
-  color: rgb(0, 0, 0);
-  font-weight: lighter;
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    max-width: 28.125rem;
-    margin-bottom: 1rem;
-    margin-left: 3.75rem;
-  }
-}
-
-.teaser-emphasis {
-  font-size: 1.375rem;
-  color: $secondary;
-  font-weight: bold;
-}
-
 .bracket-container {
   flex-shrink: 0;
+  &:first-child {
+    @media (max-width: $theme-breakpoints-mobile) {
+      padding-left: 2.4375rem;
+    }
+  }
 
   .bracket {
     width: 3.4375rem;
@@ -142,32 +127,6 @@
 
   .bracket-right {
     transform: rotate(180deg);
-  }
-}
-
-.text-coming-soon {
-  text-transform: uppercase;
-  color: $secondary;
-
-  @media (max-width: $theme-breakpoints-mobile) {
-    margin-top: 1.5625rem;
-    font-size: 1.375rem;
-    line-height: 1.375rem;
-  }
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    font-size: 1.625rem;
-    line-height: 1.625rem;
-  }
-}
-
-.add-email-form-container {
-  @media (max-width: $theme-breakpoints-mobile) {
-    margin-top: 1rem;
-  }
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    margin-top: 2.1875rem;
   }
 }
 
