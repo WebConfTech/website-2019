@@ -1,20 +1,18 @@
-$mobile-breakpoint: 45rem;
-
 // utils
 .hidden-lg {
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     display: none;
   }
 }
 
 .visible-xs {
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     display: block;
   }
 }
 
 .hidden-xs {
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     display: none;
   }
 }
@@ -27,7 +25,7 @@ $mobile-breakpoint: 45rem;
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     background-image: url('assets/images/background.svg');
     background-size: cover;
     background-position: center;
@@ -42,14 +40,14 @@ $mobile-breakpoint: 45rem;
     height: 9rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     align-self: flex-start;
     margin-top: 3.4375rem;
     margin-left: 3.4375rem;
     align-items: flex-end;
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 3.125rem;
   }
 }
@@ -66,64 +64,46 @@ $mobile-breakpoint: 45rem;
     flex-direction: column;
   }
 
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 1.5625rem;
-
-    .middle-content {
-      padding-right: 2.1875rem;
-    }
+    max-width: 25rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 3.4375rem;
     max-width: 26.5625rem;
   }
 }
 
 .bottom-section {
+  width: 100%;
   flex-grow: 1;
-  align-self: flex-end;
-  margin-bottom: 0.9375rem;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  justify-content: space-between;
 
   .social-media-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
-
-  @media (min-width: $mobile-breakpoint) {
-    margin-top: 3.4375rem;
-    margin-bottom: 2.1875rem;
-    margin-right: 2.1875rem;
-  }
-
-  @media (max-width: $mobile-breakpoint) {
-    margin-top: 2.5rem;
     margin-bottom: 0.9375rem;
   }
-}
 
-// elements
-.teaser {
-  font-size: 1.375rem;
-  line-height: 1.625rem;
-  color: rgb(0, 0, 0);
-  font-weight: lighter;
-
-  @media (min-width: $mobile-breakpoint) {
-    max-width: 28.125rem;
-    margin-bottom: 1rem;
-    margin-left: 3.75rem;
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin-top: 3.4375rem;
+    margin-right: 2.1875rem;
+    .social-media-container {
+      margin-bottom: 1.1875rem;
+    }
   }
-}
 
-.teaser-emphasis {
-  font-size: 1.375rem;
-  color: $secondary;
-  font-weight: bold;
+  @media (max-width: $theme-breakpoints-mobile) {
+    margin-top: 2.5rem;
+    .social-media-container {
+      margin-bottom: 1.1875rem;
+    }
+  }
 }
 
 .bracket-container {
@@ -139,32 +119,6 @@ $mobile-breakpoint: 45rem;
 
   .bracket-right {
     transform: rotate(180deg);
-  }
-}
-
-.text-coming-soon {
-  text-transform: uppercase;
-  color: $secondary;
-
-  @media (max-width: $mobile-breakpoint) {
-    margin-top: 1.5625rem;
-    font-size: 1.375rem;
-    line-height: 1.375rem;
-  }
-
-  @media (min-width: $mobile-breakpoint) {
-    font-size: 1.625rem;
-    line-height: 1.625rem;
-  }
-}
-
-.add-email-form-container {
-  @media (max-width: $mobile-breakpoint) {
-    margin-top: 1rem;
-  }
-
-  @media (min-width: $mobile-breakpoint) {
-    margin-top: 2.1875rem;
   }
 }
 
@@ -193,22 +147,33 @@ $mobile-breakpoint: 45rem;
     margin-left: 2.5rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     flex-direction: row;
     align-items: center;
   }
 
-  @media (max-width: $mobile-breakpoint) {
-    margin-right: 1.5rem;
+  @media (max-width: $theme-breakpoints-mobile) {
+    margin-right: 1.125rem;
     flex-direction: column;
     align-items: flex-end;
 
     .text-social-media {
       text-align: right;
+      font-size: 1rem;
+      width: 8.76rem;
+      line-height: 1.1875rem;
+      font-weight: normal;
     }
 
     .icons {
-      margin-top: 1.562rem;
+      margin-top: 0.812rem;
+      img {
+        height: 1.5rem;
+      }
+    }
+
+    .icon + .icon {
+      margin-left: 1.2875rem;
     }
   }
 }

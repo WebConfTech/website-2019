@@ -9,6 +9,8 @@ import { AddEmailForm } from 'components/AddEmailForm';
 
 // Assets
 import styles from './index.module.scss';
+import { CTALeafLike } from 'lib';
+import { TeaserText } from 'components/TeaserText';
 import MainLogoImage from 'assets/images/logo-main.svg';
 import JumboBracketImage from 'assets/images/jumbo-bracket.svg';
 import FacebookIcon from 'assets/icons/facebook.svg';
@@ -30,29 +32,14 @@ const IndexPage = () => (
             src={MainLogoImage}
           />
         </div>
-        <span className={`${styles.hiddenXs} ${styles.teaser}`}>
-          Estamos preparándonos para la primer conferencia de front-end y tecnologías Web
-          del interior del país.{' '}
-          <span className={styles.teaserEmphasis}>¿Te la vas a perder?</span>
-        </span>
+        <TeaserText className={styles.hiddenXs} />
       </div>
       <div className={styles.middleSection}>
         <div className={styles.bracketContainer}>
-          <img
-            className={styles.bracket}
-            src={JumboBracketImage}
-            alt="Left jumbo bracket"
-          />
+          <img className={styles.bracket} src={JumboBracketImage} alt="Left jumbo bracket" />
         </div>
         <div className={styles.middleContent}>
-          <span className={`${styles.hiddenLg} ${styles.teaser}`}>
-            Estamos preparándonos para la primer conferencia de front-end y tecnologías
-            Web del interior del país.{' '}
-            <span className={styles.teaserEmphasis}>¿Te la vas a perder?</span>
-          </span>
-          <span className={styles.textComingSoon}>
-            Dejanos tu e-mail y enterate al instante de las novedades!
-          </span>
+          <TeaserText className={styles.hiddenLg} />
           <div className={styles.addEmailFormContainer}>
             <AddEmailForm />
           </div>
@@ -66,6 +53,15 @@ const IndexPage = () => (
         </div>
       </div>
       <div className={styles.bottomSection}>
+        <div>
+          <CTALeafLike
+            href="https://bit.ly/speakers-webconf2019"
+            target="_blank"
+            title="¿Querés dar una charla?"
+          >
+            ¿Querés dar una charla?
+          </CTALeafLike>
+        </div>
         <div className={styles.socialMediaContainer}>
           <div className={`${styles.hiddenXs} ${styles.socialMedia}`}>
             <span className={styles.textSocialMedia}>Seguinos en nuestras redes</span>
@@ -80,15 +76,6 @@ const IndexPage = () => (
                 <img alt="Webconf Instagram Profile" src={InstagramIcon} />
               </a>
             </div>
-          </div>
-          <div className={styles.bracketContainer}>
-            <img
-              className={`${styles.hiddenLg} ${styles.smallBracket} ${
-                styles.bracketRight
-              }`}
-              src={JumboBracketImage}
-              alt="Right jumbo bracket"
-            />
           </div>
         </div>
       </div>
