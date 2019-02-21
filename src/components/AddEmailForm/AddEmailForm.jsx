@@ -31,8 +31,8 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
 
   const formErrors = emailError ? [emailError] : errors;
 
-  return !wasSaved ? (
-    <div className={styles.container}>
+  return wasSaved ? (
+    <div className={`${styles.container} ${styles.NoMargin}`}>
       <div className={styles.success}>
         <h3 className={styles.title}>¡Todo listo!</h3>
         <p className={styles.text}>Pronto te estaremos escribiendo.</p>
@@ -40,9 +40,7 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
     </div>
   ) : (
     <div className={styles.container}>
-      <p className={styles.title}>
-        Dejanos tu e-mail y enterate al instante de las novedades!
-      </p>
+      <p className={styles.title}>Dejanos tu e-mail y enterate al instante de las novedades!</p>
       <form className={styles.form} onSubmit={onSubmit}>
         <Input
           placeholder="Tu e-mail"
@@ -53,9 +51,7 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
           autoFocus
         />
         {!!formErrors
-          ? formErrors.map(error => (
-              <ValidationError key={error}>{error}</ValidationError>
-            ))
+          ? formErrors.map(error => <ValidationError key={error}>{error}</ValidationError>)
           : null}
         <Button
           type="submit"
