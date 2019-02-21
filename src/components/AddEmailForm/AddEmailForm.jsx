@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { addEmail } from 'data/email/actions';
-import { isAddingEmail } from 'data/email/selectors';
+import { isAddingEmail, wasTheEmailSaved, emailError } from 'data/email/selectors';
 import { addEmailSchema } from 'data/email/schemas';
 import { Input, ValidationError, Button } from 'lib';
 import styles from './styles.module.scss';
 
-const _AddEmailForm = ({ isAdding, add }) => {
+const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState(null);
 
@@ -29,7 +29,16 @@ const _AddEmailForm = ({ isAdding, add }) => {
     [email, setErrors, add]
   );
 
-  return (
+  const formErrors = emailError ? [emailError] : errors;
+
+  return !wasSaved ? (
+    <div className={styles.container}>
+      <div className={styles.success}>
+        <h3 className={styles.title}>¡Todo listo!</h3>
+        <p className={styles.text}>Pronto te estaremos escribiendo.</p>
+      </div>
+    </div>
+  ) : (
     <div className={styles.container}>
       <p className={styles.title}>
         Dejanos tu e-mail y enterate al instante de las novedades!
@@ -39,12 +48,14 @@ const _AddEmailForm = ({ isAdding, add }) => {
           placeholder="Tu e-mail"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          hasError={!!errors}
+          hasError={!!formErrors}
           disabled={isAdding}
           autoFocus
         />
-        {!!errors
-          ? errors.map(error => <ValidationError key={error}>{error}</ValidationError>)
+        {!!formErrors
+          ? formErrors.map(error => (
+              <ValidationError key={error}>{error}</ValidationError>
+            ))
           : null}
         <Button
           type="submit"
@@ -63,7 +74,9 @@ const _AddEmailForm = ({ isAdding, add }) => {
 _AddEmailForm.displayName = 'AddEmailForm';
 
 const mapStateToProps = state => ({
-  isAdding: isAddingEmail(state)
+  isAdding: isAddingEmail(state),
+  wasSaved: wasTheEmailSaved(state),
+  emailError: emailError(state)
 });
 
 const mapDispatchToProps = dispatch => ({

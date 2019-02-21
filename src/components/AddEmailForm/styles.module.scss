@@ -19,17 +19,28 @@ $mobile-breakpoint: 45rem;
     .title,
     .text {
       font-size: 1.625rem;
-      line-height: 1.625rem;
+      line-height: 1.96375rem;
     }
   }
   @media (max-width: $mobile-breakpoint) {
     width: auto;
-    margin-top: 1.5625rem;
+    margin-top: 1.5275rem;
     .title,
     .text {
       font-size: 1.375rem;
-      line-height: 1.375rem;
+      line-height: 1.71375rem;
     }
+  }
+}
+
+.success {
+  margin: 0 auto;
+  @media (max-width: $mobile-breakpoint) {
+    width: auto;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    width: 14.6875rem;
   }
 }
 
