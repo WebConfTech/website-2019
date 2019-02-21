@@ -68,7 +68,11 @@ const IndexPage = () => (
       </div>
       <div className={styles.bottomSection}>
         <div>
-          <CTALeafLike href="/cfp" target="_blank" title="¿Querés dar una charla?">
+          <CTALeafLike
+            href="https://bit.ly/speakers-webconf2019"
+            target="_blank"
+            title="¿Querés dar una charla?"
+          >
             ¿Querés dar una charla?
           </CTALeafLike>
         </div>
