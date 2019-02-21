@@ -66,10 +66,7 @@
 
   @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 1.5625rem;
-
-    .middle-content {
-      padding-right: 2.4375rem;
-    }
+    max-width: 25rem;
   }
 
   @media (min-width: $theme-breakpoints-mobile) {
@@ -111,11 +108,6 @@
 
 .bracket-container {
   flex-shrink: 0;
-  &:first-child {
-    @media (max-width: $theme-breakpoints-mobile) {
-      padding-left: 2.4375rem;
-    }
-  }
 
   .bracket {
     width: 3.4375rem;
