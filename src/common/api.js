@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { API_BASE_URL } from './config';
 
 export const SAVE_EMAIL = `${API_BASE_URL}/lambdas/mail_save`;
@@ -10,10 +9,11 @@ const makeHeaders = () =>
   });
 
 export const post = async (url, data) => {
-  const response = await axios.post(url, {
-    ...data,
-    headers: makeHeaders()
+  const response = await fetch(url, {
+    headers: makeHeaders(),
+    method: 'POST',
+    body: JSON.stringify(data)
   });
 
-  return response;
+  return response.json();
 };

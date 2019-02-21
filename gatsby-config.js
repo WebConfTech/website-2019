@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config();
-}
-
 const path = require('path');
 
 module.exports = {
@@ -58,7 +54,7 @@ module.exports = {
     // 'gatsby-plugin-offline',
   ],
   proxy: {
-    prefix: '/api',
+    prefix: '/lambdas',
     url: 'http://localhost:8004'
   }
 };
