@@ -1,0 +1,29 @@
+.header,
+.section {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 0 3.125rem;
+  width: 100%;
+}
+
+.header {
+  padding-top: 3.25rem;
+}
+
+.title {
+  text-transform: lowercase;
+  font-size: 7.6675rem;
+  color: $theme-palette-sectionTitle;
+  opacity: 0.1;
+}
+
+.logoContainer,
+.aside {
+  width: 14.676875rem;
+}
+
+.logo {
+  width: auto;
+  height: 9rem;
+}
