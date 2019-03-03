@@ -4,7 +4,6 @@ import React from 'react';
 import DefaultLayout from 'layouts/default';
 
 // Components
-import SEO from 'components/seo';
 import { AddEmailForm } from 'components/AddEmailForm';
 
 // Assets
@@ -18,10 +17,6 @@ import JumboBracketImage from 'assets/images/jumbo-bracket.svg';
 const IndexPage = () => (
   <DefaultLayout>
     <div className={styles.root}>
-      <SEO
-        title="WebConf • Córdoba 2019"
-        keywords={[`tech`, `conference`, `argentina`, `comunidad`]}
-      />
       <div className={styles.topSection}>
         <div>
           <img
