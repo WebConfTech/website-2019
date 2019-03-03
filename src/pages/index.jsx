@@ -10,12 +10,10 @@ import { AddEmailForm } from 'components/AddEmailForm';
 // Assets
 import styles from './index.module.scss';
 import { CTALeafLike } from 'lib';
+import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
 import { TeaserText } from 'components/TeaserText';
 import MainLogoImage from 'assets/images/logo-main.svg';
 import JumboBracketImage from 'assets/images/jumbo-bracket.svg';
-import FacebookIcon from 'assets/icons/facebook.svg';
-import TwitterIcon from 'assets/icons/twitter.svg';
-import InstagramIcon from 'assets/icons/instagram.svg';
 
 const IndexPage = () => (
   <DefaultLayout>
@@ -62,22 +60,7 @@ const IndexPage = () => (
             ¿Querés dar una charla?
           </CTALeafLike>
         </div>
-        <div className={styles.socialMediaContainer}>
-          <div className={`${styles.hiddenXs} ${styles.socialMedia}`}>
-            <span className={styles.textSocialMedia}>Seguinos en nuestras redes</span>
-            <div className={styles.icons}>
-              <a className={styles.icon} href="https://www.facebook.com/WebConfCBA/">
-                <img alt="Webconf Facebook Profile" src={FacebookIcon} />
-              </a>
-              <a className={styles.icon} href="http://twitter.com/WebConfCBA">
-                <img alt="Webconf Twitter Profile" src={TwitterIcon} />
-              </a>
-              <a className={styles.icon} href="http://instagram.com/webconfcba">
-                <img alt="Webconf Instagram Profile" src={InstagramIcon} />
-              </a>
-            </div>
-          </div>
-        </div>
+        <SocialNetworkLinks />
       </div>
     </div>
   </DefaultLayout>
