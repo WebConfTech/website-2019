@@ -5,12 +5,11 @@ import DefaultLayout from 'layouts/default';
 
 // Components
 import { AddEmailForm } from 'components/AddEmailForm';
+import { TeaserText } from 'components/TeaserText';
+import { Footer } from 'components/Footer';
 
 // Assets
 import styles from './index.module.scss';
-import { CTALeafLike } from 'lib';
-import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
-import { TeaserText } from 'components/TeaserText';
 import MainLogoImage from 'assets/images/logo-main.svg';
 import JumboBracketImage from 'assets/images/jumbo-bracket.svg';
 
@@ -45,18 +44,7 @@ const IndexPage = () => (
           />
         </div>
       </div>
-      <div className={styles.bottomSection}>
-        <div>
-          <CTALeafLike
-            href="https://bit.ly/speakers-webconf2019"
-            target="_blank"
-            title="¿Querés dar una charla?"
-          >
-            ¿Querés dar una charla?
-          </CTALeafLike>
-        </div>
-        <SocialNetworkLinks />
-      </div>
+      <Footer />
     </div>
   </DefaultLayout>
 );
