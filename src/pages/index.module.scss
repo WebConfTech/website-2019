@@ -18,19 +18,6 @@
 }
 
 // layout
-.root {
-  width: auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    background-image: url('assets/images/background.svg');
-    background-size: cover;
-    background-position: center;
-  }
-}
 
 .top-section {
   display: flex;

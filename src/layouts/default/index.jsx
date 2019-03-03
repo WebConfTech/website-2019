@@ -10,6 +10,9 @@ import theme from 'lib/theme';
 // Components
 import SEO from 'components/seo';
 
+// Styles
+import styles from './styles.module.scss';
+
 const DefaultLayout = ({ children, seoProps }) => {
   const _seoProps = {
     ...SEO_DATA,
@@ -25,10 +28,10 @@ const DefaultLayout = ({ children, seoProps }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <>
+      <div className={styles.container}>
         <SEO {..._seoProps} />
         {children}
-      </>
+      </div>
     </ThemeProvider>
   );
 };
