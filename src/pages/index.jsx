@@ -1,12 +1,11 @@
 import React from 'react';
 
 // Layouts
-import DefaultLayout from 'layouts/default';
+import LandingLayout from 'layouts/landing';
 
 // Components
 import { AddEmailForm } from 'components/AddEmailForm';
 import { TeaserText } from 'components/TeaserText';
-import { Footer } from 'components/Footer';
 
 // Assets
 import styles from './index.module.scss';
@@ -14,7 +13,7 @@ import MainLogoImage from 'assets/images/logo-main.svg';
 import JumboBracketImage from 'assets/images/jumbo-bracket.svg';
 
 const IndexPage = () => (
-  <DefaultLayout>
+  <LandingLayout>
     <div className={styles.topSection}>
       <div>
         <img
@@ -43,8 +42,7 @@ const IndexPage = () => (
         />
       </div>
     </div>
-    <Footer />
-  </DefaultLayout>
+  </LandingLayout>
 );
 
 export default IndexPage;
