@@ -1,0 +1,1 @@
+export { INFORMATION } from './information';

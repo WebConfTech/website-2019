@@ -2,29 +2,31 @@ import React from 'react';
 import FacebookIcon from 'assets/icons/facebook.svg';
 import TwitterIcon from 'assets/icons/twitter.svg';
 import InstagramIcon from 'assets/icons/instagram.svg';
+import { INFORMATION } from 'data/constants';
 import styles from './styles.module.scss';
 
 export const SocialNetworkLinks = ({ useContainer }) => {
   const _useContainer = typeof useContainer === 'undefined' ? true : useContainer;
+  const { social } = INFORMATION;
   let content = (
     <div className={styles.content}>
-      <span className={styles.text}>Seguinos en nuestras redes</span>
+      <span className={styles.text}>{social.title}</span>
       <div className={styles.icons}>
-        <a href="https://www.facebook.com/WebConfCBA/" className={styles.icon}>
-          <img alt="Webconf Facebook Profile" src={FacebookIcon} />
+        <a href={social.facebook.url} className={styles.icon}>
+          <img alt={social.facebook.title} src={FacebookIcon} />
         </a>
-        <a href="http://twitter.com/WebConfCBA" className={styles.icon}>
-          <img alt="Webconf Twitter Profile" src={TwitterIcon} />
+        <a href={social.twitter.url} className={styles.icon}>
+          <img alt={social.facebook.title} src={TwitterIcon} />
         </a>
-        <a href="http://instagram.com/webconfcba" className={styles.icon}>
-          <img alt="Webconf Instagram Profile" src={InstagramIcon} />
+        <a href={social.instagram.url} className={styles.icon}>
+          <img alt={social.instagram.title} src={InstagramIcon} />
         </a>
       </div>
     </div>
   );
 
   if (_useContainer) {
-    content = <div class={styles.container}>{content}</div>;
+    content = <div className={styles.container}>{content}</div>;
   }
 
   return content;
