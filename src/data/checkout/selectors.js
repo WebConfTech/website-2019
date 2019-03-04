@@ -10,18 +10,22 @@ export const getCurrentTicket = createSelector(
   [getCurrentTicketIndex, getTickets],
   R.nth
 );
-export const getCurrentTicketValidationErrors = createSelector(
+export const getCurrentTicketInvalidFields = createSelector(
   [getCurrentTicket],
   R.compose(
-    R.reduce((errors, error) => R.assoc(error.path, error.message), {}),
+    R.pluck('path'),
     R.tryCatch(
       R.compose(
-        R.always([]),
-        ticketSchema.validateSync
-      ), // if valid return null
+        R.always([]), // if valid return an empty array
+        ticket => ticketSchema.validateSync(ticket, { abortEarly: false })
+      ),
       R.prop('inner') // otherwise return the errors array
     )
   )
+);
+export const isCurrentTicketValid = createSelector(
+  [getCurrentTicketInvalidFields],
+  R.isEmpty
 );
 export const getNumberTickets = createSelector(
   [getTickets],
