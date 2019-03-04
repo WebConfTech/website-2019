@@ -6,10 +6,9 @@ export const ticketSchema = yup.object().shape({
     .required('Introduce un nombre')
     .trim(),
   dni: yup
-    .number('Esto no parece ser un número de documento. Por favor, revisalo.')
+    .string()
     .required('Introduce un número de documento')
-    .integer('Esto no parece ser un número de documento. Por favor, revisalo.')
-    .positive('Esto no parece ser un número de documento. Por favor, revisalo.'),
+    .matches(/^[0-9]*$/, 'Esto no parece ser un número de documento. Por favor, revisalo.'),
   email: yup
     .string()
     .required('Introduce un email')
