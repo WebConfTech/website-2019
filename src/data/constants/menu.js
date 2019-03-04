@@ -1,7 +1,7 @@
 export const MENU = [
   {
     title: 'La conferencia',
-    url: '/'
+    url: '/about'
   },
   {
     title: 'Disertantes',
@@ -18,5 +18,9 @@ export const MENU = [
   {
     title: 'Escribinos',
     url: '/contact'
+  },
+  {
+    title: 'Temp',
+    url: '/checkout'
   }
 ];
