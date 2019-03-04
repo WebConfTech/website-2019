@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { combineReducers } from 'redux';
 import { MIN_TICKETS, MAX_TICKETS } from 'data/constants';
-import { ADD_TICKET, CHANGE_TICKET, REMOVE_TICKET } from './actions';
+import { ADD_TICKET, CHANGE_TICKET, REMOVE_TICKET, SELECT_TICKET } from './actions';
 
 const ticketDefault = {
   name: '',
@@ -34,6 +34,19 @@ const tickets = (state = ticketsDefault, action) => {
   }
 };
 
+const currentTicketIndex = (state = 0, action) => {
+  switch (action.type) {
+    case SELECT_TICKET:
+      return R.compose(
+        R.min(action.payload.numberTickets),
+        R.max(0)
+      )(action.payload.ticketIndex);
+    default:
+      return state;
+  }
+};
+
 export const checkout = combineReducers({
-  tickets
+  tickets,
+  currentTicketIndex
 });
