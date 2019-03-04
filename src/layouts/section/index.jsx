@@ -10,19 +10,21 @@ const SectionLayout = ({ sectionTitle, seoProps, children }) => {
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <header className={styles.header}>
-        <div className={styles.logoContainer}>
-          <img
-            className={styles.logo}
-            alt="Logo principal de Webconf edición 2019"
-            src={MainLogoImage}
-          />
-        </div>
-        <h1 className={styles.title}>{`{${sectionTitle}}`}</h1>
-      </header>
       <section className={styles.section}>
-        <aside className={styles.aside}>Navigation</aside>
-        <div className={styles.content}>{children}</div>
+        <aside className={styles.left}>
+          <div className={styles.logoContainer}>
+            <img
+              className={styles.logo}
+              alt="Logo principal de Webconf edición 2019"
+              src={MainLogoImage}
+            />
+          </div>
+          <div className={styles.navigationContainer}>Navigation</div>
+        </aside>
+        <div className={styles.right}>
+          <h1 className={styles.title}>{`{${sectionTitle}}`}</h1>
+          <div className={styles.content}>{children}</div>
+        </div>
       </section>
       <Footer />
     </DefaultLayout>

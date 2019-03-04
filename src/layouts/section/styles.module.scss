@@ -1,4 +1,3 @@
-.header,
 .section {
   display: flex;
   flex-direction: row;
@@ -7,8 +6,17 @@
   width: 100%;
 }
 
-.header {
+.left {
+  width: 14.676875rem;
+}
+
+.logoContainer {
   padding-top: 3.25rem;
+}
+
+.logo {
+  width: auto;
+  height: 9rem;
 }
 
 .title {
@@ -16,14 +24,5 @@
   font-size: 7.6675rem;
   color: $theme-palette-sectionTitle;
   opacity: 0.1;
-}
-
-.logoContainer,
-.aside {
-  width: 14.676875rem;
-}
-
-.logo {
-  width: auto;
-  height: 9rem;
+  font-weight: normal;
 }
