@@ -8,7 +8,8 @@ import {
   getCurrentTicketIndex,
   isCurrentTicketValid
 } from 'data/checkout/selectors';
-import { Button } from 'lib/Button';
+import { Button, Tab } from 'lib/Button';
+import styles from './styles.module.scss';
 
 const _TicketSelector = ({
   numberTickets,
@@ -53,19 +54,32 @@ const _TicketSelector = ({
   const ticketIndexes = useMemo(() => R.range(0, numberTickets), [numberTickets]);
 
   return (
-    <div>
-      {ticketIndexes.map(ticketIndex => (
-        <span key={ticketIndex} onClick={() => select(ticketIndex)}>
-          {ticketIndex + 1}
-          {ticketIndex === currentTicketIndex ? '(current)' : null}
-        </span>
-      ))}
-      <Button onClick={add} disabled={numberTickets === MAX_TICKETS} color="secondary">
-        Quiero Otra
-      </Button>
-      <Button onClick={remove} disabled={numberTickets === MIN_TICKETS} color="secondary">
-        Eliminar
-      </Button>
+    <div className={styles.container}>
+      <div className={styles.text}>Entrada Nº</div>
+      <ul className={styles.tabs}>
+        {ticketIndexes.map(ticketIndex => (
+          <li key={ticketIndex}>
+            <Tab
+              onClick={() => select(ticketIndex)}
+              active={ticketIndex === currentTicketIndex ? 1 : 0}
+            >
+              {ticketIndex + 1}
+            </Tab>
+          </li>
+        ))}
+      </ul>
+      <ul className={styles.buttons}>
+        <li className={styles.buttonContainer}>
+          <Button onClick={add} disabled={numberTickets === MAX_TICKETS} color="secondary">
+            Quiero Otra
+          </Button>
+        </li>
+        <li className={styles.buttonContainer}>
+          <Button onClick={remove} disabled={numberTickets === MIN_TICKETS} color="secondary">
+            Eliminar
+          </Button>
+        </li>
+      </ul>
     </div>
   );
 };
