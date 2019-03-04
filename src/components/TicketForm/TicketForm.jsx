@@ -1,22 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { changeTicket } from 'data/checkout/actions';
+import { getTicket } from 'data/checkout/selectors';
 
-export const TicketForm = ({ name, dni, email, onNameChange, onDniChange, onEmailChange }) => (
+const _TicketForm = ({ ticket, onChange }) => (
   <form>
-    <label for="name">A nombre de</label>
-    <input type="text" value={name} name="name" onChange={e => onNameChange(e.value)} />
-    <label for="dni">Nº de documento</label>
-    <input type="text" value={name} name="dni" onChange={e => onDniChange(e.value)} />
-    <label for="email">Dirección de correo electrónico</label>
-    <input type="email" value={name} name="email" onChange={e => onEmailChange(e.value)} />
+    <label htmlFor="name">A nombre de</label>
+    <input type="text" value={ticket.name} name="name" onChange={onChange} />
+    <label htmlFor="dni">Nº de documento</label>
+    <input type="text" value={ticket.dni} name="dni" onChange={onChange} />
+    <label htmlFor="email">Dirección de correo electrónico</label>
+    <input type="email" value={ticket.email} name="email" onChange={onChange} />
   </form>
 );
 
-TicketForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  dni: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  onNameChange: PropTypes.func.isRequired,
-  onDniChange: PropTypes.func.isRequired,
-  onEmailChange: PropTypes.func.isRequired
+_TicketForm.displayName = 'TicketForm';
+
+_TicketForm.propTypes = {
+  ticketIndex: PropTypes.number.isRequired
 };
+
+const mapStateToProps = (state, { ticketIndex }) => ({
+  ticket: getTicket(state, ticketIndex)
+});
+
+const mapDispatchToProps = (dispatch, { ticketIndex }) => ({
+  onChange: ({ target }) => dispatch(changeTicket(ticketIndex, { [target.name]: target.value }))
+});
+
+export const TicketForm = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_TicketForm);
