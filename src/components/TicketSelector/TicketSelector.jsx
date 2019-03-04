@@ -13,7 +13,7 @@ import { Button } from 'lib/Button';
 const _TicketSelector = ({
   numberTickets,
   currentTicketIndex,
-  isValid,
+  isTicketValid,
   onAdd,
   onRemove,
   onSelect,
@@ -21,13 +21,13 @@ const _TicketSelector = ({
 }) => {
   // memoize add and remove callbacks
   const add = useCallback(() => {
-    if (isValid) {
+    if (isTicketValid) {
       onAdd();
       onSelect(R.min(MAX_TICKETS - 1, numberTickets));
     } else {
       showValidations();
     }
-  }, [numberTickets, isValid, onSelect, onAdd, showValidations]);
+  }, [numberTickets, isTicketValid, onSelect, onAdd, showValidations]);
 
   const remove = useCallback(() => {
     onRemove(currentTicketIndex);
@@ -40,13 +40,13 @@ const _TicketSelector = ({
 
   const select = useCallback(
     ticketIndex => {
-      if (isValid) {
+      if (isTicketValid) {
         onSelect(ticketIndex);
       } else {
         showValidations();
       }
     },
-    [isValid, onSelect, showValidations]
+    [isTicketValid, onSelect, showValidations]
   );
 
   // generate a list of tickets indexes
