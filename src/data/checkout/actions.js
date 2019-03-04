@@ -4,6 +4,7 @@ export const ADD_TICKET = 'checkout/add/ticket';
 export const CHANGE_TICKET = 'checkout/change/ticket';
 export const REMOVE_TICKET = 'checkout/remove/ticket';
 export const SELECT_TICKET = 'checkout/select/ticket';
+export const TOGGLE_VALIDATIONS = 'checkout/toggle/validations';
 
 export const addTicket = () => ({
   type: ADD_TICKET
@@ -30,3 +31,8 @@ export const selectTicket = ticketIndex => (dispatch, getState) =>
       numberTickets: getNumberTickets(getState())
     }
   });
+
+export const toggleValidations = show => ({
+  type: TOGGLE_VALIDATIONS,
+  payload: show
+});

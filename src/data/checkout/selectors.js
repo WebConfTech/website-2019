@@ -4,6 +4,8 @@ import { ticketSchema } from './schemas';
 
 export const getTickets = state => state.checkout.tickets;
 export const getCurrentTicketIndex = state => state.checkout.currentTicketIndex;
+export const shouldShowValidations = state => state.checkout.showValidations;
+
 export const getCurrentTicket = createSelector(
   [getCurrentTicketIndex, getTickets],
   R.nth
