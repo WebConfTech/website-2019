@@ -1,3 +1,7 @@
+.elements {
+  position: relative;
+}
+
 .formContainer {
   background-repeat: no-repeat;
   box-sizing: border-box;
@@ -87,6 +91,9 @@
       padding-right: 1.440625rem;
     }
   }
+  .validations {
+    padding: 1.383125rem 0 0 2.5rem;
+  }
 }
 
 @media (max-width: $theme-breakpoints-mobile) {
@@ -94,6 +101,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    position: relative;
   }
   .formContainer {
     background-image: url('assets/images/ticket-mobile-background.png');
@@ -118,6 +126,13 @@
   }
   .price {
     height: 1.5rem;
+  }
+  .validations {
+    position: absolute;
+    z-index: 3;
+    left: 1.808125rem;
+    top: 21.816875rem;
+    width: 16.125rem;
   }
 }
 

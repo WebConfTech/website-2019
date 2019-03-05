@@ -7,8 +7,9 @@ import { TicketValidationMessage } from 'components/TicketValidationMessage';
 const CheckoutPage = props => (
   <SectionLayout sectionTitle="Entradas" currentPath={props.location.pathname}>
     <TicketSelector />
-    <TicketForm />
-    <TicketValidationMessage />
+    <TicketForm>
+      <TicketValidationMessage />
+    </TicketForm>
   </SectionLayout>
 );
 

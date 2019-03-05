@@ -3,7 +3,6 @@ import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import { ValidationMessage } from 'lib';
 import { shouldShowValidations, getCurrentTicketInvalidFields } from 'data/checkout/selectors';
-import styles from './styles.module.scss';
 
 const fieldDisplayNameMap = {
   name: 'un nombre',
@@ -17,7 +16,11 @@ const _TicketValidationMessage = ({ showValidations, invalidFields }) => {
     if (R.isEmpty(invalidFields)) {
       message = (
         <>
-          ¡Todo listo por aquí! Presioná <em>Quiero otra</em> o <em>Pagar</em> para continuar.
+          ¡Todo listo por aquí! Presioná{` `}
+          <em>Quiero otra</em>
+          {` `}o{` `}
+          <em>Pagar</em>
+          {` `}para continuar.
         </>
       );
     } else if (showValidations && invalidFields.length === 1) {
@@ -33,11 +36,9 @@ const _TicketValidationMessage = ({ showValidations, invalidFields }) => {
   }, [showValidations, invalidFields]);
 
   return validationMessage ? (
-    <div className={styles.container}>
-      <ValidationMessage error={R.isEmpty(invalidFields) ? 0 : 1}>
-        {validationMessage}
-      </ValidationMessage>
-    </div>
+    <ValidationMessage darkContextOnMobile error={R.isEmpty(invalidFields) ? 0 : 1}>
+      {validationMessage}
+    </ValidationMessage>
   ) : null;
 };
 
