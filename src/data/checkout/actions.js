@@ -1,5 +1,3 @@
-import { getNumberTickets } from './selectors';
-
 export const ADD_TICKET = 'checkout/add/ticket';
 export const CHANGE_TICKET = 'checkout/change/ticket';
 export const REMOVE_TICKET = 'checkout/remove/ticket';
@@ -23,14 +21,10 @@ export const removeTicket = ticketIndex => ({
   payload: ticketIndex
 });
 
-export const selectTicket = ticketIndex => (dispatch, getState) =>
-  dispatch({
-    type: SELECT_TICKET,
-    payload: {
-      ticketIndex,
-      numberTickets: getNumberTickets(getState())
-    }
-  });
+export const selectTicket = ticketIndex => ({
+  type: SELECT_TICKET,
+  payload: ticketIndex
+});
 
 export const toggleValidations = show => ({
   type: TOGGLE_VALIDATIONS,

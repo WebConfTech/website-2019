@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { combineReducers } from 'redux';
+import combineCrossSliceReducers from 'combine-cross-slice-reducers';
 import { MIN_TICKETS, MAX_TICKETS } from 'data/constants';
 import {
   ADD_TICKET,
@@ -40,18 +40,6 @@ const tickets = (state = ticketsDefault, action) => {
   }
 };
 
-const currentTicketIndex = (state = 0, action) => {
-  switch (action.type) {
-    case SELECT_TICKET:
-      return R.compose(
-        R.min(action.payload.numberTickets),
-        R.max(0)
-      )(action.payload.ticketIndex);
-    default:
-      return state;
-  }
-};
-
 const showValidations = (state = false, action) => {
   switch (action.type) {
     case TOGGLE_VALIDATIONS:
@@ -64,8 +52,30 @@ const showValidations = (state = false, action) => {
   }
 };
 
-export const checkout = combineReducers({
-  tickets,
-  currentTicketIndex,
-  showValidations
-});
+const currentTicketIndex = (state = 0, action, { tickets }) => {
+  const numberTickets = tickets.length;
+
+  switch (action.type) {
+    case ADD_TICKET:
+      return numberTickets - 1;
+    case REMOVE_TICKET:
+      return state === numberTickets ? numberTickets - 1 : state;
+    case SELECT_TICKET:
+      return R.compose(
+        R.min(numberTickets - 1),
+        R.max(0)
+      )(action.payload);
+    default:
+      return state;
+  }
+};
+
+export const checkout = combineCrossSliceReducers(
+  {
+    tickets,
+    showValidations
+  },
+  {
+    currentTicketIndex
+  }
+);

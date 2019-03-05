@@ -20,24 +20,16 @@ const _TicketSelector = ({
   onSelect,
   showValidations
 }) => {
-  // memoize add and remove callbacks
+  // memoize add, remove and select callbacks
   const add = useCallback(() => {
     if (isTicketValid) {
       onAdd();
-      onSelect(R.min(MAX_TICKETS - 1, numberTickets));
     } else {
       showValidations();
     }
-  }, [numberTickets, isTicketValid, onSelect, onAdd, showValidations]);
+  }, [isTicketValid, onAdd, showValidations]);
 
-  const remove = useCallback(() => {
-    onRemove(currentTicketIndex);
-
-    if (currentTicketIndex === numberTickets - 1) {
-      // if we deleted the last ticket, set the one before last as the current
-      onSelect(numberTickets - 2);
-    }
-  }, [currentTicketIndex, numberTickets, onRemove, onSelect]);
+  const remove = useCallback(() => onRemove(currentTicketIndex), [currentTicketIndex, onRemove]);
 
   const select = useCallback(
     ticketIndex => {
