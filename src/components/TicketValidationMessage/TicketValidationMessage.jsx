@@ -15,7 +15,11 @@ const _TicketValidationMessage = ({ showValidations, invalidFields }) => {
     let message = null;
 
     if (R.isEmpty(invalidFields)) {
-      message = '¡Todo listo por aquí! Presioná Quiero otra o Pagar para continuar.';
+      message = (
+        <>
+          ¡Todo listo por aquí! Presioná <em>Quiero otra</em> o <em>Pagar</em> para continuar.
+        </>
+      );
     } else if (showValidations && invalidFields.length === 1) {
       message = `Necesitamos que ingreses ${fieldDisplayNameMap[invalidFields[0]]} válido`;
     } else if (showValidations && invalidFields.length === 2) {
