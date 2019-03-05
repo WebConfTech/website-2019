@@ -2511,6 +2511,13 @@ colors@~1.1.2:
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
   integrity sha1-FopHAXVran9RoSzgyXv6KMCE7WM=
 
+combine-cross-slice-reducers@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/combine-cross-slice-reducers/-/combine-cross-slice-reducers-1.0.2.tgz#bec8147373f808cfe1e0993b534d928ac3a1a44b"
+  integrity sha512-A+fxBDVEWkRhjl4BIrVr3SrPw0s39M1HnQtfzYsyPdck3btELkThH/iOe4C4Gw2zN8Yjmx02oZ3vEAuxIeBhKQ==
+  dependencies:
+    babel-runtime "^6.26.0"
+
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
