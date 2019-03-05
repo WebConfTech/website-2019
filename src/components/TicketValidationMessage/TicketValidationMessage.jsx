@@ -1,7 +1,9 @@
 import * as R from 'ramda';
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
+import { ValidationMessage } from 'lib';
 import { shouldShowValidations, getCurrentTicketInvalidFields } from 'data/checkout/selectors';
+import styles from './styles.module.scss';
 
 const fieldDisplayNameMap = {
   name: 'un nombre',
@@ -26,7 +28,13 @@ const _TicketValidationMessage = ({ showValidations, invalidFields }) => {
     return message;
   }, [showValidations, invalidFields]);
 
-  return <div>{validationMessage}</div>;
+  return validationMessage ? (
+    <div className={styles.container}>
+      <ValidationMessage error={R.isEmpty(invalidFields) ? 0 : 1}>
+        {validationMessage}
+      </ValidationMessage>
+    </div>
+  ) : null;
 };
 
 _TicketValidationMessage.displayName = 'TicketValidationMessage';
