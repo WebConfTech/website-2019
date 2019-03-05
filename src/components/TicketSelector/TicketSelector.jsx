@@ -47,31 +47,43 @@ const _TicketSelector = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.text}>Entrada Nº</div>
-      <ul className={styles.tabs}>
-        {ticketIndexes.map(ticketIndex => (
-          <li key={ticketIndex}>
-            <Tab
-              onClick={() => select(ticketIndex)}
-              active={ticketIndex === currentTicketIndex ? 1 : 0}
+      <div className={styles.elements}>
+        <div className={styles.text}>Entrada Nº</div>
+        <ul className={styles.tabs}>
+          {ticketIndexes.map(ticketIndex => (
+            <li key={ticketIndex}>
+              <Tab
+                onClick={() => select(ticketIndex)}
+                active={ticketIndex === currentTicketIndex ? 1 : 0}
+              >
+                {ticketIndex + 1}
+              </Tab>
+            </li>
+          ))}
+        </ul>
+        <ul className={styles.buttons}>
+          <li className={styles.buttonContainer}>
+            <Button
+              onClick={add}
+              disabled={numberTickets === MAX_TICKETS}
+              color="secondary"
+              className={styles.button}
             >
-              {ticketIndex + 1}
-            </Tab>
+              Quiero Otra
+            </Button>
           </li>
-        ))}
-      </ul>
-      <ul className={styles.buttons}>
-        <li className={styles.buttonContainer}>
-          <Button onClick={add} disabled={numberTickets === MAX_TICKETS} color="secondary">
-            Quiero Otra
-          </Button>
-        </li>
-        <li className={styles.buttonContainer}>
-          <Button onClick={remove} disabled={numberTickets === MIN_TICKETS} color="secondary">
-            Eliminar
-          </Button>
-        </li>
-      </ul>
+          <li className={styles.buttonContainer}>
+            <Button
+              onClick={remove}
+              disabled={numberTickets === MIN_TICKETS}
+              color="secondary"
+              className={styles.button}
+            >
+              Eliminar
+            </Button>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
