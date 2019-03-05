@@ -4,10 +4,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-size: cover;
-  background-position: center;
+  position: relative;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    background-image: url('assets/images/background.svg');
+    &::after {
+      content: '';
+      background-image: url('assets/images/background.svg');
+      background-size: cover;
+      background-position: center;
+      // TODO: Joel should provide a proper background and stop doing shitty exports.
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
   }
 }
