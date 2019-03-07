@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
+import { maskDni, unmaskDni } from 'common/utils';
 import { changeTicket } from 'data/checkout/actions';
 import {
   getCurrentTicketIndex,
@@ -7,7 +8,7 @@ import {
   getCurrentTicketInvalidFields,
   shouldShowValidations
 } from 'data/checkout/selectors';
-import { Input } from 'lib/Input';
+import { Input, MaskedInput } from 'lib/Input';
 
 const _TicketForm = ({ ticketIndex, ticket, invalidFields, showValidations, onChange }) => {
   const changeHandler = useCallback(
@@ -15,8 +16,13 @@ const _TicketForm = ({ ticketIndex, ticket, invalidFields, showValidations, onCh
       const change = { [target.name]: target.value };
       onChange(ticketIndex, change);
     },
-    [ticketIndex]
+    [ticketIndex, onChange]
   );
+
+  const dniChangeHandler = useCallback((e, dni) => onChange(ticketIndex, { dni }), [
+    ticketIndex,
+    onChange
+  ]);
 
   return (
     <form>
@@ -29,11 +35,13 @@ const _TicketForm = ({ ticketIndex, ticket, invalidFields, showValidations, onCh
         hasError={showValidations && invalidFields.includes('name')}
       />
       <label htmlFor="dni">Nº de documento</label>
-      <Input
+      <MaskedInput
         type="text"
         value={ticket.dni}
+        mask={maskDni}
+        unmask={unmaskDni}
         name="dni"
-        onChange={changeHandler}
+        onChange={dniChangeHandler}
         hasError={showValidations && invalidFields.includes('dni')}
       />
       <label htmlFor="email">Dirección de correo electrónico</label>
