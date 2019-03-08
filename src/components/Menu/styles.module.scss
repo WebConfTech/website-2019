@@ -1,0 +1,35 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  padding-bottom: 0.6875rem;
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: $theme-breakpoints-mobile) {
+  .close {
+    position: absolute;
+    top: 1.07125rem;
+    right: 0.75rem;
+  }
+  .container {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    background: linear-gradient($theme-palette-secondary, $theme-palette-primary);
+    &:target {
+      display: flex;
+    }
+  }
+}
