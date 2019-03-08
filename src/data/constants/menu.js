@@ -18,9 +18,5 @@ export const MENU = [
   {
     title: 'Escribinos',
     url: '/contact'
-  },
-  {
-    title: 'Temp',
-    url: '/checkout'
   }
 ];
