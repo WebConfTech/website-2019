@@ -23,9 +23,30 @@ export const getCurrentTicketInvalidFields = createSelector(
     )
   )
 );
+export const isCurrentTicketDniDuplicated = createSelector(
+  [getCurrentTicket, getTickets],
+  (current, tickets) =>
+    R.compose(
+      R.any(R.equals(R.trim(current.dni))),
+      R.map(R.trim),
+      R.pluck('dni'),
+      R.without([current])
+    )(tickets)
+);
+export const isCurrentTicketEmailDuplicated = createSelector(
+  [getCurrentTicket, getTickets],
+  (current, tickets) =>
+    R.compose(
+      R.any(R.equals(R.trim(current.email))),
+      R.map(R.trim),
+      R.pluck('email'),
+      R.without([current])
+    )(tickets)
+);
 export const isCurrentTicketValid = createSelector(
-  [getCurrentTicketInvalidFields],
-  R.isEmpty
+  [isCurrentTicketDniDuplicated, isCurrentTicketEmailDuplicated, getCurrentTicketInvalidFields],
+  (isDniDuplicated, isEmailDuplicated, invalidFields) =>
+    !isEmailDuplicated && !isDniDuplicated && R.isEmpty(invalidFields)
 );
 export const getNumberTickets = createSelector(
   [getTickets],
