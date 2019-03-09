@@ -20,7 +20,7 @@ export const MENU = [
     url: '/contact'
   },
   {
-    title: 'Temp',
+    title: 'Entradas',
     url: '/checkout'
   }
 ];
