@@ -26,7 +26,7 @@ const IndexPage = () => (
     </div>
     <div className={styles.middleSection}>
       <div className={styles.bracketContainer}>
-        <img className={styles.bracket} src={JumboBracketImage} aria-hidden="true" />
+        <img className={styles.bracket} src={JumboBracketImage} aria-hidden="true" alt="" />
       </div>
       <div className={styles.middleContent}>
         <TeaserText className={styles.hiddenLg} />
@@ -39,6 +39,7 @@ const IndexPage = () => (
           className={`${styles.bracket} ${styles.bracketRight} ${styles.hiddenXs}`}
           src={JumboBracketImage}
           aria-hidden="true"
+          alt=""
         />
       </div>
     </div>
