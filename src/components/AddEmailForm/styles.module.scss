@@ -1,9 +1,7 @@
-$mobile-breakpoint: 45rem;
-
 .container {
   width: 19.188125rem;
   &.-no-margin {
-    @media (max-width: $mobile-breakpoint) {
+    @media (max-width: $theme-breakpoints-mobile) {
       margin-top: 0;
     }
   }
@@ -20,14 +18,14 @@ $mobile-breakpoint: 45rem;
     color: $primary;
     margin-top: 1.6875rem;
   }
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     .title,
     .text {
       font-size: 1.625rem;
       line-height: 1.96375rem;
     }
   }
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     width: auto;
     margin-top: 1.5275rem;
     .title,
@@ -40,11 +38,11 @@ $mobile-breakpoint: 45rem;
 
 .success {
   margin: 0 auto;
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     width: auto;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     width: 14.6875rem;
   }
 }
@@ -56,11 +54,11 @@ $mobile-breakpoint: 45rem;
     margin-top: 0.5rem;
     align-self: flex-end;
   }
-  @media (max-width: $mobile-breakpoint) {
+  @media (max-width: $theme-breakpoints-mobile) {
     margin-top: 1rem;
   }
 
-  @media (min-width: $mobile-breakpoint) {
+  @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 2.1875rem;
   }
 }
