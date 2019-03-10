@@ -30,8 +30,8 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
     [email, setErrors, add]
   );
 
-  const formErrors = emailError ? [emailError] : errors;
-  if (formErrors && formErrors.length) {
+  const formErrors = [...(emailError || errors || [])];
+  if (formErrors.length) {
     const [firstError] = formErrors;
     trackEvent('emailForm', 'send', 'error', firstError);
   }
@@ -56,13 +56,13 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
             placeholder="Tu e-mail"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            hasError={!!formErrors}
+            hasError={!!formErrors.length}
             disabled={isAdding}
             autoFocus
           />
-          {!!formErrors
-            ? formErrors.map(error => <ValidationError key={error}>{error}</ValidationError>)
-            : null}
+          {formErrors.map(error => (
+            <ValidationError key={error}>{error}</ValidationError>
+          ))}
           <Button
             type="submit"
             color="secondary"
