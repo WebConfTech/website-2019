@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.formContainer {
+.form-container {
   background-repeat: no-repeat;
   box-sizing: border-box;
   padding-left: 2.483125rem;
@@ -75,7 +75,7 @@
 }
 
 @media (min-width: $theme-breakpoints-mobile) {
-  .formContainer {
+  .form-container {
     width: 43.75rem;
     height: 20.991875rem;
     background-image: url('assets/images/ticket-desktop-background.png');
@@ -93,6 +93,10 @@
   }
   .validations {
     padding: 1.383125rem 0 0 2.5rem;
+    min-height: 1.5625rem;
+  }
+  .show-on-mobile {
+    display: none;
   }
 }
 
@@ -103,7 +107,7 @@
     justify-content: center;
     position: relative;
   }
-  .formContainer {
+  .form-container {
     background-image: url('assets/images/ticket-mobile-background.png');
     width: 21rem;
     height: 43.75rem;
@@ -134,13 +138,16 @@
     top: 21.816875rem;
     width: 16.125rem;
   }
+  .hide-on-mobile {
+    display: none;
+  }
 }
 
 @media (min-width: $theme-breakpoints-mobile) and (-webkit-min-device-pixel-ratio: 1.5),
   (min-width: $theme-breakpoints-mobile) and (-o-min-device-pixel-ratio: 3/2),
   (min-width: $theme-breakpoints-mobile) and (min--moz-device-pixel-ratio: 1.5),
   (min-width: $theme-breakpoints-mobile) and (min-device-pixel-ratio: 1.5) {
-  .formContainer {
+  .form-container {
     background-image: url('assets/images/ticket-desktop-background@2x.png');
     background-size: 43.75rem 20.991875rem;
   }
@@ -150,7 +157,7 @@
   (max-width: $theme-breakpoints-mobile) and (-o-min-device-pixel-ratio: 3/2),
   (max-width: $theme-breakpoints-mobile) and (min--moz-device-pixel-ratio: 1.5),
   (max-width: $theme-breakpoints-mobile) and (min-device-pixel-ratio: 1.5) {
-  .formContainer {
+  .form-container {
     background-image: url('assets/images/ticket-mobile-background@2x.png');
     background-size: 21rem 43.75rem;
   }

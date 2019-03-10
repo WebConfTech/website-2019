@@ -12,6 +12,7 @@ import {
 } from 'data/checkout/selectors';
 import { Input, MaskedInput } from 'lib/Input';
 import { CircleButton } from 'lib/Button';
+import { TicketValidationMessage } from 'components/TicketValidationMessage';
 import styles from './styles.module.scss';
 
 const _TicketForm = ({
@@ -89,7 +90,12 @@ const _TicketForm = ({
             </CircleButton>
           </form>
         </div>
-        <div className={styles.validations}>{children}</div>
+        <div className={`${styles.validations} ${styles.hideOnMobile}`}>
+          <TicketValidationMessage />
+        </div>
+        <div className={`${styles.validations} ${styles.showOnMobile}`}>
+          <TicketValidationMessage dark />
+        </div>
       </div>
     </div>
   );
