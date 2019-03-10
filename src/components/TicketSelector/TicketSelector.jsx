@@ -8,7 +8,8 @@ import {
   getCurrentTicketIndex,
   isCurrentTicketValid
 } from 'data/checkout/selectors';
-import { Button, Tab } from 'lib/Button';
+import { Button } from 'lib/Button';
+import { Tabs, Tab } from 'lib/Tabs';
 import styles from './styles.module.scss';
 
 const _TicketSelector = ({
@@ -49,18 +50,13 @@ const _TicketSelector = ({
     <div className={styles.container}>
       <div className={styles.elements}>
         <div className={styles.text}>Entrada Nº</div>
-        <ul className={styles.tabs}>
+        <Tabs className={styles.tabs}>
           {ticketIndexes.map(ticketIndex => (
-            <li key={ticketIndex}>
-              <Tab
-                onClick={() => select(ticketIndex)}
-                active={ticketIndex === currentTicketIndex ? 1 : 0}
-              >
-                {ticketIndex + 1}
-              </Tab>
-            </li>
+            <Tab key={ticketIndex} active={ticketIndex === currentTicketIndex ? 1 : 0}>
+              <button onClick={() => select(ticketIndex)}>{ticketIndex + 1}</button>
+            </Tab>
           ))}
-        </ul>
+        </Tabs>
         <ul className={styles.buttons}>
           <li className={styles.buttonContainer}>
             <Button
