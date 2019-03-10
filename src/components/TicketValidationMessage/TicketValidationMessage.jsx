@@ -53,7 +53,7 @@ const _TicketValidationMessage = ({
   }, [showValidations, invalidFields]);
 
   return validationMessage ? (
-    <ValidationMessage darkContextOnMobile error={R.isEmpty(invalidFields) ? 0 : 1}>
+    <ValidationMessage darkContextOnMobile error={isValid ? 0 : 1}>
       {validationMessage}
     </ValidationMessage>
   ) : null;
