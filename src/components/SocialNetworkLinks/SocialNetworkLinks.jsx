@@ -5,28 +5,19 @@ import InstagramIcon from 'assets/icons/instagram.svg';
 import { SOCIAL } from 'data/constants';
 import styles from './styles.module.scss';
 
-export const SocialNetworkLinks = ({ useContainer }) => {
-  const _useContainer = typeof useContainer === 'undefined' ? true : useContainer;
-  let content = (
-    <div className={styles.content}>
-      <span className={styles.text}>{SOCIAL.title}</span>
-      <div className={styles.icons}>
-        <a href={SOCIAL.facebook.url} className={styles.icon}>
-          <img alt={SOCIAL.facebook.title} src={FacebookIcon} />
-        </a>
-        <a href={SOCIAL.twitter.url} className={styles.icon}>
-          <img alt={SOCIAL.facebook.title} src={TwitterIcon} />
-        </a>
-        <a href={SOCIAL.instagram.url} className={styles.icon}>
-          <img alt={SOCIAL.instagram.title} src={InstagramIcon} />
-        </a>
-      </div>
+export const SocialNetworkLinks = () => (
+  <div className={styles.content}>
+    <span className={styles.text}>{SOCIAL.title}</span>
+    <div className={styles.icons}>
+      <a href={SOCIAL.facebook.url} className={styles.icon}>
+        <img alt={SOCIAL.facebook.title} src={FacebookIcon} />
+      </a>
+      <a href={SOCIAL.twitter.url} className={styles.icon}>
+        <img alt={SOCIAL.facebook.title} src={TwitterIcon} />
+      </a>
+      <a href={SOCIAL.instagram.url} className={styles.icon}>
+        <img alt={SOCIAL.instagram.title} src={InstagramIcon} />
+      </a>
     </div>
-  );
-
-  if (_useContainer) {
-    content = <div className={styles.container}>{content}</div>;
-  }
-
-  return content;
-};
+  </div>
+);

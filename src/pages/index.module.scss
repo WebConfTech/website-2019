@@ -61,19 +61,3 @@
     max-width: 26.5625rem;
   }
 }
-
-.bracket-container {
-  flex-shrink: 0;
-
-  .bracket {
-    width: 3.4375rem;
-  }
-
-  .small-bracket {
-    width: 2rem;
-  }
-
-  .bracket-right {
-    transform: rotate(180deg);
-  }
-}

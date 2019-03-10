@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-container {
+  margin-top: 3.125rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    padding-left: 3.125rem;
+  }
+}
+
+.newsletter-form {
+  margin-bottom: 3.5rem;
+}
