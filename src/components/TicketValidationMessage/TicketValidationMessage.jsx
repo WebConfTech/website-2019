@@ -19,7 +19,8 @@ const _TicketValidationMessage = ({
   invalidFields,
   isDniDuplicated,
   isEmailDuplicated,
-  isValid
+  isValid,
+  dark
 }) => {
   const validationMessage = useMemo(() => {
     let message = null;
@@ -53,7 +54,7 @@ const _TicketValidationMessage = ({
   }, [showValidations, invalidFields]);
 
   return validationMessage ? (
-    <ValidationMessage darkContextOnMobile error={isValid ? 0 : 1}>
+    <ValidationMessage dark={dark ? 1 : 0} error={isValid ? 0 : 1}>
       {validationMessage}
     </ValidationMessage>
   ) : null;
