@@ -47,7 +47,9 @@ const _TicketForm = ({
             <div className={`${styles.formTitle} ${styles.MobileOnly}`}>Completá estos datos:</div>
             <ul className={styles.fields}>
               <li className={styles.field}>
-                <label htmlFor="name">A nombre de</label>
+                <label className={styles.label} htmlFor="name">
+                  A nombre de
+                </label>
                 <Input
                   type="text"
                   value={ticket.name}
@@ -57,7 +59,9 @@ const _TicketForm = ({
                 />
               </li>
               <li className={styles.field}>
-                <label htmlFor="email">Dirección de correo electrónico</label>
+                <label className={styles.label} htmlFor="email">
+                  Dirección de correo electrónico
+                </label>
                 <Input
                   type="email"
                   value={ticket.email}
@@ -69,7 +73,9 @@ const _TicketForm = ({
                 />
               </li>
               <li className={`${styles.field} ${styles.Small}`}>
-                <label htmlFor="dni">Nº de documento</label>
+                <label className={styles.label} htmlFor="dni">
+                  Nº de documento
+                </label>
                 <MaskedInput
                   type="text"
                   value={ticket.dni}
