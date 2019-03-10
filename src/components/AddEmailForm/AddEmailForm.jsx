@@ -52,7 +52,11 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, className, add }) => {
   } else {
     render = (
       <div className={`${styles.container} ${className ? className : ''}`}>
-        <p className={styles.title}>Dejanos tu e-mail y enterate al instante de las novedades!</p>
+        <p className={styles.title}>
+          Subscribite a
+          <br />
+          nuestro newsletter
+        </p>
         <form className={styles.form} onSubmit={onSubmit}>
           <Input
             placeholder="Tu e-mail"
