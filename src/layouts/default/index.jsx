@@ -20,11 +20,15 @@ export const Sidebar = ({ children, className, ...props }) => (
 );
 
 export const Content = ({ children, className, ...props }) => (
-  <main className={`${styles.content} ${className ? className : ''}`}>{children}</main>
+  <main className={`${styles.content} ${className ? className : ''}`} {...props}>
+    {children}
+  </main>
 );
 
 export const Footer = ({ children, className, ...props }) => (
-  <footer className={`${styles.footer} ${className ? className : ''}`}>{children}</footer>
+  <footer className={`${styles.footer} ${className ? className : ''}`} {...props}>
+    {children}
+  </footer>
 );
 
 const DefaultLayout = ({ children, seoProps }) => {
