@@ -1,37 +1,73 @@
 // layout
 .top-section {
+  display: none;
   margin-right: 5.3125rem;
   margin-bottom: 3.5rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: block;
+  }
 }
 
 .middle-section {
   // using pixels on this one because the image is a png
-  height: 298px;
-  width: 788px;
-  margin-bottom: 3.5rem;
-  padding-left: 140px;
+  height: 240px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('assets/images/banner-background.png');
+  background-image: url('assets/images/banner-background-mobile.png');
+  background-size: cover;
+  background-position: center;
+
+  .middle-content {
+    margin: auto;
+  }
 
   .date {
-    margin: 0;
-    font-size: 3.75rem;
-    line-height: 4rem;
+    margin: 0 0 1.25rem 0;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
     color: $theme-palette-base;
   }
 
   .venue {
-    margin: 1.5rem 0 0;
-    font-size: 2.1875rem;
-    line-height: 2.5rem;
+    margin: 0;
+    font-size: 1.375rem;
+    line-height: 1.375rem;
     color: $theme-palette-base;
     opacity: 0.75;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    height: 298px;
+    width: 928px;
+    margin-bottom: 3.5rem;
+    background-image: url('assets/images/banner-background.png');
+
+    .middle-content {
+      margin: 0 0 0 8.75rem;
+    }
+
+    .date {
+      margin: 0 0 1.5rem 0;
+      font-size: 3.75rem;
+      line-height: 4rem;
+    }
+
+    .venue {
+      font-size: 2.1875rem;
+      line-height: 2.5rem;
+    }
   }
 }
 
 .bottom-section {
+  display: none;
   margin-right: 5.3125rem;
   margin-bottom: 2.5rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: block;
+  }
 }

@@ -7,7 +7,11 @@ import styles from './styles.module.scss';
 
 export const SocialNetworkLinks = () => (
   <div className={styles.content}>
-    <span className={styles.text}>{SOCIAL.title}</span>
+    <span className={styles.text}>
+      Seguinos en
+      <br />
+      nuestras redes
+    </span>
     <div className={styles.icons}>
       <a href={SOCIAL.facebook.url} className={styles.icon}>
         <img alt={SOCIAL.facebook.title} src={FacebookIcon} />

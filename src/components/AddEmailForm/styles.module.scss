@@ -12,7 +12,11 @@
     text-transform: uppercase;
     color: $secondary;
     font-weight: normal;
-    line-height: 0.75rem;
+    line-height: 1.125rem;
+
+    br {
+      line-height: 1.125rem;
+    }
   }
 
   .text {

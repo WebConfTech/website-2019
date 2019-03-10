@@ -16,12 +16,14 @@ const IndexPage = () => (
       <TeaserText className={styles.hiddenXs} />
     </div>
     <div className={styles.middleSection}>
-      <p className={styles.date}>new Date(11, 5, 2019)</p>
-      <p className={styles.venue}>
-        Auditorio Diego de Torres (UCC)
-        <br />
-        Obispo Trejo 323
-      </p>
+      <div className={styles.middleContent}>
+        <p className={styles.date}>new Date(11, 5, 2019)</p>
+        <p className={styles.venue}>
+          Auditorio Diego de Torres (UCC)
+          <br />
+          Obispo Trejo 323
+        </p>
+      </div>
     </div>
     <div className={styles.bottomSection}>
       <EventCountdown />

@@ -1,5 +1,4 @@
 .content {
-  margin-right: 1.125rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9,6 +8,10 @@
   text-transform: uppercase;
   color: $secondary;
   line-height: 1.125rem;
+
+  br {
+    line-height: 1.125rem;
+  }
 }
 
 .icons {

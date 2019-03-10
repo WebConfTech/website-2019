@@ -15,8 +15,8 @@ const LandingLayout = ({ seoProps, children }) => {
   return (
     <DefaultLayout {...defaultLayoutProps}>
       <Content className={styles.content}>{children}</Content>
-      <Sidebar>
-        <Logo />
+      <Sidebar className={styles.sidebar}>
+        <Logo className={styles.logo} />
         <Menu />
       </Sidebar>
       <Footer className={styles.footer}>

@@ -6,6 +6,7 @@
     'sidebar'
     'content'
     'footer';
+  grid-template-rows: auto 1fr auto;
   background-size: cover;
   background-position: center;
 
@@ -21,10 +22,6 @@
 
 .sidebar {
   grid-area: sidebar;
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    padding-left: 3.125rem;
-  }
 }
 
 .content {
