@@ -12,12 +12,14 @@ const getClient = async () => {
 };
 
 export const trackEvent = async (category, action, label, value) => {
-  if (process.env.NODE_ENV === 'production') {
-    try {
-      const gaClient = await getClient();
-      gaClient('send', 'event', category, action, label, value);
-    } catch (error) {
-      console.error('Unable to track event:', error.message);
-    }
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+
+  try {
+    const gaClient = await getClient();
+    gaClient('send', 'event', category, action, label, value);
+  } catch (error) {
+    console.error('Unable to track event:', error.message);
   }
 };
