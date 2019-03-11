@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationItem, MenuIconMobile, CloseIcon } from 'lib/Button';
-import MenuNegativeIcon from 'lib/assets/icon-menu-negative.svg';
 import CloseNegativeIcon from 'lib/assets/icon-close-negative.svg';
 import styles from './styles.module.scss';
 import { MENU } from 'data/constants';
@@ -23,8 +22,6 @@ export const Menu = ({ currentPath }) => (
         </ul>
       </nav>
     </div>
-    <MenuIconMobile href="#menu">
-      <img src={MenuNegativeIcon} alt="Abrir menú" />
-    </MenuIconMobile>
+    <MenuIconMobile dark href="#menu" />
   </div>
 );
