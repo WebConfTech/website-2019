@@ -7,7 +7,7 @@ import { trackEvent } from 'common/ga';
 import { Input, ValidationError, Button } from 'lib';
 import styles from './styles.module.scss';
 
-const _AddEmailForm = ({ emailError, isAdding, wasSaved, className, add }) => {
+const _AddEmailForm = ({ emailError, isAdding, wasSaved, className = '', add }) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState(null);
 
@@ -42,7 +42,7 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, className, add }) => {
   if (wasSaved) {
     trackEvent('emailForm', 'send', 'success');
     render = (
-      <div className={`${styles.container} ${className ? className : ''}`}>
+      <div className={`${styles.container} ${className}`}>
         <div className={styles.success}>
           <h3 className={styles.title}>¡Todo listo!</h3>
           <p className={styles.text}>Pronto te estaremos escribiendo.</p>
@@ -51,7 +51,7 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, className, add }) => {
     );
   } else {
     render = (
-      <div className={`${styles.container} ${className ? className : ''}`}>
+      <div className={`${styles.container} ${className}`}>
         <p className={styles.title}>
           Subscribite a
           <br />

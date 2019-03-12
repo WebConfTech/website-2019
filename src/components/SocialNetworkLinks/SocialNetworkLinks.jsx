@@ -5,8 +5,8 @@ import InstagramIcon from 'assets/icons/instagram.svg';
 import { SOCIAL } from 'data/constants';
 import styles from './styles.module.scss';
 
-export const SocialNetworkLinks = () => (
-  <div className={styles.content}>
+export const SocialNetworkLinks = ({ className = '' }) => (
+  <div className={`${styles.content} ${className}`}>
     <span className={styles.text}>
       Seguinos en
       <br />

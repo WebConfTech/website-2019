@@ -20,7 +20,7 @@ const calculateTimeLeft = () => {
   };
 };
 
-export const EventCountdown = () => {
+export const EventCountdown = ({ className = '' }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const EventCountdown = () => {
   }, [setTimeLeft]);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <p className={styles.missing}>Faltan</p>
       <p className={styles.countdown}>
         {timeLeft.days}:{timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}

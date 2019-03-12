@@ -4,8 +4,8 @@ import CloseNegativeIcon from 'lib/assets/icon-close-negative.svg';
 import styles from './styles.module.scss';
 import { MENU } from 'data/constants';
 
-export const Menu = ({ currentPath }) => (
-  <div className={styles.menu}>
+export const Menu = ({ currentPath, className = '' }) => (
+  <div className={`${styles.menu} ${className}`}>
     <div id="menu" className={styles.container}>
       <CloseIcon href="#" mobileOnly className={styles.close}>
         <img src={CloseNegativeIcon} alt="Cerrar menú" />
