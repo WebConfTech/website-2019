@@ -3,6 +3,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { CFP } from 'data/constants';
 import { CTALeafLike } from 'lib';
 import { Logo } from 'components/Logo';
+import { Menu } from 'components/Menu';
 import { AddEmailForm } from 'components/AddEmailForm';
 import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
 import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
@@ -16,6 +17,7 @@ const LandingLayout = ({ seoProps, children }) => {
       <Content className={styles.content}>{children}</Content>
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.logo} />
+        <Menu />
       </Sidebar>
       <Footer className={styles.footer}>
         <div className={styles.contactContainer}>
