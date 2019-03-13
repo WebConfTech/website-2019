@@ -25,16 +25,21 @@
 
 .footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: column;
+  }
 }
 
 .contact-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2.5rem 1.625rem;
+  margin: 2.5rem 1.875rem 0.75rem 0.5rem;
 
   .newsletter-form {
+    display: none;
     margin-right: 1rem;
   }
 
@@ -46,6 +51,7 @@
     flex-grow: 1;
 
     .newsletter-form {
+      display: block;
       margin-right: 0;
       margin-bottom: 3.5rem;
     }
