@@ -15,19 +15,21 @@
 }
 
 .icons {
+  min-width: 7rem;
   margin-top: 0.812rem;
+  display: flex;
+  flex-direction: row;
+  flex-align: center;
+  justify-content: space-between;
 }
 
 .icon {
+  text-align: center;
   color: $primary;
 
   img {
     height: 1.5rem;
   }
-}
-
-.icon + .icon {
-  margin-left: 1.75rem;
 }
 
 @media (max-width: $theme-breakpoints-mobile) {
