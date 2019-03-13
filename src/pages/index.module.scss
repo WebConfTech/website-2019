@@ -2,7 +2,6 @@
 .top-section {
   display: none;
   margin-right: 5.3125rem;
-  margin-bottom: 3.5rem;
 
   @media (min-width: $theme-breakpoints-mobile) {
     display: block;
@@ -42,7 +41,7 @@
   @media (min-width: $theme-breakpoints-mobile) {
     height: 298px;
     width: 928px;
-    margin-bottom: 3.5rem;
+    margin: 3.5rem 0;
     background-image: url('assets/images/banner-background.png');
 
     .middle-content {
@@ -65,7 +64,6 @@
 .bottom-section {
   display: none;
   margin-right: 5.3125rem;
-  margin-bottom: 2.5rem;
 
   @media (min-width: $theme-breakpoints-mobile) {
     display: block;

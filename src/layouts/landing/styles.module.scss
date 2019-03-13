@@ -19,8 +19,12 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    justify-content: center;
+  }
 }
 
 .footer {
@@ -31,6 +35,7 @@
 
   @media (min-width: $theme-breakpoints-mobile) {
     flex-direction: column;
+    align-items: flex-start;
   }
 }
 
