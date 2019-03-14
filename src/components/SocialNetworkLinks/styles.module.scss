@@ -1,16 +1,25 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    align-items: flex-start;
+  }
 }
 
 .text {
   text-transform: uppercase;
   color: $secondary;
   line-height: 1.125rem;
+  text-align: right;
 
   br {
     line-height: 1.125rem;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    text-align: left;
   }
 }
 
@@ -33,11 +42,4 @@
 }
 
 @media (max-width: $theme-breakpoints-mobile) {
-  .content {
-    align-items: flex-end;
-  }
-
-  .text {
-    text-align: right;
-  }
 }
