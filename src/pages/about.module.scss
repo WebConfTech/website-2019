@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.content {
+  margin: 2.5rem 1.75rem;
+  line-height: 1.5rem;
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin: 0;
+    width: 22.5rem;
+    height: 30rem;
+    overflow-x: hidden;
+    column-width: 22.5rem;
+    column-gap: 4.375rem;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 78rem) {
+    margin: 0;
+    width: 50rem;
+    height: 30rem;
+    overflow-x: hidden;
+    column-width: 22.5rem;
+    column-gap: 4.375rem;
+    scroll-behavior: smooth;
+  }
+}
+
+.arrow {
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.arrow-disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+.left-arrow {
+  margin-left: 4rem;
+  margin-right: 1.75rem;
+}
+
+.right-arrow {
+  margin-left: 1.75rem;
+  margin-right: 4rem;
+}
