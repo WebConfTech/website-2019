@@ -4,44 +4,30 @@ import React from 'react';
 import LandingLayout from 'layouts/landing';
 
 // Components
-import { AddEmailForm } from 'components/AddEmailForm';
 import { TeaserText } from 'components/TeaserText';
+import { EventCountdown } from 'components/EventCountdown';
 
 // Assets
 import styles from './index.module.scss';
-import MainLogoImage from 'assets/images/logo-main.svg';
-import JumboBracketImage from 'assets/images/jumbo-bracket.svg';
 
 const IndexPage = () => (
   <LandingLayout>
     <div className={styles.topSection}>
-      <div>
-        <img
-          className={styles.mainLogo}
-          alt="Logo principal de Webconf edición 2019"
-          src={MainLogoImage}
-        />
-      </div>
       <TeaserText className={styles.hiddenXs} />
     </div>
     <div className={styles.middleSection}>
-      <div className={styles.bracketContainer}>
-        <img className={styles.bracket} src={JumboBracketImage} aria-hidden="true" alt="" />
-      </div>
+      <div className={styles.middleStrut} />
       <div className={styles.middleContent}>
-        <TeaserText className={styles.hiddenLg} />
-        <div className={styles.addEmailFormContainer}>
-          <AddEmailForm />
-        </div>
+        <p className={styles.date}>new Date(11, 5, 2019)</p>
+        <p className={styles.venue}>
+          Auditorio Diego de Torres (UCC)
+          <br />
+          Obispo Trejo 323
+        </p>
       </div>
-      <div className={styles.bracketContainer}>
-        <img
-          className={`${styles.bracket} ${styles.bracketRight} ${styles.hiddenXs}`}
-          src={JumboBracketImage}
-          aria-hidden="true"
-          alt=""
-        />
-      </div>
+    </div>
+    <div className={styles.bottomSection}>
+      <EventCountdown />
     </div>
   </LandingLayout>
 );

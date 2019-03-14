@@ -1,13 +1,33 @@
 .container {
   width: auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    'sidebar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
   background-size: cover;
   background-position: center;
 
   @media (min-width: $theme-breakpoints-mobile) {
+    grid-template-areas:
+      'sidebar content'
+      'footer  content';
+    grid-template-columns: 14.676875rem 1fr;
+    grid-template-rows: auto 1fr;
     background-image: url('assets/images/background.svg');
   }
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
 }

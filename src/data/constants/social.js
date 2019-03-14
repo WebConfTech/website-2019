@@ -1,5 +1,4 @@
 export const SOCIAL = {
-  title: 'Seguinos en nuestras redes',
   facebook: {
     url: 'https://www.facebook.com/WebConfCBA',
     title: 'WebConf en Facebook'

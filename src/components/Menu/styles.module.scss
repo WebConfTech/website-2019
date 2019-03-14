@@ -4,11 +4,8 @@
   padding: 0;
 }
 
-.item {
-  padding-bottom: 0.6875rem;
-  &:last-child {
-    padding-bottom: 0;
-  }
+.item + .item {
+  margin-top: 0.6875rem;
 }
 
 @media (max-width: $theme-breakpoints-mobile) {
@@ -17,6 +14,7 @@
     top: 1.07125rem;
     right: 0.75rem;
   }
+
   .container {
     position: fixed;
     display: none;
@@ -28,6 +26,7 @@
     left: 0;
     top: 0;
     background: linear-gradient($theme-palette-secondary, $theme-palette-primary);
+
     &:target {
       display: flex;
     }
