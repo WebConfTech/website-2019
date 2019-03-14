@@ -16,6 +16,7 @@ const IndexPage = () => (
       <TeaserText className={styles.hiddenXs} />
     </div>
     <div className={styles.middleSection}>
+      <div className={styles.middleStrut} />
       <div className={styles.middleContent}>
         <p className={styles.date}>new Date(11, 5, 2019)</p>
         <p className={styles.venue}>

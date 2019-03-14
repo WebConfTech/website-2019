@@ -15,12 +15,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-image: url('assets/images/banner-background-mobile.png');
   background-size: cover;
   background-position: center;
 
-  .middle-content {
-    margin: auto;
+  .middle-strut {
+    display: none;
   }
 
   .date {
@@ -40,12 +41,22 @@
 
   @media (min-width: $theme-breakpoints-mobile) {
     height: 298px;
-    width: 928px;
+    max-width: 928px;
     margin: 3.5rem 0;
+    flex-direction: row;
+    justify-content: flex-start;
     background-image: url('assets/images/banner-background.png');
+    background-position: left;
+
+    .middle-strut {
+      flex-basis: 8.75rem;
+      flex-shrink: 1;
+      display: block;
+    }
 
     .middle-content {
-      margin: 0 0 0 8.75rem;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
     .date {
