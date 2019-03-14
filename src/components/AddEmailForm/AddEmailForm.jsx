@@ -7,7 +7,7 @@ import { trackEvent } from 'common/ga';
 import { Input, ValidationError, Button } from 'lib';
 import styles from './styles.module.scss';
 
-const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
+const _AddEmailForm = ({ emailError, isAdding, wasSaved, className = '', add }) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState(null);
 
@@ -31,16 +31,18 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
   );
 
   const formErrors = [...(emailError || errors || [])];
+
   if (formErrors.length) {
     const [firstError] = formErrors;
     trackEvent('emailForm', 'send', 'error', firstError);
   }
 
   let render;
+
   if (wasSaved) {
     trackEvent('emailForm', 'send', 'success');
     render = (
-      <div className={`${styles.container} ${styles.NoMargin}`}>
+      <div className={`${styles.container} ${className}`}>
         <div className={styles.success}>
           <h3 className={styles.title}>¡Todo listo!</h3>
           <p className={styles.text}>Pronto te estaremos escribiendo.</p>
@@ -49,8 +51,12 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
     );
   } else {
     render = (
-      <div className={styles.container}>
-        <p className={styles.title}>Dejanos tu e-mail y enterate al instante de las novedades!</p>
+      <div className={`${styles.container} ${className}`}>
+        <p className={styles.title}>
+          Subscribite a
+          <br />
+          nuestro newsletter
+        </p>
         <form className={styles.form} onSubmit={onSubmit}>
           <Input
             placeholder="Tu e-mail"

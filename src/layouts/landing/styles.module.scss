@@ -1,0 +1,65 @@
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2.375rem 1.75rem 2.5rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: column;
+    margin: 3.25rem 0 0 3.125rem;
+  }
+}
+
+.logo {
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin-bottom: 3.25rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    justify-content: center;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.contact-container {
+  align-self: stretch;
+  display: flex;
+  margin: 2.5rem 1.875rem 0.75rem 0.5rem;
+
+  .newsletter-form {
+    display: none;
+    margin-right: 1rem;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin: 3.125rem 0 2rem;
+    padding-left: 3.125rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    .newsletter-form {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 3.5rem;
+    }
+  }
+}

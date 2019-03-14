@@ -13,6 +13,24 @@ import SEO from 'components/seo';
 // Styles
 import styles from './styles.module.scss';
 
+export const Sidebar = ({ children, className, ...props }) => (
+  <aside className={`${styles.sidebar} ${className ? className : ''}`} {...props}>
+    {children}
+  </aside>
+);
+
+export const Content = ({ children, className, ...props }) => (
+  <main className={`${styles.content} ${className ? className : ''}`} {...props}>
+    {children}
+  </main>
+);
+
+export const Footer = ({ children, className, ...props }) => (
+  <footer className={`${styles.footer} ${className ? className : ''}`} {...props}>
+    {children}
+  </footer>
+);
+
 const DefaultLayout = ({ children, seoProps }) => {
   const _seoProps = {
     ...SEO_DATA,
