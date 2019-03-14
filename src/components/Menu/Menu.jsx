@@ -5,7 +5,7 @@ import CloseNegativeIcon from 'lib/assets/icon-close-negative.svg';
 import styles from './styles.module.scss';
 import { MENU } from 'data/constants';
 
-export const Menu = ({ className }) => (
+export const Menu = ({ className, dark, short }) => (
   <Location>
     {({ location }) => (
       <div className={className}>
@@ -25,7 +25,7 @@ export const Menu = ({ className }) => (
             </ul>
           </nav>
         </div>
-        <MenuIconMobile dark href="#menu" />
+        <MenuIconMobile dark={dark} short={short} href="#menu" />
       </div>
     )}
   </Location>

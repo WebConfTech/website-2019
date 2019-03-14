@@ -15,7 +15,7 @@ const LandingLayout = ({ seoProps, children }) => {
       <Content className={styles.content}>{children}</Content>
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.logo} />
-        <Menu />
+        <Menu dark />
       </Sidebar>
       <Footer className={styles.footer}>
         <div className={styles.contactContainer}>
