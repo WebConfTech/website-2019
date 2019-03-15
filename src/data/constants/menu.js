@@ -11,7 +11,7 @@ export const MENU = [
    */
   {
     title: 'Lugar',
-    url: '/location'
+    url: '/venue'
   },
   /*
    * {
