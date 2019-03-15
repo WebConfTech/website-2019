@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
 import IconChevronLeftHuge from 'assets/images/icon-chevron-left-huge.svg';
 import IconChevronRightHuge from 'assets/images/icon-chevron-right-huge.svg';
 import SectionLayout from 'layouts/section';
@@ -17,9 +17,12 @@ const AboutPage = () => {
     contentRef.current.scrollLeft += scrollOffset;
   }, [scrollOffset, contentRef]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const contentEl = contentRef.current;
     const children = contentEl.children;
+
+    // calculate the amount we need to scroll on each arrow click by looking for the first `p`
+    // on the second column of the text
     let scrollOffset = 0;
 
     for (let i = 0; i < children.length && scrollOffset === 0; i++) {

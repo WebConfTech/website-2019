@@ -14,22 +14,20 @@
 
   @media (min-width: $theme-breakpoints-mobile) {
     margin: 0;
-    width: 22.5rem;
     height: 30rem;
     overflow-x: hidden;
+    column-count: 1;
     column-width: 22.5rem;
     column-gap: 4.375rem;
     scroll-behavior: smooth;
   }
 
-  @media (min-width: 78rem) {
-    margin: 0;
-    width: 50rem;
-    height: 30rem;
-    overflow-x: hidden;
-    column-width: 22.5rem;
-    column-gap: 4.375rem;
-    scroll-behavior: smooth;
+  @media (min-width: 80rem) {
+    column-count: 2;
+  }
+
+  @media (min-width: 107rem) {
+    column-count: 3;
   }
 }
 
@@ -41,6 +39,10 @@
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+  }
+
+  @media (min-width: 107rem) {
+    visibility: hidden;
   }
 }
 
