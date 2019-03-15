@@ -8,17 +8,20 @@ import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
 import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
 import styles from './styles.module.scss';
 
-const SectionLayout = ({ title, seoProps, children }) => {
+export const SectionTitle = ({ className = '', children, ...props }) => (
+  <h1 className={`${styles.title} ${className}`} {...props}>
+    {`{${children}}`}
+  </h1>
+);
+
+const SectionLayout = ({ title, seoProps, className, children }) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
       <Content>
-        <section>
-          <h1 className={styles.title}>{`{${title}}`}</h1>
-          {children}
-        </section>
+        <section className={className}>{children}</section>
       </Content>
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.desktopLogo} />

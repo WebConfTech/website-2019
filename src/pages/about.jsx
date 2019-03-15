@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
 import IconChevronLeftHuge from 'assets/images/icon-chevron-left-huge.svg';
 import IconChevronRightHuge from 'assets/images/icon-chevron-right-huge.svg';
-import SectionLayout from 'layouts/section';
+import SectionLayout, { SectionTitle } from 'layouts/section';
 import styles from './about.module.scss';
 
 const AboutPage = () => {
@@ -52,6 +52,7 @@ const AboutPage = () => {
 
   return (
     <SectionLayout title="la conferencia">
+      <SectionTitle>La Conferencia</SectionTitle>
       <div className={styles.container}>
         <div
           className={`
