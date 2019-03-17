@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionLayout, { SectionTitle } from 'layouts/section';
+import { CTALeafLike } from 'lib/Button';
 import VenuePhoto1 from 'assets/images/venue-1.png';
 import VenuePhoto2 from 'assets/images/venue-2.png';
 import VenuePhoto3 from 'assets/images/venue-3.png';
@@ -42,6 +43,9 @@ const VenuePage = () => (
         src={VenuePhoto3}
         alt="foto de audiencia en un evento en la venue"
       />
+      <CTALeafLike position="right" icon="up" className={styles.mapButton}>
+        Mapa
+      </CTALeafLike>
     </div>
   </SectionLayout>
 );
