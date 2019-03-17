@@ -2,3 +2,78 @@
   display: flex;
   flex-direction: row;
 }
+
+.description {
+  flex-grow: 1;
+
+  .text {
+    margin-left: 7rem;
+    margin-right: 3.5rem;
+  }
+
+  .intro {
+    font-weight: 700;
+    line-height: 1.5rem;
+  }
+
+  .summary {
+    line-height: 1.5rem;
+  }
+
+  .venue-container {
+    margin-top: 3rem;
+  }
+
+  .auditorium {
+    font-size: 1.5rem;
+    line-height: 0.5rem;
+    color: $theme-palette-primary;
+  }
+
+  .venue-name {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $theme-palette-secondary;
+  }
+
+  .address {
+    margin-top: 1.25rem;
+    font-size: 1.25rem;
+  }
+}
+
+.photos {
+  position: relative;
+  flex-shrink: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(
+      $theme-palette-base 2%,
+      transparent 20%,
+      transparent 70%,
+      $theme-palette-base 93%
+    );
+  }
+
+  .photo1 {
+    height: 29%;
+  }
+
+  .photo2 {
+    height: 23%;
+  }
+
+  .photo3 {
+    height: 44%;
+  }
+}
