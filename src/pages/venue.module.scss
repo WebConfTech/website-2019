@@ -7,8 +7,12 @@
   flex-grow: 1;
 
   .text {
-    margin-left: 7rem;
-    margin-right: 3.5rem;
+    margin: 2.5rem 1.75rem;
+
+    @media (min-width: $theme-breakpoints-mobile) {
+      margin-left: 7rem;
+      margin-right: 3.5rem;
+    }
   }
 
   .intro {
@@ -43,37 +47,42 @@
 }
 
 .photos {
-  position: relative;
-  flex-shrink: 1;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: none;
 
-  &::after {
-    content: '';
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    background: linear-gradient(
-      $theme-palette-base 2%,
-      transparent 20%,
-      transparent 70%,
-      $theme-palette-base 93%
-    );
-  }
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: relative;
+    flex-shrink: 1;
+    height: 100vh;
+    min-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  .photo1 {
-    height: 29%;
-  }
+    &::after {
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: linear-gradient(
+        $theme-palette-base 2%,
+        transparent 20%,
+        transparent 70%,
+        $theme-palette-base 93%
+      );
+    }
 
-  .photo2 {
-    height: 23%;
-  }
+    .photo1 {
+      height: 29%;
+    }
 
-  .photo3 {
-    height: 44%;
+    .photo2 {
+      height: 23%;
+    }
+
+    .photo3 {
+      height: 44%;
+    }
   }
 }
