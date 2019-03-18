@@ -46,7 +46,7 @@
   }
 }
 
-.photos {
+.side-container {
   display: none;
 
   @media (min-width: $theme-breakpoints-mobile) {
@@ -92,4 +92,19 @@
   bottom: 0;
   right: 0;
   z-index: 100;
+}
+
+.map-container {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  z-index: 200;
+  background: $theme-palette-base;
+
+  &:target {
+    visibility: visible;
+  }
 }

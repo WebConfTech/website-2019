@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { CTALeafLike } from 'lib/Button';
+import { VenueMap } from 'components/VenueMap';
 import VenuePhoto1 from 'assets/images/venue-1.png';
 import VenuePhoto2 from 'assets/images/venue-2.png';
 import VenuePhoto3 from 'assets/images/venue-3.png';
@@ -35,7 +36,7 @@ const VenuePage = () => (
         </div>
       </div>
     </div>
-    <div className={styles.photos}>
+    <div className={styles.sideContainer}>
       <img className={styles.photo1} src={VenuePhoto1} alt="foto de los asientos de la venue" />
       <img className={styles.photo2} src={VenuePhoto2} alt="foto del escenario de la venue" />
       <img
@@ -43,9 +44,12 @@ const VenuePage = () => (
         src={VenuePhoto3}
         alt="foto de audiencia en un evento en la venue"
       />
-      <CTALeafLike position="right" icon="up" className={styles.mapButton}>
+      <CTALeafLike position="right" icon="up" as="a" href="#map" className={styles.mapButton}>
         Mapa
       </CTALeafLike>
+      <div className={styles.mapContainer} id="map">
+        <VenueMap />
+      </div>
     </div>
   </SectionLayout>
 );
