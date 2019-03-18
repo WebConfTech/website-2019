@@ -1,6 +1,10 @@
 .section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: row;
+  }
 }
 
 .description {
@@ -47,13 +51,18 @@
 }
 
 .side-container {
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: relative;
+    height: 100vh;
+    min-height: 50rem;
+  }
+}
+
+.photos {
   display: none;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    position: relative;
-    flex-shrink: 1;
-    height: 100vh;
-    min-height: 50rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -88,30 +97,45 @@
 }
 
 .map-open-button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: initial;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+  }
 }
 
 .map-close-button {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 500;
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: flex;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 500;
+  }
 }
 
 .map-container {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 100%;
-  z-index: 200;
-  background: $theme-palette-base;
+  width: 100%;
+  height: 15rem;
 
-  &:target {
-    visibility: visible;
+  @media (min-width: $theme-breakpoints-mobile) {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    z-index: 200;
+    background: $theme-palette-base;
+
+    &:target {
+      visibility: visible;
+    }
   }
 }

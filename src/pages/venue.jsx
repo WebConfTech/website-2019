@@ -37,13 +37,15 @@ const VenuePage = () => (
       </div>
     </div>
     <div className={styles.sideContainer}>
-      <img className={styles.photo1} src={VenuePhoto1} alt="foto de los asientos de la venue" />
-      <img className={styles.photo2} src={VenuePhoto2} alt="foto del escenario de la venue" />
-      <img
-        className={styles.photo3}
-        src={VenuePhoto3}
-        alt="foto de audiencia en un evento en la venue"
-      />
+      <div className={styles.photos}>
+        <img className={styles.photo1} src={VenuePhoto1} alt="foto de los asientos de la venue" />
+        <img className={styles.photo2} src={VenuePhoto2} alt="foto del escenario de la venue" />
+        <img
+          className={styles.photo3}
+          src={VenuePhoto3}
+          alt="foto de audiencia en un evento en la venue"
+        />
+      </div>
       <CTALeafLike position="right" icon="up" as="a" href="#map" className={styles.mapOpenButton}>
         Mapa
       </CTALeafLike>
