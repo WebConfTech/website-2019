@@ -1,0 +1,141 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: row;
+  }
+}
+
+.description {
+  flex-grow: 1;
+
+  .text {
+    margin: 2.5rem 1.75rem;
+
+    @media (min-width: $theme-breakpoints-mobile) {
+      margin-left: 7rem;
+      margin-right: 3.5rem;
+    }
+  }
+
+  .intro {
+    font-weight: 700;
+    line-height: 1.5rem;
+  }
+
+  .summary {
+    line-height: 1.5rem;
+  }
+
+  .venue-container {
+    margin-top: 3rem;
+  }
+
+  .auditorium {
+    font-size: 1.5rem;
+    line-height: 0.5rem;
+    color: $theme-palette-primary;
+  }
+
+  .venue-name {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $theme-palette-secondary;
+  }
+
+  .address {
+    margin-top: 1.25rem;
+    font-size: 1.25rem;
+  }
+}
+
+.side-container {
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: relative;
+    height: 100vh;
+    min-height: 50rem;
+  }
+}
+
+.photos {
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: linear-gradient(
+        $theme-palette-base 2%,
+        transparent 20%,
+        transparent 70%,
+        $theme-palette-base 93%
+      );
+    }
+
+    .photo1 {
+      height: 29%;
+    }
+
+    .photo2 {
+      height: 23%;
+    }
+
+    .photo3 {
+      height: 44%;
+    }
+  }
+}
+
+.map-open-button {
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: initial;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+  }
+}
+
+.map-close-button {
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: flex;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 500;
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 15rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    z-index: 200;
+    background: $theme-palette-base;
+
+    &:target {
+      visibility: visible;
+    }
+  }
+}

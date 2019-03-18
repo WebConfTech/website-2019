@@ -3,18 +3,22 @@ export const MENU = [
     title: 'La conferencia',
     url: '/about'
   },
-  {
-    title: 'Disertantes',
-    url: '/speakers'
-  },
+  /*
+   * {
+   *   title: 'Disertantes',
+   *   url: '/speakers'
+   * },
+   */
   {
     title: 'Lugar',
-    url: '/location'
+    url: '/venue'
   },
-  {
-    title: 'Sponsors',
-    url: '/sponsors'
-  },
+  /*
+   * {
+   *   title: 'Sponsors',
+   *   url: '/sponsors'
+   * },
+   */
   {
     title: 'Escribinos',
     url: '/contact'
