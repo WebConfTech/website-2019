@@ -13,7 +13,7 @@ export const VenueMap = () => {
     setTimeout(() => mapRef.current.leafletElement.invalidateSize(), 100);
   }, [mapRef]);
 
-  return window ? (
+  return typeof window !== 'undefined' ? (
     <>
       <Map center={position} zoom={zoom} className={styles.map} ref={mapRef}>
         <TileLayer
