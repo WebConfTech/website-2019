@@ -10,7 +10,7 @@ export const VenueMap = () => {
   const icon = VENUE_MARKER;
 
   useEffect(() => {
-    setTimeout(() => mapRef.current.leafletElement.invalidateSize(), 100);
+    setTimeout(() => mapRef.current.leafletElement.invalidateSize(), 1000);
   }, [mapRef]);
 
   return typeof window !== 'undefined' ? (
