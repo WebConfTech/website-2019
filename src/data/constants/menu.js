@@ -12,15 +12,11 @@ export const MENU = [
   {
     title: 'Lugar',
     url: '/venue/'
-  },
+  }
   /*
    * {
    *   title: 'Sponsors',
    *   url: '/sponsors'
    * },
    */
-  {
-    title: 'Escribinos',
-    url: '/contact/'
-  }
 ];
