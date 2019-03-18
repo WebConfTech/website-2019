@@ -1,25 +1,33 @@
 .container {
   width: auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  display: grid;
+  grid-template-areas:
+    'sidebar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  background-size: cover;
+  background-position: center;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    &::after {
-      content: '';
-      background-image: url('assets/images/background.svg');
-      background-size: cover;
-      background-position: center;
-      // TODO: Joel should provide a proper background and stop doing shitty exports.
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -1;
-    }
+    grid-template-areas:
+      'sidebar content'
+      'footer  content';
+    grid-template-columns: 14.676875rem 1fr;
+    grid-template-rows: auto 1fr;
+    background-image: url('assets/images/background.svg');
   }
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
 }

@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { addEmail } from 'data/email/actions';
 import { isAddingEmail, wasTheEmailSaved, emailError } from 'data/email/selectors';
 import { addEmailSchema } from 'data/email/schemas';
+import { trackEvent } from 'common/ga';
 import { Input, ValidationError, Button } from 'lib';
 import styles from './styles.module.scss';
 
-const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
+const _AddEmailForm = ({ emailError, isAdding, wasSaved, className = '', add }) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState(null);
 
@@ -29,42 +30,60 @@ const _AddEmailForm = ({ emailError, isAdding, wasSaved, add }) => {
     [email, setErrors, add]
   );
 
-  const formErrors = emailError ? [emailError] : errors;
+  const formErrors = [...(emailError || errors || [])];
 
-  return wasSaved ? (
-    <div className={`${styles.container} ${styles.NoMargin}`}>
-      <div className={styles.success}>
-        <h3 className={styles.title}>¡Todo listo!</h3>
-        <p className={styles.text}>Pronto te estaremos escribiendo.</p>
+  if (formErrors.length) {
+    const [firstError] = formErrors;
+    trackEvent('emailForm', 'send', 'error', firstError);
+  }
+
+  let render;
+
+  if (wasSaved) {
+    trackEvent('emailForm', 'send', 'success');
+    render = (
+      <div className={`${styles.container} ${className}`}>
+        <div className={styles.success}>
+          <h3 className={styles.title}>¡Todo listo!</h3>
+          <p className={styles.text}>Pronto te estaremos escribiendo.</p>
+        </div>
       </div>
-    </div>
-  ) : (
-    <div className={styles.container}>
-      <p className={styles.title}>Dejanos tu e-mail y enterate al instante de las novedades!</p>
-      <form className={styles.form} onSubmit={onSubmit}>
-        <Input
-          placeholder="Tu e-mail"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          hasError={!!formErrors}
-          disabled={isAdding}
-          autoFocus
-        />
-        {!!formErrors
-          ? formErrors.map(error => <ValidationError key={error}>{error}</ValidationError>)
-          : null}
-        <Button
-          type="submit"
-          color="secondary"
-          isLoading={isAdding}
-          disabled={isAdding}
-          className={styles.button}
-        >
-          Registrarme
-        </Button>
-      </form>
-    </div>
-  );
+    );
+  } else {
+    render = (
+      <div className={`${styles.container} ${className}`}>
+        <p className={styles.title}>
+          Subscribite a
+          <br />
+          nuestro newsletter
+        </p>
+        <form className={styles.form} onSubmit={onSubmit}>
+          <Input
+            placeholder="Tu e-mail"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            hasError={!!formErrors.length}
+            disabled={isAdding}
+            autoFocus
+          />
+          {formErrors.map(error => (
+            <ValidationError key={error}>{error}</ValidationError>
+          ))}
+          <Button
+            type="submit"
+            color="secondary"
+            isLoading={isAdding}
+            disabled={isAdding}
+            className={styles.button}
+          >
+            Registrarme
+          </Button>
+        </form>
+      </div>
+    );
+  }
+
+  return render;
 };
 
 _AddEmailForm.displayName = 'AddEmailForm';
