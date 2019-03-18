@@ -87,11 +87,18 @@
   }
 }
 
-.map-button {
+.map-open-button {
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 100;
+}
+
+.map-close-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 500;
 }
 
 .map-container {
