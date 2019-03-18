@@ -8,7 +8,7 @@ import VenuePhoto3 from 'assets/images/venue-3.png';
 import styles from './venue.module.scss';
 
 const VenuePage = () => (
-  <SectionLayout title="lugar" className={styles.section}>
+  <SectionLayout title="lugar" className={styles.section} newsletter cfp>
     <div className={styles.description}>
       <SectionTitle>Lugar</SectionTitle>
       <div className={styles.text}>

@@ -51,7 +51,7 @@ const AboutPage = () => {
   }, [contentRef, setArrowDisabledState]);
 
   return (
-    <SectionLayout title="la conferencia">
+    <SectionLayout title="la conferencia" newsletter about>
       <SectionTitle>La Conferencia</SectionTitle>
       <div className={styles.container}>
         <div

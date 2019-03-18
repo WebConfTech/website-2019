@@ -14,7 +14,14 @@ export const SectionTitle = ({ className = '', children, ...props }) => (
   </h1>
 );
 
-const SectionLayout = ({ title, seoProps, className, children }) => {
+const SectionLayout = ({
+  title,
+  seoProps,
+  className,
+  newsletter = false,
+  cfp = false,
+  children
+}) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
 
@@ -31,10 +38,10 @@ const SectionLayout = ({ title, seoProps, className, children }) => {
       </Sidebar>
       <Footer className={styles.footer}>
         <div className={styles.contactContainer}>
-          <AddEmailForm className={styles.newsletterForm} />
+          {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
         </div>
-        <CFPButton />
+        {cfp ? <CFPButton /> : null}
       </Footer>
     </DefaultLayout>
   );
