@@ -11,7 +11,7 @@ const CheckoutPage = props => (
     className={styles.section}
   >
     <SectionTitle>Entradas</SectionTitle>
-    <div>
+    <div className={styles.tickets}>
       <TicketSelector />
       <TicketForm />
     </div>
