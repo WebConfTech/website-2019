@@ -9,6 +9,8 @@ import {
   isCurrentTicketValid
 } from 'data/checkout/selectors';
 import { Button } from 'lib/Button';
+import { Tabs, Tab } from 'lib/Tabs';
+import styles from './styles.module.scss';
 
 const _TicketSelector = ({
   numberTickets,
@@ -45,19 +47,39 @@ const _TicketSelector = ({
   const ticketIndexes = useMemo(() => R.range(0, numberTickets), [numberTickets]);
 
   return (
-    <div>
-      {ticketIndexes.map(ticketIndex => (
-        <span key={ticketIndex} onClick={() => select(ticketIndex)}>
-          {ticketIndex + 1}
-          {ticketIndex === currentTicketIndex ? '(current)' : null}
-        </span>
-      ))}
-      <Button onClick={add} disabled={numberTickets === MAX_TICKETS} color="secondary">
-        Quiero Otra
-      </Button>
-      <Button onClick={remove} disabled={numberTickets === MIN_TICKETS} color="secondary">
-        Eliminar
-      </Button>
+    <div className={styles.container}>
+      <div className={styles.elements}>
+        <div className={styles.text}>Entrada Nº</div>
+        <Tabs className={styles.tabs}>
+          {ticketIndexes.map(ticketIndex => (
+            <Tab key={ticketIndex} active={ticketIndex === currentTicketIndex ? 1 : 0}>
+              <button onClick={() => select(ticketIndex)}>{ticketIndex + 1}</button>
+            </Tab>
+          ))}
+        </Tabs>
+        <ul className={styles.buttons}>
+          <li className={styles.buttonContainer}>
+            <Button
+              onClick={add}
+              disabled={numberTickets === MAX_TICKETS}
+              color="secondary"
+              className={styles.button}
+            >
+              Quiero Otra
+            </Button>
+          </li>
+          <li className={styles.buttonContainer}>
+            <Button
+              onClick={remove}
+              disabled={numberTickets === MIN_TICKETS}
+              color="secondary"
+              className={styles.button}
+            >
+              Eliminar
+            </Button>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

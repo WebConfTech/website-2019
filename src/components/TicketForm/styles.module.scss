@@ -1,0 +1,164 @@
+.elements {
+  position: relative;
+}
+
+.form-container {
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  padding-left: 2.483125rem;
+  position: relative;
+}
+
+.form-title {
+  color: $theme-palette-text;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  padding: 2.75rem 0 2.22375rem 0;
+  &.-mobile-only {
+    display: none;
+  }
+}
+
+.fields {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.16125rem;
+  &.-small {
+    width: 8.75rem;
+  }
+}
+
+.label {
+  color: $theme-palette-text;
+  display: block;
+  font-size: 0.875rem;
+  opacity: 0.75;
+  padding-bottom: 0.08875rem;
+  font-weight: lighter;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  box-sizing: border-box;
+  height: 2.6875rem;
+}
+
+.priceInfo {
+  color: $theme-palette-text;
+  font-size: 0.875rem;
+  line-height: 0.75rem;
+  font-weight: lighter;
+  opacity: 0.75;
+  padding: 0 1.684375rem 0 0.0625rem;
+}
+
+.priceValue {
+  color: $theme-palette-text;
+  font-size: 1.896875rem;
+  font-weight: lighter;
+}
+
+.buyButton {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 11.8125rem;
+}
+
+@media (min-width: $theme-breakpoints-mobile) {
+  .form-container {
+    width: 43.75rem;
+    height: 20.991875rem;
+    background-image: url('assets/images/ticket-desktop-background.png');
+  }
+  .fields {
+    display: inline-flex;
+    flex-wrap: wrap;
+    height: 9.375rem;
+  }
+  .field {
+    width: 22.446875rem;
+    &:first-child {
+      padding-right: 1.440625rem;
+    }
+  }
+  .validations {
+    padding: 1.383125rem 0 0 2.5rem;
+    min-height: 1.5625rem;
+  }
+  .show-on-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: $theme-breakpoints-mobile) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+  }
+  .form-container {
+    background-image: url('assets/images/ticket-mobile-background.png');
+    width: 21rem;
+    height: 43.75rem;
+    padding-left: 1.808125rem;
+  }
+  .form-title {
+    display: none;
+    padding: 2.191875rem 0 1.09875rem 0;
+    &.-mobile-only {
+      display: block;
+    }
+  }
+  .fields {
+    display: flex;
+    max-width: 17.491875rem;
+  }
+  .buyButton {
+    top: 26.254375rem;
+    left: 6.245625rem;
+  }
+  .price {
+    height: 1.5rem;
+  }
+  .validations {
+    position: absolute;
+    z-index: 3;
+    left: 1.808125rem;
+    top: 21.816875rem;
+    width: 16.125rem;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: $theme-breakpoints-mobile) and (-webkit-min-device-pixel-ratio: 1.5),
+  (min-width: $theme-breakpoints-mobile) and (-o-min-device-pixel-ratio: 3/2),
+  (min-width: $theme-breakpoints-mobile) and (min--moz-device-pixel-ratio: 1.5),
+  (min-width: $theme-breakpoints-mobile) and (min-device-pixel-ratio: 1.5) {
+  .form-container {
+    background-image: url('assets/images/ticket-desktop-background@2x.png');
+    background-size: 43.75rem 20.991875rem;
+  }
+}
+
+@media (max-width: $theme-breakpoints-mobile) and (-webkit-min-device-pixel-ratio: 1.5),
+  (max-width: $theme-breakpoints-mobile) and (-o-min-device-pixel-ratio: 3/2),
+  (max-width: $theme-breakpoints-mobile) and (min--moz-device-pixel-ratio: 1.5),
+  (max-width: $theme-breakpoints-mobile) and (min-device-pixel-ratio: 1.5) {
+  .form-container {
+    background-image: url('assets/images/ticket-mobile-background@2x.png');
+    background-size: 21rem 43.75rem;
+  }
+}

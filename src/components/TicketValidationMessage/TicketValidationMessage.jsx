@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
+import { ValidationMessage } from 'lib';
 import {
   shouldShowValidations,
   getCurrentTicketInvalidFields,
@@ -18,13 +19,22 @@ const _TicketValidationMessage = ({
   invalidFields,
   isDniDuplicated,
   isEmailDuplicated,
-  isValid
+  isValid,
+  dark
 }) => {
   const validationMessage = useMemo(() => {
     let message = null;
 
     if (isValid) {
-      message = '¡Todo listo por aquí! Presioná Quiero otra o Pagar para continuar.';
+      message = (
+        <>
+          ¡Todo listo por aquí! Presioná{` `}
+          <em>Quiero otra</em>
+          {` `}o{` `}
+          <em>Pagar</em>
+          {` `}para continuar.
+        </>
+      );
     } else if (showValidations && isDniDuplicated) {
       message = `Necesitamos que completes el ticket con valores válidos. El DNI ingresado ya
         fué usado en otro ticket.`;
@@ -43,7 +53,11 @@ const _TicketValidationMessage = ({
     return message;
   }, [showValidations, invalidFields]);
 
-  return <div>{validationMessage}</div>;
+  return validationMessage ? (
+    <ValidationMessage dark={dark ? 1 : 0} error={isValid ? 0 : 1}>
+      {validationMessage}
+    </ValidationMessage>
+  ) : null;
 };
 
 _TicketValidationMessage.displayName = 'TicketValidationMessage';
