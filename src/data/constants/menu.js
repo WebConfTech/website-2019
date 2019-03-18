@@ -1,7 +1,7 @@
 export const MENU = [
   {
     title: 'La conferencia',
-    url: '/about'
+    url: '/about/'
   },
   /*
    * {
@@ -11,7 +11,7 @@ export const MENU = [
    */
   {
     title: 'Lugar',
-    url: '/venue'
+    url: '/venue/'
   },
   /*
    * {
@@ -21,6 +21,6 @@ export const MENU = [
    */
   {
     title: 'Escribinos',
-    url: '/contact'
+    url: '/contact/'
   }
 ];
