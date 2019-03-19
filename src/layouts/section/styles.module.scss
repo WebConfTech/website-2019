@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.625rem 1.25rem;
+  z-index: 1000;
   background-color: $theme-palette-secondary;
 
   @media (min-width: $theme-breakpoints-mobile) {
@@ -112,4 +113,8 @@
   position: fixed;
   bottom: 0;
   left: 0;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: initial;
+  }
 }
