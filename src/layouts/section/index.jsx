@@ -20,7 +20,7 @@ const SectionLayout = ({ title, seoProps, className, children }) => {
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <Content>
+      <Content className={styles.content}>
         <section className={className}>{children}</section>
       </Content>
       <Sidebar className={styles.sidebar}>
