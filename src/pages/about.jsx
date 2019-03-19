@@ -99,7 +99,7 @@ const AboutPage = () => {
           </p>
           <p>
             La idea de este proyecto es aprovechar el momentum generado por la comunidad para formar
-            una comunidad aún más grande y activa de desarrollado- res alrededor del desarrollo web,
+            una comunidad aún más grande y activa de desarrolladores alrededor del desarrollo web,
             proponiendo un espacio donde se puedan presentar y discutir temas más amplios que los
             disponibles actualmente en los espacios existentes.
           </p>
