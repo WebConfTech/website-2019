@@ -34,7 +34,7 @@ const SectionLayout = ({ title, seoProps, className, children }) => {
           <AddEmailForm className={styles.newsletterForm} />
           <SocialNetworkLinks />
         </div>
-        <CFPButton />
+        <CFPButton className={styles.cfpButton} />
       </Footer>
     </DefaultLayout>
   );
