@@ -1,82 +1,121 @@
-.section {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: row;
-  box-sizing: border-box;
-  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 1.25rem;
+  z-index: 1000;
+  background-color: $theme-palette-secondary;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: initial;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 3.25rem 0 0 3.125rem;
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
-.left {
-  width: 14.676875rem;
+.content {
+  margin-top: 4rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin-top: 0;
+  }
 }
 
-.logoContainer {
-  padding: 3.25rem 0 2.404375rem 0;
+.desktop-logo {
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: block;
+    margin-bottom: 3rem;
+  }
 }
 
-.logo {
-  width: auto;
-  height: 9rem;
-}
-
-.logo-mobile {
-  width: auto;
-  height: 2.784375rem;
+.mobile-logo {
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: none;
+  }
 }
 
 .title {
-  text-transform: lowercase;
-  font-size: 7.6675rem;
-  color: $theme-palette-generics-black;
-  opacity: 0.1;
-  font-weight: normal;
-}
+  display: none;
 
-@media (min-width: $theme-breakpoints-mobile) {
-  .section {
-    padding: 0 3.125rem;
-  }
-  .logo,
-  .title {
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin: 3.25rem 5rem 2.5rem;
+    white-space: nowrap;
+    text-transform: lowercase;
+    font-size: 7.6675rem;
+    color: $theme-palette-generics-black;
+    opacity: 0.2;
+    font-weight: normal;
     display: block;
   }
-  .logo-mobile,
-  .title-mobile {
+}
+
+.title-mobile {
+  margin: 0 1rem;
+  font-size: 1.125rem;
+  font-weight: lighter;
+  text-transform: uppercase;
+  flex-grow: 1;
+  color: $theme-palette-text;
+
+  @media (min-width: $theme-breakpoints-mobile) {
     display: none;
   }
 }
 
-@media (max-width: $theme-breakpoints-mobile) {
-  .section {
-    padding: 0;
-  }
-  .left {
-    background-color: $theme-palette-secondary;
-    height: 4.125rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .logoContainer {
-    padding: 0 0.928125rem 0 1.27625rem;
-  }
-  .logo,
-  .title {
-    display: none;
-  }
-  .logo-mobile,
-  .title-mobile {
-    display: block;
-  }
-  .title-mobile {
-    color: $theme-palette-text;
-    margin: 0;
-    font-size: 1.125rem;
-    font-weight: lighter;
-    text-transform: uppercase;
-    flex-grow: 1;
-  }
-  .section {
+.footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (min-width: $theme-breakpoints-mobile) {
     flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.contact-container {
+  align-self: stretch;
+  display: flex;
+  margin: 2.5rem 1.875rem 1rem 0.5rem;
+
+  .newsletter-form {
+    display: none;
+    margin-right: 1rem;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin: 3rem 0 2rem;
+    padding-left: 3.125rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    .newsletter-form {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 3.5rem;
+    }
+  }
+}
+
+.cfp-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: initial;
   }
 }

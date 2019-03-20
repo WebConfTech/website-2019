@@ -1,45 +1,41 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import DefaultLayout from 'layouts/default';
+import { Logo } from 'components/Logo';
+import { LogoSmall } from 'components/LogoSmall';
 import { Menu } from 'components/Menu';
-import { Footer } from 'components/Footer';
-import MainLogoImage from 'assets/images/logo-main.svg';
-import MobileLogoImage from 'assets/images/logo-mobile.svg';
+import { CFPButton } from 'components/CFPButton';
+import { AddEmailForm } from 'components/AddEmailForm';
+import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
+import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
 import styles from './styles.module.scss';
 
-const SectionLayout = ({ sectionTitle, seoProps, currentPath, children }) => {
+export const SectionTitle = ({ className = '', children, ...props }) => (
+  <h1 className={`${styles.title} ${className}`} {...props}>
+    {`{${children}}`}
+  </h1>
+);
+
+const SectionLayout = ({ title, seoProps, className, children }) => {
   const defaultLayoutProps = { seoProps };
-  defaultLayoutProps.seoProps.subtitle = sectionTitle;
+  defaultLayoutProps.seoProps.subtitle = title;
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <section className={styles.section}>
-        <aside className={styles.left}>
-          <div className={styles.logoContainer}>
-            <Link to="/">
-              <img
-                className={styles.logo}
-                alt="Logo principal de Webconf edición 2019"
-                src={MainLogoImage}
-              />
-              <img
-                className={styles.logoMobile}
-                alt="Logo principal de Webconf edición 2019"
-                src={MobileLogoImage}
-              />
-            </Link>
-          </div>
-          <h1 className={styles.titleMobile}>{sectionTitle}</h1>
-          <div className={styles.navigationContainer}>
-            <Menu currentPath={currentPath} />
-          </div>
-        </aside>
-        <div className={styles.right}>
-          <h1 className={styles.title}>{`{${sectionTitle}}`}</h1>
-          <div className={styles.content}>{children}</div>
+      <Content className={styles.content}>
+        <section className={className}>{children}</section>
+      </Content>
+      <Sidebar className={styles.sidebar}>
+        <Logo className={styles.desktopLogo} />
+        <LogoSmall className={styles.mobileLogo} />
+        <h1 className={styles.titleMobile}>{title}</h1>
+        <Menu short />
+      </Sidebar>
+      <Footer className={styles.footer}>
+        <div className={styles.contactContainer}>
+          <AddEmailForm className={styles.newsletterForm} />
+          <SocialNetworkLinks />
         </div>
-      </section>
-      <Footer />
+        <CFPButton className={styles.cfpButton} />
+      </Footer>
     </DefaultLayout>
   );
 };
