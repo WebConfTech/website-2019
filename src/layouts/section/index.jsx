@@ -20,7 +20,8 @@ const SectionLayout = ({
   className,
   newsletter = false,
   cfp = false,
-  children
+  children,
+  menuComponent
 }) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
@@ -34,7 +35,7 @@ const SectionLayout = ({
         <Logo className={styles.desktopLogo} />
         <LogoSmall className={styles.mobileLogo} />
         <h1 className={styles.titleMobile}>{title}</h1>
-        <Menu short />
+        {menuComponent ? menuComponent() : <Menu short />}
       </Sidebar>
       <Footer className={styles.footer}>
         <div className={styles.contactContainer}>
