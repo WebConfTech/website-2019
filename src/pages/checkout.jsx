@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckoutMenu } from 'components/Menu';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { TicketSelector } from 'components/TicketSelector';
 import { TicketForm } from 'components/TicketForm';
@@ -9,6 +10,7 @@ const CheckoutPage = props => (
     sectionTitle="Entradas"
     currentPath={props.location.pathname}
     className={styles.section}
+    menuComponent={() => <CheckoutMenu short />}
   >
     <SectionTitle>Entradas</SectionTitle>
     <div className={styles.tickets}>
