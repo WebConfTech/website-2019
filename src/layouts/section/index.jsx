@@ -5,6 +5,7 @@ import { Menu } from 'components/Menu';
 import { CFPButton } from 'components/CFPButton';
 import { AddEmailForm } from 'components/AddEmailForm';
 import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
+import { BackButtonMobile } from 'lib/Button';
 import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
 import styles from './styles.module.scss';
 
@@ -24,7 +25,8 @@ const SectionLayout = ({
   hideFooterOnMobile = false,
   hideMenuOnMobile = false,
   children,
-  menuComponent
+  menuComponent,
+  mobileBackButtonAction
 }) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
@@ -36,6 +38,7 @@ const SectionLayout = ({
       </Content>
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.desktopLogo} />
+        {mobileBackButtonAction ? <BackButtonMobile onClick={mobileBackButtonAction} /> : null}
         <LogoSmall className={styles.mobileLogo} />
         <h1 className={styles.titleMobile}>{mobileTitle || title}</h1>
         {menuComponent ? (
