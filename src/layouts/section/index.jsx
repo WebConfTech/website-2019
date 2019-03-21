@@ -22,6 +22,7 @@ const SectionLayout = ({
   newsletter = false,
   cfp = false,
   hideFooterOnMobile = false,
+  hideMenuOnMobile = false,
   children,
   menuComponent
 }) => {
@@ -37,7 +38,11 @@ const SectionLayout = ({
         <Logo className={styles.desktopLogo} />
         <LogoSmall className={styles.mobileLogo} />
         <h1 className={styles.titleMobile}>{mobileTitle || title}</h1>
-        {menuComponent ? menuComponent() : <Menu short />}
+        {menuComponent ? (
+          menuComponent({ hideOnMobile: hideMenuOnMobile })
+        ) : (
+          <Menu short hideOnMobile={hideMenuOnMobile} />
+        )}
       </Sidebar>
       <Footer className={`${styles.footer} ${hideFooterOnMobile ? styles.HideOnMobile : ''}`}>
         <div className={styles.contactContainer}>

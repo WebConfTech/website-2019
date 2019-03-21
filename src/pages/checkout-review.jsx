@@ -10,7 +10,7 @@ const CheckoutReviewPage = props => (
     mobileTitle="Revisá tu compra"
     currentPath={props.location.pathname}
     className={styles.section}
-    menuComponent={() => <CheckoutMenu short />}
+    menuComponent={() => <CheckoutMenu short hideOnMobile />}
     hideFooterOnMobile
   >
     <SectionTitle>Entradas</SectionTitle>

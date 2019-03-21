@@ -36,10 +36,10 @@ const CHECKOUT_MENU = [
 
 const AsSpan = props => <span {...props}>{props.children}</span>;
 
-export const CheckoutMenu = ({ className, dark, short }) => (
+export const CheckoutMenu = ({ className = '', dark, short, hideOnMobile }) => (
   <Location>
     {({ location }) => (
-      <div className={className}>
+      <div className={`${className} ${hideOnMobile ? styles.hideOnMobile : ''}`}>
         <div id="menu" className={styles.container}>
           <CloseIcon href="#" mobileOnly className={styles.close}>
             <img src={CloseNegativeIcon} alt="Cerrar menú" />

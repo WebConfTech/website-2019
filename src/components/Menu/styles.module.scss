@@ -40,3 +40,9 @@
     background: transparent;
   }
 }
+
+@media (max-width: $theme-breakpoints-mobile) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
