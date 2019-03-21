@@ -7,7 +7,7 @@ import styles from './checkout.module.scss';
 
 const CheckoutPage = props => (
   <SectionLayout
-    sectionTitle="Entradas"
+    title="Entradas"
     currentPath={props.location.pathname}
     className={styles.section}
     menuComponent={() => <CheckoutMenu short />}
