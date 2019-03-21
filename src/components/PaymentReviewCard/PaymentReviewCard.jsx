@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './styles.module.scss';
 import { CircleButton } from 'lib/Button';
 import { Card } from 'lib/Card';
+import cashIcon from 'assets/images/icon-cash.svg';
+import ticketIcon from 'assets/images/icon-ticket.svg';
 
 const tickets = [
   {
@@ -27,7 +29,10 @@ export const PaymentReviewCard = () => (
     <Card>
       <div className={styles.cardContents}>
         <div className={styles.ticketsContainer}>
-          <h3 className={styles.subtitle}>Entradas</h3>
+          <h3 className={styles.subtitle}>
+            <img src={ticketIcon} className={styles.ticketIcon} alt="Ticket" />
+            Entradas
+          </h3>
           <p className={styles.ticketsInfo}>
             Podés hacer clic en cualquier entrada para editarla o cancelarla.
           </p>
@@ -45,7 +50,10 @@ export const PaymentReviewCard = () => (
           </ul>
         </div>
         <div className={styles.info}>
-          <h3 className={styles.subtitle}>Pago</h3>
+          <h3 className={styles.subtitle}>
+            <img src={cashIcon} className={styles.cashIcon} alt="Pago" />
+            Pago
+          </h3>
           <p className={styles.infoText}>
             Utilizamos <strong>Mercado Pago</strong> para procesar los pagos de nuestras entradas.
             Cuando hagas clic en el botón "Pagar", te redirigiremos al sitio seguro de Mercado Pago
@@ -63,7 +71,7 @@ export const PaymentReviewCard = () => (
         <div className={styles.payButtonContainer}>
           <div className={styles.payButtonMobileBackground}>
             <CircleButton type="button" className={styles.payButton}>
-              <span>Pagar</span>
+              <span>Comprar</span>
             </CircleButton>
           </div>
         </div>

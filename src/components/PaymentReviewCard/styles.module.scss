@@ -15,13 +15,23 @@
   align-items: center;
 }
 
+.ticket-icon {
+  height: 1.919375rem;
+  margin-right: 0.8125rem;
+}
+
+.cash-icon {
+  height: 1.875rem;
+  margin-right: 0.625rem;
+}
+
 .card-contents {
   display: flex;
   position: relative;
 }
 
 .tickets-container {
-  min-width: 13.25rem;
+  min-width: 13.75rem;
 }
 
 .tickets-info {
@@ -50,10 +60,10 @@
   border-color: lighten($theme-palette-generics-black, 44%);
   color: $theme-palette-generics-black;
   display: block;
-  padding: 0.625rem;
+  padding: 1rem 0.75rem;
   border-radius: 0.625rem;
   text-align: left;
-  width: 12.5rem;
+  width: 100%;
   &:hover,
   &:focus {
     border-color: $theme-palette-generics-black;
@@ -68,7 +78,6 @@
 }
 
 .ticket-detail {
-  font-size: 0.625rem;
   opacity: 0.5;
 }
 
@@ -102,14 +111,17 @@
     padding: 2.1875rem;
     flex-direction: row;
   }
-  .tickes-container {
+  .tickets-container {
     padding-right: 4.125rem;
+  }
+  .ticket-detail {
+    font-size: 0.75rem;
   }
   .pay-button-container {
     position: absolute;
     z-index: 2;
     right: -1.75rem;
-    top: 18.625rem;
+    top: 21.225rem;
   }
 }
 
@@ -127,10 +139,13 @@
   }
   .tickets-container,
   .info {
-    max-width: 14.8125rem;
+    max-width: 20.4375rem;
   }
   .tickets-container {
     padding-bottom: 2.31rem;
+  }
+  .ticket-detail {
+    font-size: 1rem;
   }
   .text-highlight {
     text-align: center;
@@ -146,5 +161,17 @@
     flex-direction: row;
     justify-content: center;
     padding: 0.625rem 0 2.5rem 0;
+    position: relative;
+    z-index: 0;
+    &::after {
+      content: '';
+      background-color: $theme-palette-secondary;
+      height: 5.6875rem;
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
 }
