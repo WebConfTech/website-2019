@@ -1,0 +1,13 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    align-items: flex-start;
+  }
+}
+
+.reviewContainer {
+  max-width: 51.0625rem;
+  margin-left: 5rem;
+}
