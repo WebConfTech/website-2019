@@ -11,6 +11,7 @@ const CheckoutReviewPage = props => (
     currentPath={props.location.pathname}
     className={styles.section}
     hideFooterOnMobile
+    hideSidebarOnMobile
   >
     <SectionTitle>¡Gracias!</SectionTitle>
     <div className={styles.container}>
@@ -36,7 +37,7 @@ const CheckoutReviewPage = props => (
         </p>
         <p className={styles.text}>
           <Button as={Link} className={styles.button} to="/" large>
-            VOLVER AL SITIO
+            Volver al sitio
           </Button>
         </p>
       </div>
