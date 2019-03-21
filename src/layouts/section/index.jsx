@@ -27,7 +27,7 @@ const SectionLayout = ({
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <Content>
+      <Content className={styles.content}>
         <section className={className}>{children}</section>
       </Content>
       <Sidebar className={styles.sidebar}>
@@ -41,7 +41,7 @@ const SectionLayout = ({
           {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
         </div>
-        {cfp ? <CFPButton /> : null}
+        {cfp ? <CFPButton className={styles.cfpButton} /> : null}
       </Footer>
     </DefaultLayout>
   );

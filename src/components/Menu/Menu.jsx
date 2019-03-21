@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import { Location } from '@reach/router';
 import { NavigationItem, MenuIconMobile, CloseIcon } from 'lib/Button';
 import CloseNegativeIcon from 'lib/assets/icon-close-negative.svg';
@@ -17,11 +18,18 @@ export const Menu = ({ className, dark, short }) => (
             <ul className={styles.list}>
               {MENU.map(item => (
                 <li key={item.url} className={styles.item}>
-                  <NavigationItem to={item.url} active={location.pathname === item.url ? 1 : 0}>
+                  <NavigationItem
+                    to={item.url}
+                    active={location.pathname === item.url ? 1 : 0}
+                    as={Link}
+                  >
                     {item.title}
                   </NavigationItem>
                 </li>
               ))}
+              <li className={styles.item}>
+                <NavigationItem href="mailto:hola@webconf.tech">Escríbenos</NavigationItem>
+              </li>
             </ul>
           </nav>
         </div>
