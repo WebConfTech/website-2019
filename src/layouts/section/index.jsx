@@ -23,6 +23,7 @@ const SectionLayout = ({
   cfp = false,
   hideFooterOnMobile = false,
   hideMenuOnMobile = false,
+  hideSidebarOnMobile = false,
   children,
   menuComponent,
   mobileBackButtonAction
@@ -32,10 +33,10 @@ const SectionLayout = ({
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <Content className={styles.content}>
+      <Content className={`${styles.content} ${hideSidebarOnMobile ? styles.RemoveSpacing : ''}`}>
         <section className={className}>{children}</section>
       </Content>
-      <Sidebar className={styles.sidebar}>
+      <Sidebar className={`${styles.sidebar} ${hideSidebarOnMobile ? styles.HideOnMobile : ''}`}>
         <Logo className={styles.desktopLogo} />
         {mobileBackButtonAction ? <BackButtonMobile onClick={mobileBackButtonAction} /> : null}
         <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonAction} />

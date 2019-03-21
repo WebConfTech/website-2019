@@ -19,6 +19,11 @@
     padding: 0;
     background-color: transparent;
   }
+  @media (max-width: $theme-breakpoints-mobile) {
+    &.-hide-on-mobile {
+      display: none;
+    }
+  }
 }
 
 .content {
@@ -26,6 +31,12 @@
 
   @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 0;
+  }
+
+  @media (max-width: $theme-breakpoints-mobile) {
+    &.-remove-spacing {
+      margin-top: 0;
+    }
   }
 }
 
