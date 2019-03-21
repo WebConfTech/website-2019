@@ -18,19 +18,19 @@
   align-items: center;
 }
 
-.cardContents {
+.card-contents {
   padding: 2.1875rem;
   display: flex;
   flex-direction: row;
   position: relative;
 }
 
-.ticketsContainer {
+.tickets-container {
   padding-right: 4.125rem;
   min-width: 13.25rem;
 }
 
-.ticketsInfo {
+.tickets-info {
   color: $theme-palette-primary;
   font-size: 0.875rem;
   margin: 0;
@@ -43,7 +43,7 @@
   padding: 0;
 }
 
-.ticketContainer {
+.ticket-container {
   margin-bottom: 0.75rem;
   &:last-child {
     margin-bottom: 0;
@@ -66,26 +66,26 @@
   }
 }
 
-.ticketLabel {
+.ticket-label {
   font-size: 1rem;
   text-transform: uppercase;
   display: block;
   padding-bottom: 0.125rem;
 }
 
-.ticketDetail {
+.ticket-detail {
   font-size: 0.625rem;
   opacity: 0.5;
 }
 
-.infoText {
+.info-text {
   color: $theme-palette-generics-black;
   font-size: 0.875rem;
   margin: 0;
   padding-bottom: 1.4375rem;
 }
 
-.textHighlight {
+.text-highlight {
   color: $theme-palette-primary;
 }
 
@@ -97,7 +97,7 @@
   padding-top: 0.625rem;
 }
 
-.payButton {
+.pay-button {
   position: absolute;
   z-index: 2;
   right: -1.75rem;
