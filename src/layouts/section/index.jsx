@@ -17,7 +17,6 @@ export const SectionTitle = ({ className = '', children, ...props }) => (
 
 const SectionLayout = ({
   title,
-  mobileTitle,
   seoProps,
   className,
   newsletter = false,
@@ -40,7 +39,7 @@ const SectionLayout = ({
         <Logo className={styles.desktopLogo} />
         {mobileBackButtonAction ? <BackButtonMobile onClick={mobileBackButtonAction} /> : null}
         <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonAction} />
-        <h1 className={styles.titleMobile}>{mobileTitle || title}</h1>
+        <h1 className={styles.titleMobile}>{title}</h1>
         {menuComponent ? (
           menuComponent({ hideOnMobile: hideMenuOnMobile })
         ) : (
