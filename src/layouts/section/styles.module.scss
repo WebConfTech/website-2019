@@ -68,6 +68,12 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  @media (max-width: $theme-breakpoints-mobile) {
+    &.-hide-on-mobile {
+      display: none;
+    }
+  }
 }
 
 .contact-container {

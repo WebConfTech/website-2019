@@ -20,6 +20,7 @@ const SectionLayout = ({
   className,
   newsletter = false,
   cfp = false,
+  hideFooterOnMobile = false,
   children,
   menuComponent
 }) => {
@@ -37,7 +38,7 @@ const SectionLayout = ({
         <h1 className={styles.titleMobile}>{title}</h1>
         {menuComponent ? menuComponent() : <Menu short />}
       </Sidebar>
-      <Footer className={styles.footer}>
+      <Footer className={`${styles.footer} ${hideFooterOnMobile ? styles.HideOnMobile : ''}`}>
         <div className={styles.contactContainer}>
           {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
