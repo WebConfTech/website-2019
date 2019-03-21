@@ -8,10 +8,11 @@
 }
 
 .description {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
 
   .text {
-    margin: 2.5rem 1.75rem;
+    margin: 2.5rem 1.75rem 0;
 
     @media (min-width: $theme-breakpoints-mobile) {
       margin-left: 7rem;
@@ -29,7 +30,12 @@
   }
 
   .venue-container {
-    margin-top: 3rem;
+    margin: 2.5rem 1.75rem;
+
+    @media (min-width: $theme-breakpoints-mobile) {
+      margin-left: 7rem;
+      margin-right: 3.5rem;
+    }
   }
 
   .auditorium {
@@ -39,6 +45,7 @@
   }
 
   .venue-name {
+    margin-left: -0.125rem;
     font-size: 2.25rem;
     font-weight: 800;
     color: $theme-palette-secondary;
@@ -48,13 +55,28 @@
     margin-top: 1.25rem;
     font-size: 1.25rem;
   }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: column;
+  }
 }
 
 .side-container {
+  .map-open-button {
+    display: none;
+  }
+
   @media (min-width: $theme-breakpoints-mobile) {
     position: relative;
     height: 100vh;
-    min-height: 50rem;
+
+    .map-open-button {
+      display: initial;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 100;
+    }
   }
 }
 
@@ -96,46 +118,36 @@
   }
 }
 
-.map-open-button {
-  display: none;
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    display: initial;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 100;
-  }
-}
-
-.map-close-button {
-  display: none;
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    display: flex;
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 500;
-  }
-}
-
-.map-container {
+.map-container-mobile {
   width: 100%;
   height: 15rem;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    visibility: hidden;
+    display: none;
+  }
+}
+
+.map-container-desktop {
+  .map-close-button {
+    display: none;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
+    width: 100%;
     height: 100%;
     z-index: 200;
     background: $theme-palette-base;
 
-    &:target {
-      visibility: visible;
+    .map-close-button {
+      display: flex;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 500;
     }
   }
 }

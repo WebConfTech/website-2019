@@ -19,14 +19,17 @@ export const Menu = ({ className = '', dark, short, hideOnMobile }) => (
               {MENU.map(item => (
                 <li key={item.url} className={styles.item}>
                   <NavigationItem
-                    as={Link}
                     to={item.url}
                     active={location.pathname === item.url ? 1 : 0}
+                    as={Link}
                   >
                     {item.title}
                   </NavigationItem>
                 </li>
               ))}
+              <li className={styles.item}>
+                <NavigationItem href="mailto:hola@webconf.tech">Escríbenos</NavigationItem>
+              </li>
             </ul>
           </nav>
         </div>

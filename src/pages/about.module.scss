@@ -15,6 +15,7 @@
   @media (min-width: $theme-breakpoints-mobile) {
     margin: 0;
     height: 30rem;
+    width: 22.5rem;
     overflow-x: hidden;
     column-count: 1;
     column-width: 22.5rem;
@@ -23,10 +24,12 @@
   }
 
   @media (min-width: 80rem) {
+    width: 49.375rem;
     column-count: 2;
   }
 
   @media (min-width: 107rem) {
+    width: 76.25rem;
     column-count: 3;
   }
 }
