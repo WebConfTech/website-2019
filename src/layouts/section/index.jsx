@@ -39,7 +39,7 @@ const SectionLayout = ({
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.desktopLogo} />
         {mobileBackButtonAction ? <BackButtonMobile onClick={mobileBackButtonAction} /> : null}
-        <LogoSmall className={styles.mobileLogo} />
+        <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonAction} />
         <h1 className={styles.titleMobile}>{mobileTitle || title}</h1>
         {menuComponent ? (
           menuComponent({ hideOnMobile: hideMenuOnMobile })
