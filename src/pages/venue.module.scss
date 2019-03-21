@@ -1,0 +1,153 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: row;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column-reverse;
+
+  .text {
+    margin: 2.5rem 1.75rem 0;
+
+    @media (min-width: $theme-breakpoints-mobile) {
+      margin-left: 7rem;
+      margin-right: 3.5rem;
+    }
+  }
+
+  .intro {
+    font-weight: 700;
+    line-height: 1.5rem;
+  }
+
+  .summary {
+    line-height: 1.5rem;
+  }
+
+  .venue-container {
+    margin: 2.5rem 1.75rem;
+
+    @media (min-width: $theme-breakpoints-mobile) {
+      margin-left: 7rem;
+      margin-right: 3.5rem;
+    }
+  }
+
+  .auditorium {
+    font-size: 1.5rem;
+    line-height: 0.5rem;
+    color: $theme-palette-primary;
+  }
+
+  .venue-name {
+    margin-left: -0.125rem;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $theme-palette-secondary;
+  }
+
+  .address {
+    margin-top: 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    flex-direction: column;
+  }
+}
+
+.side-container {
+  .map-open-button {
+    display: none;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: relative;
+    height: 100vh;
+
+    .map-open-button {
+      display: initial;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 100;
+    }
+  }
+}
+
+.photos {
+  display: none;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: linear-gradient(
+        $theme-palette-base 2%,
+        transparent 20%,
+        transparent 70%,
+        $theme-palette-base 93%
+      );
+    }
+
+    .photo1 {
+      height: 29%;
+    }
+
+    .photo2 {
+      height: 23%;
+    }
+
+    .photo3 {
+      height: 44%;
+    }
+  }
+}
+
+.map-container-mobile {
+  width: 100%;
+  height: 15rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: none;
+  }
+}
+
+.map-container-desktop {
+  .map-close-button {
+    display: none;
+  }
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background: $theme-palette-base;
+
+    .map-close-button {
+      display: flex;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 500;
+    }
+  }
+}

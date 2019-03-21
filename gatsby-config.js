@@ -8,9 +8,10 @@ module.exports = {
     author: '@WebConfCBA'
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-leaflet',
     'gatsby-plugin-resolve-src',
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-sass`,
       options: {
