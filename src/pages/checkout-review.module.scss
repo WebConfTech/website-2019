@@ -7,7 +7,15 @@
   }
 }
 
-.reviewContainer {
+.review-container {
   max-width: 51.0625rem;
-  margin-left: 5rem;
+}
+
+@media (min-width: $theme-breakpoints-mobile) {
+  .section {
+    align-items: flex-start;
+  }
+  .review-container {
+    margin-left: 5rem;
+  }
 }
