@@ -16,6 +16,7 @@ export const SectionTitle = ({ className = '', children, ...props }) => (
 
 const SectionLayout = ({
   title,
+  mobileTitle,
   seoProps,
   className,
   newsletter = false,
@@ -35,7 +36,7 @@ const SectionLayout = ({
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.desktopLogo} />
         <LogoSmall className={styles.mobileLogo} />
-        <h1 className={styles.titleMobile}>{title}</h1>
+        <h1 className={styles.titleMobile}>{mobileTitle || title}</h1>
         {menuComponent ? menuComponent() : <Menu short />}
       </Sidebar>
       <Footer className={`${styles.footer} ${hideFooterOnMobile ? styles.HideOnMobile : ''}`}>
