@@ -15,6 +15,8 @@ export const LogoSmall = ({ className = '', disabled = false }) => {
   return disabled ? (
     <div className={`${styles.container} ${className}`}>{image}</div>
   ) : (
-    <Link to="/">{image}</Link>
+    <Link to="/" className={`${styles.container} ${className}`}>
+      {image}
+    </Link>
   );
 };
