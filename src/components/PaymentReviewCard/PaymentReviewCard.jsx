@@ -59,9 +59,13 @@ export const PaymentReviewCard = () => (
             <strong className={styles.textHighlight}>El total a pagar es de:</strong>
             <span className={styles.price}>AR$ 1.500</span>
           </p>
-          <CircleButton type="button" className={styles.payButton}>
-            <span>Pagar</span>
-          </CircleButton>
+        </div>
+        <div className={styles.payButtonContainer}>
+          <div className={styles.payButtonMobileBackground}>
+            <CircleButton type="button" className={styles.payButton}>
+              <span>Pagar</span>
+            </CircleButton>
+          </div>
         </div>
       </div>
     </Card>

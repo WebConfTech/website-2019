@@ -1,9 +1,6 @@
 .title {
   font-size: 1.5rem;
-  font-weight: lighter;
   color: $theme-palette-generics-black;
-  margin: 0;
-  padding-bottom: 1.6875rem;
 }
 
 .subtitle {
@@ -19,14 +16,11 @@
 }
 
 .card-contents {
-  padding: 2.1875rem;
   display: flex;
-  flex-direction: row;
   position: relative;
 }
 
 .tickets-container {
-  padding-right: 4.125rem;
   min-width: 13.25rem;
 }
 
@@ -87,6 +81,7 @@
 
 .text-highlight {
   color: $theme-palette-primary;
+  display: block;
 }
 
 .price {
@@ -97,9 +92,59 @@
   padding-top: 0.625rem;
 }
 
-.pay-button {
-  position: absolute;
-  z-index: 2;
-  right: -1.75rem;
-  top: 18.625rem;
+@media (min-width: $theme-breakpoints-mobile) {
+  .title {
+    font-weight: lighter;
+    padding-bottom: 1.6875rem;
+    margin: 0;
+  }
+  .card-contents {
+    padding: 2.1875rem;
+    flex-direction: row;
+  }
+  .tickes-container {
+    padding-right: 4.125rem;
+  }
+  .pay-button-container {
+    position: absolute;
+    z-index: 2;
+    right: -1.75rem;
+    top: 18.625rem;
+  }
+}
+
+@media (max-width: $theme-breakpoints-mobile) {
+  .title {
+    max-width: 15.25rem;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.323125rem 0 2.703125rem 0;
+  }
+  .card-contents {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tickets-container,
+  .info {
+    max-width: 14.8125rem;
+  }
+  .tickets-container {
+    padding-bottom: 2.31rem;
+  }
+  .text-highlight {
+    text-align: center;
+  }
+  .price {
+    text-align: center;
+  }
+  .pay-button-container {
+    width: 100%;
+  }
+  .pay-button-mobile-background {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.625rem 0 2.5rem 0;
+  }
 }
