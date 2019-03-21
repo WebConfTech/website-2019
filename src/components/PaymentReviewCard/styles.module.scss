@@ -1,0 +1,105 @@
+.title {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: $theme-palette-generics-black;
+  margin: 0;
+  padding-bottom: 1.6875rem;
+}
+
+.subtitle {
+  color: $theme-palette-primary;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 1.3125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cardContents {
+  padding: 2.1875rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.ticketsContainer {
+  padding-right: 4.125rem;
+  min-width: 13.25rem;
+}
+
+.ticketsInfo {
+  color: $theme-palette-primary;
+  font-size: 0.875rem;
+  margin: 0;
+  padding-bottom: 1.75rem;
+}
+
+.tickets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ticketContainer {
+  margin-bottom: 0.75rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ticket {
+  cursor: pointer;
+  font-family: inherit;
+  border-color: lighten($theme-palette-generics-black, 44%);
+  color: $theme-palette-generics-black;
+  display: block;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  text-align: left;
+  width: 12.5rem;
+  &:hover,
+  &:focus {
+    border-color: $theme-palette-generics-black;
+  }
+}
+
+.ticketLabel {
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: block;
+  padding-bottom: 0.125rem;
+}
+
+.ticketDetail {
+  font-size: 0.625rem;
+  opacity: 0.5;
+}
+
+.infoText {
+  color: $theme-palette-generics-black;
+  font-size: 0.875rem;
+  margin: 0;
+  padding-bottom: 1.4375rem;
+}
+
+.textHighlight {
+  color: $theme-palette-primary;
+}
+
+.price {
+  color: $theme-palette-secondary;
+  font-size: 3.125rem;
+  font-weight: bold;
+  display: block;
+  padding-top: 0.625rem;
+}
+
+.payButton {
+  position: absolute;
+  z-index: 2;
+  right: -1.75rem;
+  top: 18.625rem;
+}
