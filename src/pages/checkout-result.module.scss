@@ -63,7 +63,12 @@
     z-index: 1;
     &::after {
       content: '';
-      background-color: $theme-palette-secondary;
+      background-image: linear-gradient(
+        to bottom,
+        $theme-palette-gradients-common-first,
+        $theme-palette-gradients-common-second 90%,
+        $theme-palette-gradients-common-third
+      );
       height: 12.6875rem;
       box-shadow: 0 0.625rem 1.875rem transparentize($theme-palette-generics-black, 0.54);
       position: absolute;
