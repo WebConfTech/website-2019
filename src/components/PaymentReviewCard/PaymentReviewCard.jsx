@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getTickets } from 'data/checkout/selectors';
+import { selectTicket } from 'data/checkout/actions';
+import { Link } from 'gatsby';
 import { CircleButton } from 'lib/Button';
 import { Card } from 'lib/Card';
 import cashIcon from 'assets/images/icon-cash.svg';
 import ticketIcon from 'assets/images/icon-ticket.svg';
 import styles from './styles.module.scss';
 
-const _PaymentReviewCard = ({ tickets }) => (
+const _PaymentReviewCard = ({ tickets, onTicketClick }) => (
   <div className={styles.container}>
     <h2 className={styles.title}>¡Ya tenemos todo lo que necesitamos! Revisá a continuación:</h2>
     <Card>
@@ -21,14 +23,18 @@ const _PaymentReviewCard = ({ tickets }) => (
             Podés hacer clic en cualquier entrada para editarla o cancelarla.
           </p>
           <ul className={styles.tickets}>
-            {tickets.map(ticket => (
+            {tickets.map((ticket, ticketIndex) => (
               <li key={ticket.dni} className={styles.ticketContainer}>
-                <button type="button" className={styles.ticket}>
+                <Link
+                  to="/checkout/"
+                  onClick={() => onTicketClick(ticketIndex)}
+                  className={styles.ticket}
+                >
                   <span className={styles.ticketLabel}>{ticket.name}</span>
                   <span className={styles.ticketDetail}>
                     {ticket.dni} - {ticket.email}
                   </span>
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
@@ -70,4 +76,11 @@ const mapStateToProps = state => ({
   tickets: getTickets(state)
 });
 
-export const PaymentReviewCard = connect(mapStateToProps)(_PaymentReviewCard);
+const mapDispatchToProps = dispatch => ({
+  onTicketClick: ticketIndex => dispatch(selectTicket(ticketIndex))
+});
+
+export const PaymentReviewCard = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_PaymentReviewCard);
