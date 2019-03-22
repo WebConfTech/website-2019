@@ -103,6 +103,10 @@
   padding-top: 0.625rem;
 }
 
+.pay-button {
+  text-decoration: none;
+}
+
 @media (min-width: $theme-breakpoints-mobile) {
   .title {
     font-weight: lighter;
