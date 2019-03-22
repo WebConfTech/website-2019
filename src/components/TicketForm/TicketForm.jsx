@@ -1,10 +1,12 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
+import { navigate } from 'gatsby';
 import { maskDni, unmaskDni } from 'common/utils';
-import { changeTicket } from 'data/checkout/actions';
+import { changeTicket, toggleValidations } from 'data/checkout/actions';
 import {
   getCurrentTicketIndex,
   getCurrentTicket,
+  isCurrentTicketValid,
   getCurrentTicketInvalidFields,
   isCurrentTicketDniDuplicated,
   isCurrentTicketEmailDuplicated,
@@ -18,11 +20,13 @@ import styles from './styles.module.scss';
 const _TicketForm = ({
   ticketIndex,
   ticket,
+  isValid,
   invalidFields,
   isDniDuplicated,
   isEmailDuplicated,
-  showValidations,
+  displayValidations,
   onChange,
+  showValidations,
   children
 }) => {
   const changeHandler = useCallback(
@@ -38,11 +42,24 @@ const _TicketForm = ({
     onChange
   ]);
 
+  const onSubmit = useCallback(
+    event => {
+      event.preventDefault();
+
+      if (isValid) {
+        navigate('/checkout/review/');
+      } else {
+        showValidations();
+      }
+    },
+    [isValid, showValidations]
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.elements}>
         <div className={styles.formContainer}>
-          <form>
+          <form onSubmit={onSubmit}>
             <div className={styles.formTitle}>Completá los siguientes datos:</div>
             <div className={`${styles.formTitle} ${styles.MobileOnly}`}>Completá estos datos:</div>
             <ul className={styles.fields}>
@@ -55,7 +72,7 @@ const _TicketForm = ({
                   value={ticket.name}
                   name="name"
                   onChange={changeHandler}
-                  hasError={showValidations && invalidFields.includes('name')}
+                  hasError={displayValidations && invalidFields.includes('name')}
                 />
               </li>
               <li className={styles.field}>
@@ -68,7 +85,7 @@ const _TicketForm = ({
                   name="email"
                   onChange={changeHandler}
                   hasError={
-                    showValidations && (invalidFields.includes('email') || isEmailDuplicated)
+                    displayValidations && (invalidFields.includes('email') || isEmailDuplicated)
                   }
                 />
               </li>
@@ -83,7 +100,9 @@ const _TicketForm = ({
                   unmask={unmaskDni}
                   name="dni"
                   onChange={dniChangeHandler}
-                  hasError={showValidations && (invalidFields.includes('dni') || isDniDuplicated)}
+                  hasError={
+                    displayValidations && (invalidFields.includes('dni') || isDniDuplicated)
+                  }
                 />
               </li>
             </ul>
@@ -112,14 +131,16 @@ _TicketForm.displayName = 'TicketForm';
 const mapStateToProps = state => ({
   ticketIndex: getCurrentTicketIndex(state),
   ticket: getCurrentTicket(state),
+  isValid: isCurrentTicketValid(state),
   invalidFields: getCurrentTicketInvalidFields(state),
   isDniDuplicated: isCurrentTicketDniDuplicated(state),
   isEmailDuplicated: isCurrentTicketEmailDuplicated(state),
-  showValidations: shouldShowValidations(state)
+  displayValidations: shouldShowValidations(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: (ticketIndex, change) => dispatch(changeTicket(ticketIndex, change))
+  onChange: (ticketIndex, change) => dispatch(changeTicket(ticketIndex, change)),
+  showValidations: () => dispatch(toggleValidations(true))
 });
 
 export const TicketForm = connect(
