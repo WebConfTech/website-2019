@@ -14,7 +14,7 @@ const CHECKOUT_MENU = [
   },
   {
     title: 'Revisá tu compra',
-    url: '/checkout/preview/',
+    url: '/checkout/review/',
     enabled: false
   },
   {
