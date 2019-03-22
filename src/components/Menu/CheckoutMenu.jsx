@@ -9,27 +9,17 @@ import styles from './styles.module.scss';
 const CHECKOUT_MENU = [
   {
     title: 'Entradas',
-    url: '/checkout',
+    url: '/checkout/',
     enabled: true
   },
   {
-    title: 'Medio de pago',
-    url: '/checkout/medio-de-pago',
-    enabled: false
-  },
-  {
-    title: 'Datos de pago',
-    url: '/checkout/datos-de-pago',
-    enabled: false
-  },
-  {
     title: 'Revisá tu compra',
-    url: '/checkout/revisa-tu-pago',
+    url: '/checkout/preview/',
     enabled: false
   },
   {
     title: '¡Listo!',
-    url: '/checkout/listo',
+    url: '/checkout/success/',
     enabled: false
   }
 ];

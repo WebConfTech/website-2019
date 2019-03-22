@@ -3,7 +3,7 @@ import { CheckoutMenu } from 'components/Menu';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { TicketSelector } from 'components/TicketSelector';
 import { TicketForm } from 'components/TicketForm';
-import styles from './checkout.module.scss';
+import styles from './index.module.scss';
 
 const CheckoutPage = props => (
   <SectionLayout

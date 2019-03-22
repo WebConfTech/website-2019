@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckoutMenu } from 'components/Menu';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { PaymentReviewCard } from 'components/PaymentReviewCard';
-import styles from './checkout-review.module.scss';
+import styles from './review.module.scss';
 
 const CheckoutReviewPage = props => (
   <SectionLayout

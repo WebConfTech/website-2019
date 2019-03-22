@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { Button } from 'lib/Button';
-import styles from './checkout-result.module.scss';
+import styles from './result.module.scss';
 import purchaseOkImage from 'assets/images/purchase-ok.svg';
 
 const CheckoutReviewPage = props => (
