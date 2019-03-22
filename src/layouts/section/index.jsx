@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Logo } from 'components/Logo';
 import { LogoSmall } from 'components/LogoSmall';
 import { Menu } from 'components/Menu';
@@ -26,7 +27,7 @@ const SectionLayout = ({
   hideSidebarOnMobile = false,
   children,
   menuComponent,
-  mobileBackButtonAction
+  mobileBackButtonRoute
 }) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
@@ -38,8 +39,8 @@ const SectionLayout = ({
       </Content>
       <Sidebar className={`${styles.sidebar} ${hideSidebarOnMobile ? styles.HideOnMobile : ''}`}>
         <Logo className={styles.desktopLogo} />
-        {mobileBackButtonAction ? <BackButtonMobile onClick={mobileBackButtonAction} /> : null}
-        <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonAction} />
+        {mobileBackButtonRoute ? <BackButtonMobile as={Link} to={mobileBackButtonRoute} /> : null}
+        <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonRoute} />
         <h1 className={styles.titleMobile}>{title}</h1>
         {menuComponent ? (
           menuComponent({ hideOnMobile: hideMenuOnMobile })
