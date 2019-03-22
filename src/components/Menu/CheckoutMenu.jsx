@@ -5,28 +5,9 @@ import { NavigationItem, MenuIconMobile, CloseIcon } from 'lib/Button';
 import CloseNegativeIcon from 'lib/assets/icon-close-negative.svg';
 import styles from './styles.module.scss';
 
-// Temp
-const CHECKOUT_MENU = [
-  {
-    title: 'Entradas',
-    url: '/checkout/',
-    enabled: true
-  },
-  {
-    title: 'Revisá tu compra',
-    url: '/checkout/review/',
-    enabled: false
-  },
-  {
-    title: '¡Listo!',
-    url: '/checkout/success/',
-    enabled: false
-  }
-];
-
 const AsSpan = props => <span {...props}>{props.children}</span>;
 
-export const CheckoutMenu = ({ className = '', dark, short, hideOnMobile }) => (
+export const CheckoutMenu = ({ className = '', items, dark, short, hideOnMobile }) => (
   <Location>
     {({ location }) => (
       <div className={`${className} ${hideOnMobile ? styles.hideOnMobile : ''}`}>
@@ -36,7 +17,7 @@ export const CheckoutMenu = ({ className = '', dark, short, hideOnMobile }) => (
           </CloseIcon>
           <nav className={styles.nav}>
             <ul className={styles.list}>
-              {CHECKOUT_MENU.map(item => (
+              {items.map(item => (
                 <li key={item.url} className={styles.item}>
                   <NavigationItem
                     as={item.enabled ? Link : AsSpan}

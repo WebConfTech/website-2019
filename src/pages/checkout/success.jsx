@@ -2,14 +2,32 @@ import React from 'react';
 import Link from 'gatsby-link';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { Button } from 'lib/Button';
+import { CheckoutMenu } from 'components/Menu';
 import styles from './result.module.scss';
 import purchaseOkImage from 'assets/images/purchase-ok.svg';
+
+const CHECKOUT_MENU = [
+  {
+    title: 'Entradas',
+    enabled: false
+  },
+  {
+    title: 'Revisá tu compra',
+    enabled: false
+  },
+  {
+    title: '¡Listo!',
+    url: '/checkout/success/',
+    enabled: true
+  }
+];
 
 const CheckoutReviewPage = props => (
   <SectionLayout
     title="¡Gracias!"
     currentPath={props.location.pathname}
     className={styles.section}
+    menuComponent={() => <CheckoutMenu items={CHECKOUT_MENU} short hideOnMobile />}
     hideFooterOnMobile
     hideSidebarOnMobile
   >

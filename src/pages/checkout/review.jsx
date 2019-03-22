@@ -4,12 +4,29 @@ import SectionLayout, { SectionTitle } from 'layouts/section';
 import { PaymentReviewCard } from 'components/PaymentReviewCard';
 import styles from './review.module.scss';
 
+const CHECKOUT_MENU = [
+  {
+    title: 'Entradas',
+    url: '/checkout/',
+    enabled: true
+  },
+  {
+    title: 'Revisá tu compra',
+    url: '/checkout/review/',
+    enabled: true
+  },
+  {
+    title: '¡Listo!',
+    enabled: false
+  }
+];
+
 const CheckoutReviewPage = props => (
   <SectionLayout
     title="Revisá tu compra"
     currentPath={props.location.pathname}
     className={styles.section}
-    menuComponent={() => <CheckoutMenu short hideOnMobile />}
+    menuComponent={() => <CheckoutMenu items={CHECKOUT_MENU} short hideOnMobile />}
     mobileBackButtonRoute="/checkout/"
     hideFooterOnMobile
   >
