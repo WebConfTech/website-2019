@@ -1,29 +1,13 @@
 import React from 'react';
-import styles from './styles.module.scss';
+import { connect } from 'react-redux';
+import { getTickets } from 'data/checkout/selectors';
 import { CircleButton } from 'lib/Button';
 import { Card } from 'lib/Card';
 import cashIcon from 'assets/images/icon-cash.svg';
 import ticketIcon from 'assets/images/icon-ticket.svg';
+import styles from './styles.module.scss';
 
-const tickets = [
-  {
-    name: 'Joel Alejandro Villarreal Bertoldi',
-    dni: '34.988.860',
-    email: 'joel@example.com'
-  },
-  {
-    name: 'Marta Sanchez',
-    dni: '12.345.678',
-    email: 'marta@example.com'
-  },
-  {
-    name: 'Eugenio Funes',
-    dni: '32.345.678',
-    email: 'eugenio@example.com'
-  }
-];
-
-export const PaymentReviewCard = () => (
+const _PaymentReviewCard = ({ tickets }) => (
   <div className={styles.container}>
     <h2 className={styles.title}>¡Ya tenemos todo lo que necesitamos! Revisá a continuación:</h2>
     <Card>
@@ -79,3 +63,11 @@ export const PaymentReviewCard = () => (
     </Card>
   </div>
 );
+
+_PaymentReviewCard.displayName = 'PaymentReviewCard';
+
+const mapStateToProps = state => ({
+  tickets: getTickets(state)
+});
+
+export const PaymentReviewCard = connect(mapStateToProps)(_PaymentReviewCard);
