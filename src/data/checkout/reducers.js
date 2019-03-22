@@ -5,6 +5,7 @@ import {
   ADD_TICKET,
   CHANGE_TICKET,
   REMOVE_TICKET,
+  CLEAR_TICKETS,
   SELECT_TICKET,
   TOGGLE_VALIDATIONS
 } from './actions';
@@ -35,6 +36,8 @@ const tickets = (state = ticketsDefault, action) => {
         ),
         R.remove(action.payload, 1)
       )(state);
+    case CLEAR_TICKETS:
+      return ticketsDefault;
     default:
       return state;
   }
@@ -45,6 +48,7 @@ const showValidations = (state = false, action) => {
     case TOGGLE_VALIDATIONS:
       return action.payload;
     case CHANGE_TICKET:
+    case CLEAR_TICKETS:
     case SELECT_TICKET:
       return false;
     default:
@@ -52,7 +56,8 @@ const showValidations = (state = false, action) => {
   }
 };
 
-const currentTicketIndex = (state = 0, action, { tickets }) => {
+const currentTicketDefault = 0;
+const currentTicketIndex = (state = currentTicketDefault, action, { tickets }) => {
   const numberTickets = tickets.length;
 
   switch (action.type) {
@@ -60,6 +65,8 @@ const currentTicketIndex = (state = 0, action, { tickets }) => {
       return numberTickets - 1;
     case REMOVE_TICKET:
       return state === numberTickets ? numberTickets - 1 : state;
+    case CLEAR_TICKETS:
+      return currentTicketDefault;
     case SELECT_TICKET:
       return R.compose(
         R.min(numberTickets - 1),
