@@ -1,19 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { TICKET_PRICE, PAYMENT_URLS } from 'data/constants';
+import { TICKET_PRICE } from 'data/constants';
 import { getTickets } from 'data/checkout/selectors';
-import { selectTicket } from 'data/checkout/actions';
+import { selectTicket, preparePayment } from 'data/checkout/actions';
 import { Link } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { CircleButton } from 'lib/Button';
 import { Card } from 'lib/Card';
 import cashIcon from 'assets/images/icon-cash.svg';
 import ticketIcon from 'assets/images/icon-ticket.svg';
 import styles from './styles.module.scss';
 
-const _PaymentReviewCard = ({ tickets, onTicketClick }) => {
+const _PaymentReviewCard = ({ tickets, onTicketClick, onPayment }) => {
   const total = TICKET_PRICE * tickets.length;
-  const paymentURL = PAYMENT_URLS[tickets.length - 1];
 
   return (
     <div className={styles.container}>
@@ -66,7 +64,7 @@ const _PaymentReviewCard = ({ tickets, onTicketClick }) => {
           </div>
           <div className={styles.payButtonContainer}>
             <div className={styles.payButtonMobileBackground}>
-              <CircleButton as={OutboundLink} href={paymentURL} className={styles.payButton}>
+              <CircleButton className={styles.payButton} onClick={onPayment}>
                 <span>Comprar</span>
               </CircleButton>
             </div>
@@ -84,7 +82,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onTicketClick: ticketIndex => dispatch(selectTicket(ticketIndex))
+  onTicketClick: ticketIndex => dispatch(selectTicket(ticketIndex)),
+  onPayment: () => dispatch(preparePayment())
 });
 
 export const PaymentReviewCard = connect(
