@@ -24,13 +24,12 @@ const CHECKOUT_MENU = [
   }
 ];
 
-const CheckoutPendingPage = ({ location, clear }) => {
+const CheckoutPendingPage = ({ clear }) => {
   useEffect(clear, []);
 
   return (
     <SectionLayout
       title="¡Gracias!"
-      currentPath={location.pathname}
       className={styles.section}
       menuComponent={() => <CheckoutMenu items={CHECKOUT_MENU} short hideOnMobile />}
       hideFooterOnMobile

@@ -21,10 +21,9 @@ const CHECKOUT_MENU = [
   }
 ];
 
-const CheckoutReviewPage = props => (
+const CheckoutReviewPage = () => (
   <SectionLayout
     title="Revisá tu compra"
-    currentPath={props.location.pathname}
     className={styles.section}
     menuComponent={() => <CheckoutMenu items={CHECKOUT_MENU} short hideOnMobile />}
     mobileBackButtonRoute="/checkout/"

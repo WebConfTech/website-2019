@@ -1,7 +1,4 @@
-import * as R from 'ramda';
 import React from 'react';
-import { connect } from 'react-redux';
-import { isCurrentTicketValid } from 'data/checkout/selectors';
 import { CheckoutMenu } from 'components/Menu';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { TicketSelector } from 'components/TicketSelector';
@@ -25,27 +22,18 @@ const CHECKOUT_MENU = [
   }
 ];
 
-const CheckoutPage = ({ location, isValid }) => {
-  const menu = R.adjust(1, R.assoc('enabled', isValid))(CHECKOUT_MENU);
+const CheckoutPage = () => (
+  <SectionLayout
+    title="Entradas"
+    className={styles.section}
+    menuComponent={() => <CheckoutMenu items={CHECKOUT_MENU} short />}
+  >
+    <SectionTitle>Entradas</SectionTitle>
+    <div className={styles.tickets}>
+      <TicketSelector />
+      <TicketForm />
+    </div>
+  </SectionLayout>
+);
 
-  return (
-    <SectionLayout
-      title="Entradas"
-      currentPath={location.pathname}
-      className={styles.section}
-      menuComponent={() => <CheckoutMenu items={menu} short />}
-    >
-      <SectionTitle>Entradas</SectionTitle>
-      <div className={styles.tickets}>
-        <TicketSelector />
-        <TicketForm />
-      </div>
-    </SectionLayout>
-  );
-};
-
-const mapStateToProps = state => ({
-  isValid: isCurrentTicketValid(state)
-});
-
-export default connect(mapStateToProps)(CheckoutPage);
+export default CheckoutPage;
