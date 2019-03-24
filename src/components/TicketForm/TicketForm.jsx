@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
-import { navigate } from 'gatsby';
 import { maskDni, unmaskDni } from 'common/utils';
-import { changeTicket, toggleValidations } from 'data/checkout/actions';
+import { changeTicket, toggleValidations, validateCustomers } from 'data/checkout/actions';
 import {
   getCurrentTicketIndex,
   getCurrentTicket,
@@ -10,7 +9,8 @@ import {
   getCurrentTicketInvalidFields,
   isCurrentTicketDniDuplicated,
   isCurrentTicketEmailDuplicated,
-  shouldShowValidations
+  shouldShowValidations,
+  getCurrentTicketCustomerInvalidFields
 } from 'data/checkout/selectors';
 import { Input, MaskedInput } from 'lib/Input';
 import { CircleButton } from 'lib/Button';
@@ -25,8 +25,10 @@ const _TicketForm = ({
   isDniDuplicated,
   isEmailDuplicated,
   displayValidations,
+  customerInvalidFields,
   onChange,
   showValidations,
+  validate,
   children
 }) => {
   const changeHandler = useCallback(
@@ -47,7 +49,7 @@ const _TicketForm = ({
       event.preventDefault();
 
       if (isValid) {
-        navigate('/checkout/review/');
+        validate();
       } else {
         showValidations();
       }
@@ -85,7 +87,10 @@ const _TicketForm = ({
                   name="email"
                   onChange={changeHandler}
                   hasError={
-                    displayValidations && (invalidFields.includes('email') || isEmailDuplicated)
+                    displayValidations &&
+                    (invalidFields.includes('email') ||
+                      isEmailDuplicated ||
+                      customerInvalidFields.includes('email'))
                   }
                 />
               </li>
@@ -101,7 +106,10 @@ const _TicketForm = ({
                   name="dni"
                   onChange={dniChangeHandler}
                   hasError={
-                    displayValidations && (invalidFields.includes('dni') || isDniDuplicated)
+                    displayValidations &&
+                    (invalidFields.includes('dni') ||
+                      isDniDuplicated ||
+                      customerInvalidFields.includes('dni'))
                   }
                 />
               </li>
@@ -135,12 +143,14 @@ const mapStateToProps = state => ({
   invalidFields: getCurrentTicketInvalidFields(state),
   isDniDuplicated: isCurrentTicketDniDuplicated(state),
   isEmailDuplicated: isCurrentTicketEmailDuplicated(state),
-  displayValidations: shouldShowValidations(state)
+  displayValidations: shouldShowValidations(state),
+  customerInvalidFields: getCurrentTicketCustomerInvalidFields(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   onChange: (ticketIndex, change) => dispatch(changeTicket(ticketIndex, change)),
-  showValidations: () => dispatch(toggleValidations(true))
+  showValidations: () => dispatch(toggleValidations(true)),
+  validate: () => dispatch(validateCustomers())
 });
 
 export const TicketForm = connect(

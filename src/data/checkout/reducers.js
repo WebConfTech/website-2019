@@ -7,7 +7,8 @@ import {
   REMOVE_TICKET,
   CLEAR_TICKETS,
   SELECT_TICKET,
-  TOGGLE_VALIDATIONS
+  TOGGLE_VALIDATIONS,
+  VALIDATE_CUSTOMERS_SUCCESS
 } from './actions';
 
 const ticketDefault = {
@@ -47,10 +48,14 @@ const showValidations = (state = false, action) => {
   switch (action.type) {
     case TOGGLE_VALIDATIONS:
       return action.payload;
+    case ADD_TICKET:
     case CHANGE_TICKET:
+    case REMOVE_TICKET:
     case CLEAR_TICKETS:
     case SELECT_TICKET:
       return false;
+    case VALIDATE_CUSTOMERS_SUCCESS:
+      return true;
     default:
       return state;
   }
@@ -72,6 +77,27 @@ const currentTicketIndex = (state = currentTicketDefault, action, { tickets }) =
         R.min(numberTickets - 1),
         R.max(0)
       )(action.payload);
+    case VALIDATE_CUSTOMERS_SUCCESS:
+      return action.payload.ticketIndex;
+    default:
+      return state;
+  }
+};
+
+const currentTicketCustomerInvalidFieldsDefault = [];
+const currentTicketCustomerInvalidFields = (
+  state = currentTicketCustomerInvalidFieldsDefault,
+  action
+) => {
+  switch (action.type) {
+    case VALIDATE_CUSTOMERS_SUCCESS:
+      return action.payload.invalidFields;
+    case ADD_TICKET:
+    case CHANGE_TICKET:
+    case REMOVE_TICKET:
+    case CLEAR_TICKETS:
+    case SELECT_TICKET:
+      return currentTicketCustomerInvalidFieldsDefault;
     default:
       return state;
   }
@@ -83,6 +109,7 @@ export const checkout = combineCrossSliceReducers(
     showValidations
   },
   {
-    currentTicketIndex
+    currentTicketIndex,
+    currentTicketCustomerInvalidFields
   }
 );

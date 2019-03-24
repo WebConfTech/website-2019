@@ -5,6 +5,8 @@ import { ticketSchema } from './schemas';
 export const getTickets = state => state.checkout.tickets;
 export const getCurrentTicketIndex = state => state.checkout.currentTicketIndex;
 export const shouldShowValidations = state => state.checkout.showValidations;
+export const getCurrentTicketCustomerInvalidFields = state =>
+  state.checkout.currentTicketCustomerInvalidFields;
 
 export const getCurrentTicket = createSelector(
   [getCurrentTicketIndex, getTickets],
@@ -44,9 +46,17 @@ export const isCurrentTicketEmailDuplicated = createSelector(
     )(tickets)
 );
 export const isCurrentTicketValid = createSelector(
-  [isCurrentTicketDniDuplicated, isCurrentTicketEmailDuplicated, getCurrentTicketInvalidFields],
-  (isDniDuplicated, isEmailDuplicated, invalidFields) =>
-    !isEmailDuplicated && !isDniDuplicated && R.isEmpty(invalidFields)
+  [
+    isCurrentTicketDniDuplicated,
+    isCurrentTicketEmailDuplicated,
+    getCurrentTicketInvalidFields,
+    getCurrentTicketCustomerInvalidFields
+  ],
+  (isDniDuplicated, isEmailDuplicated, invalidFields, customerInvalidFields) =>
+    !isEmailDuplicated &&
+    !isDniDuplicated &&
+    R.isEmpty(invalidFields) &&
+    R.isEmpty(customerInvalidFields)
 );
 export const getNumberTickets = createSelector(
   [getTickets],
