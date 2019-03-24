@@ -18,7 +18,7 @@ export const CheckoutMenu = ({ className = '', items, dark, short, hideOnMobile 
           <nav className={styles.nav}>
             <ul className={styles.list}>
               {items.map(item => (
-                <li key={item.url} className={styles.item}>
+                <li key={item.title} className={styles.item}>
                   <NavigationItem
                     as={item.enabled ? Link : AsSpan}
                     to={item.url}
