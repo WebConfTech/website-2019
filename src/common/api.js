@@ -1,7 +1,9 @@
 import { API_BASE_URL, CHECKOUT_BASE_URL } from './config';
 
 export const SAVE_EMAIL = `${API_BASE_URL}/lambdas/mail_save`;
-export const CUSTOMER = `${CHECKOUT_BASE_URL}/api/customers`;
+export const CUSTOMER = `${CHECKOUT_BASE_URL}/customers`;
+export const TICKET = `${CHECKOUT_BASE_URL}/tickets`;
+export const PURCHASE = `${CHECKOUT_BASE_URL}/purchases`;
 
 const makeHeaders = () =>
   new Headers({
