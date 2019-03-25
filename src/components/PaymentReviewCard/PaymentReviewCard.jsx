@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { TICKET_PRICE } from 'data/constants';
-import { getTickets } from 'data/checkout/selectors';
+import { getTickets, isPreparingPayment } from 'data/checkout/selectors';
 import { selectTicket, preparePayment } from 'data/checkout/actions';
 import { Link } from 'gatsby';
 import { CircleButton } from 'lib/Button';
@@ -10,7 +10,7 @@ import cashIcon from 'assets/images/icon-cash.svg';
 import ticketIcon from 'assets/images/icon-ticket.svg';
 import styles from './styles.module.scss';
 
-const _PaymentReviewCard = ({ tickets, onTicketClick, onPayment }) => {
+const _PaymentReviewCard = ({ tickets, isPreparing, onTicketClick, onPayment }) => {
   const total = TICKET_PRICE * tickets.length;
 
   return (
@@ -64,7 +64,11 @@ const _PaymentReviewCard = ({ tickets, onTicketClick, onPayment }) => {
           </div>
           <div className={styles.payButtonContainer}>
             <div className={styles.payButtonMobileBackground}>
-              <CircleButton className={styles.payButton} onClick={onPayment}>
+              <CircleButton
+                className={styles.payButton}
+                onClick={onPayment}
+                isLoading={isPreparing}
+              >
                 <span>Comprar</span>
               </CircleButton>
             </div>
@@ -78,7 +82,8 @@ const _PaymentReviewCard = ({ tickets, onTicketClick, onPayment }) => {
 _PaymentReviewCard.displayName = 'PaymentReviewCard';
 
 const mapStateToProps = state => ({
-  tickets: getTickets(state)
+  tickets: getTickets(state),
+  isPreparing: isPreparingPayment(state)
 });
 
 const mapDispatchToProps = dispatch => ({
