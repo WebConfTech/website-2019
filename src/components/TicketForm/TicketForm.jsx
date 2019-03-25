@@ -10,7 +10,8 @@ import {
   isCurrentTicketDniDuplicated,
   isCurrentTicketEmailDuplicated,
   shouldShowValidations,
-  getCurrentTicketCustomerInvalidFields
+  getCurrentTicketCustomerInvalidFields,
+  isValidatingCustomers
 } from 'data/checkout/selectors';
 import { Input, MaskedInput } from 'lib/Input';
 import { CircleButton } from 'lib/Button';
@@ -26,10 +27,11 @@ const _TicketForm = ({
   isEmailDuplicated,
   displayValidations,
   customerInvalidFields,
+  isValidating,
+  children,
   onChange,
   showValidations,
-  validate,
-  children
+  validate
 }) => {
   const changeHandler = useCallback(
     ({ target }) => {
@@ -118,7 +120,7 @@ const _TicketForm = ({
               <div className={styles.priceInfo}>Valor de la entrada</div>
               <div className={styles.priceValue}>AR$ 750</div>
             </div>
-            <CircleButton type="submit" className={styles.buyButton}>
+            <CircleButton type="submit" className={styles.buyButton} isLoading={isValidating}>
               <span>Pagar</span>
             </CircleButton>
           </form>
@@ -144,7 +146,8 @@ const mapStateToProps = state => ({
   isDniDuplicated: isCurrentTicketDniDuplicated(state),
   isEmailDuplicated: isCurrentTicketEmailDuplicated(state),
   displayValidations: shouldShowValidations(state),
-  customerInvalidFields: getCurrentTicketCustomerInvalidFields(state)
+  customerInvalidFields: getCurrentTicketCustomerInvalidFields(state),
+  isValidating: isValidatingCustomers(state)
 });
 
 const mapDispatchToProps = dispatch => ({
