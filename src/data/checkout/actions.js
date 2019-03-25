@@ -106,6 +106,7 @@ export const validateCustomers = () => async (dispatch, getState) => {
     }
 
     // if no validation errors where found, proceed to the review
+    dispatch(validateCustomersSuccess());
     navigate('/checkout/review/');
   } catch (e) {
     dispatch(validateCustomersFailure(e.message));

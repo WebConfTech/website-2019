@@ -8,7 +8,12 @@ import {
   CLEAR_TICKETS,
   SELECT_TICKET,
   TOGGLE_VALIDATIONS,
-  VALIDATE_CUSTOMERS_SUCCESS
+  VALIDATE_CUSTOMERS_REQUEST,
+  VALIDATE_CUSTOMERS_SUCCESS,
+  VALIDATE_CUSTOMERS_FAILURE,
+  PREPARE_PAYMENT_REQUEST,
+  PREPARE_PAYMENT_SUCCESS,
+  PREPARE_PAYMENT_FAILURE
 } from './actions';
 
 const ticketDefault = {
@@ -55,7 +60,7 @@ const showValidations = (state = false, action) => {
     case SELECT_TICKET:
       return false;
     case VALIDATE_CUSTOMERS_SUCCESS:
-      return true;
+      return action.payload.ticketIndex != null;
     default:
       return state;
   }
@@ -78,7 +83,7 @@ const currentTicketIndex = (state = currentTicketDefault, action, { tickets }) =
         R.max(0)
       )(action.payload);
     case VALIDATE_CUSTOMERS_SUCCESS:
-      return action.payload.ticketIndex;
+      return action.payload.ticketIndex != null ? action.payload.ticketIndex : state;
     default:
       return state;
   }
@@ -91,13 +96,39 @@ const currentTicketCustomerInvalidFields = (
 ) => {
   switch (action.type) {
     case VALIDATE_CUSTOMERS_SUCCESS:
-      return action.payload.invalidFields;
+      return action.payload.invalidFields != null
+        ? action.payload.invalidFields
+        : currentTicketCustomerInvalidFieldsDefault;
     case ADD_TICKET:
     case CHANGE_TICKET:
     case REMOVE_TICKET:
     case CLEAR_TICKETS:
     case SELECT_TICKET:
       return currentTicketCustomerInvalidFieldsDefault;
+    default:
+      return state;
+  }
+};
+
+const isValidatingCustomers = (state = false, action) => {
+  switch (action.type) {
+    case VALIDATE_CUSTOMERS_REQUEST:
+      return true;
+    case VALIDATE_CUSTOMERS_SUCCESS:
+    case VALIDATE_CUSTOMERS_FAILURE:
+      return false;
+    default:
+      return state;
+  }
+};
+
+const isPreparingPayment = (state = false, action) => {
+  switch (action.type) {
+    case PREPARE_PAYMENT_REQUEST:
+      return true;
+    case PREPARE_PAYMENT_SUCCESS:
+    case PREPARE_PAYMENT_FAILURE:
+      return false;
     default:
       return state;
   }
@@ -110,6 +141,8 @@ export const checkout = combineCrossSliceReducers(
   },
   {
     currentTicketIndex,
-    currentTicketCustomerInvalidFields
+    currentTicketCustomerInvalidFields,
+    isValidatingCustomers,
+    isPreparingPayment
   }
 );

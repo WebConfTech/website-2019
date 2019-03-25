@@ -7,6 +7,8 @@ export const getCurrentTicketIndex = state => state.checkout.currentTicketIndex;
 export const shouldShowValidations = state => state.checkout.showValidations;
 export const getCurrentTicketCustomerInvalidFields = state =>
   state.checkout.currentTicketCustomerInvalidFields;
+export const isValidatingCustomers = state => state.checkout.isValidatingCustomers;
+export const isPreparingPayment = state => state.checkout.isPrepairngPayment;
 
 export const getCurrentTicket = createSelector(
   [getCurrentTicketIndex, getTickets],
