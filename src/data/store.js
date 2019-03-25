@@ -11,12 +11,15 @@ export function configureStore() {
     debounce: 500
   };
 
+  // initial state
+  const initialState = typeof window !== 'undefined' ? load(localStorageConf) : {};
+
   // create store
   const composeEnhancers =
     (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
   const store = createStore(
     appReducers,
-    load(localStorageConf),
+    initialState,
     composeEnhancers(applyMiddleware(thunk, save(localStorageConf)))
   );
 
