@@ -75,8 +75,11 @@ export const validateCustomers = () => async (dispatch, getState) => {
       tickets.map(async ticket => {
         // for each ticket, validate dni and email are not duplicated
         const responses = await Promise.all([
-          get(CUSTOMER, { identificationType: 'DNI', identificationNumber: ticket.dni }),
-          get(CUSTOMER, { emailAddress: ticket.email })
+          get(CUSTOMER, {
+            'filter[identificationType]': 'DNI',
+            'filter[identificationNumber]': ticket.dni
+          }),
+          get(CUSTOMER, { 'filter[emailAddress]': ticket.email })
         ]);
 
         // process the responses and set the invalid fields for each ticket
