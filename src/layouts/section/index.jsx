@@ -5,6 +5,7 @@ import { Menu } from 'components/Menu';
 import { CFPButton } from 'components/CFPButton';
 import { AddEmailForm } from 'components/AddEmailForm';
 import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
+import { BackButtonMobile } from 'lib/Button';
 import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
 import styles from './styles.module.scss';
 
@@ -20,23 +21,33 @@ const SectionLayout = ({
   className,
   newsletter = false,
   cfp = false,
-  children
+  hideFooterOnMobile = false,
+  hideMenuOnMobile = false,
+  hideSidebarOnMobile = false,
+  children,
+  menuComponent,
+  mobileBackButtonAction
 }) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <Content className={styles.content}>
+      <Content className={`${styles.content} ${hideSidebarOnMobile ? styles.RemoveSpacing : ''}`}>
         <section className={className}>{children}</section>
       </Content>
-      <Sidebar className={styles.sidebar}>
+      <Sidebar className={`${styles.sidebar} ${hideSidebarOnMobile ? styles.HideOnMobile : ''}`}>
         <Logo className={styles.desktopLogo} />
-        <LogoSmall className={styles.mobileLogo} />
+        {mobileBackButtonAction ? <BackButtonMobile onClick={mobileBackButtonAction} /> : null}
+        <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonAction} />
         <h1 className={styles.titleMobile}>{title}</h1>
-        <Menu short />
+        {menuComponent ? (
+          menuComponent({ hideOnMobile: hideMenuOnMobile })
+        ) : (
+          <Menu short hideOnMobile={hideMenuOnMobile} />
+        )}
       </Sidebar>
-      <Footer className={styles.footer}>
+      <Footer className={`${styles.footer} ${hideFooterOnMobile ? styles.HideOnMobile : ''}`}>
         <div className={styles.contactContainer}>
           {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
