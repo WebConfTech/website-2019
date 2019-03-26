@@ -1,7 +1,8 @@
 import * as R from 'ramda';
 import { navigate } from 'gatsby';
-import { CUSTOMER, TICKET, PURCHASE, get, post } from 'common/api';
 import { PAYMENT_URL_TEMPLATE } from 'data/constants';
+import { CUSTOMER, TICKET, PURCHASE, get, post } from 'common/api';
+import { trackEvent } from 'common/ga';
 import { getTickets } from './selectors';
 
 export const ADD_TICKET = 'checkout/add/ticket';
@@ -196,9 +197,11 @@ export const preparePayment = () => async (dispatch, getState) => {
     dispatch(preparePaymentSuccess(purchase));
 
     // redirect to the payment page
+    trackEvent('purchase', 'prepare', 'success', purchase.data.id);
     const paymentURL = PAYMENT_URL_TEMPLATE + purchase.data.attributes.externalId;
     window.location = paymentURL;
   } catch (e) {
+    trackEvent('purchase', 'prepare', 'error', e.message);
     dispatch(preparePaymentFailure(e.message));
   }
 };
