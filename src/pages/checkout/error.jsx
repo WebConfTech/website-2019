@@ -6,12 +6,13 @@ import SectionLayout, { SectionTitle } from 'layouts/section';
 import { Button } from 'lib/Button';
 import { CheckoutMenu } from 'components/Menu';
 import styles from './result.module.scss';
-import purchasePendingImage from 'assets/images/purchase-pending.svg';
+import purchaseErrorImage from 'assets/images/purchase-error.svg';
 
 const CHECKOUT_MENU = [
   {
     title: 'Entradas',
-    enabled: false
+    enabled: true,
+    url: '/checkout'
   },
   {
     title: 'Revisá tu compra',
@@ -19,8 +20,7 @@ const CHECKOUT_MENU = [
   },
   {
     title: '¡Listo!',
-    url: '/checkout/pending/',
-    enabled: true
+    enabled: false
   }
 ];
 
@@ -29,38 +29,36 @@ const CheckoutPendingPage = ({ clear }) => {
 
   return (
     <SectionLayout
-      title="¡Gracias!"
+      title="Error"
       className={styles.section}
       menuComponent={() => <CheckoutMenu items={CHECKOUT_MENU} short hideOnMobile />}
       hideFooterOnMobile
       hideSidebarOnMobile
     >
-      <SectionTitle>¡Gracias!</SectionTitle>
+      <SectionTitle>Entradas</SectionTitle>
       <div className={styles.container}>
-        <h2 className={styles.title}>¡Ya casi estás!</h2>
+        <h2 className={styles.title}>Uff...</h2>
         <div className={styles.imageContainer}>
-          <img src={purchasePendingImage} className={styles.image} alt="¡Felicidades!" />
+          <img src={purchaseErrorImage} className={styles.image} alt="Error" />
         </div>
         <div className={styles.textContainer}>
           <p className={styles.text}>
-            <strong>Sólo falta un paso.</strong>
+            <strong>Algo salió mal.</strong>
           </p>
           <p className={styles.text}>
-            Recibirás las instrucciones de
+            Puede que haya algún
             <br />
-            pago en el correo
+            problema con la forma
             <br />
-            que indicaste al pagar.
-            <br />
-            Una vez confirmado
-            <br />
-            el pago, te enviaremos
-            <br />
-            las entradas.
+            de pago que elegiste.
           </p>
           <p className={styles.text}>
-            <Button as={Link} className={styles.button} to="/" large>
-              Volver al sitio
+            Elegí otra forma de pago
+            <br />e intentá nuevamente.
+          </p>
+          <p className={styles.text}>
+            <Button as={Link} className={styles.button} to="/checkout" large>
+              Volver al principio
             </Button>
           </p>
         </div>
