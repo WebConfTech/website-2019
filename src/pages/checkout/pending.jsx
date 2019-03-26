@@ -46,17 +46,17 @@ const CheckoutPendingPage = ({ clear }) => {
             <strong>Sólo falta un paso.</strong>
           </p>
           <p className={styles.text}>
-            Recibirás las instruccionesde
+            Recibirás las instrucciones de
             <br />
-            pago en el correo
+            pago en el correo
             <br />
             que indicaste al pagar.
             <br />
-            Una vez confirmado
+            Una vez confirmado
             <br />
-            el pago, te enviaremos
+            el pago, te enviaremos
             <br />
-            las entradas.
+            las entradas.
           </p>
           <p className={styles.text}>
             <Button as={Link} className={styles.button} to="/" large>
