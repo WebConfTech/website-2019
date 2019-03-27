@@ -13,7 +13,8 @@ import {
   VALIDATE_CUSTOMERS_FAILURE,
   PREPARE_PAYMENT_REQUEST,
   PREPARE_PAYMENT_SUCCESS,
-  PREPARE_PAYMENT_FAILURE
+  PREPARE_PAYMENT_FAILURE,
+  CLEAR_PURCHASE
 } from './actions';
 
 const ticketDefault = {
@@ -134,6 +135,17 @@ const isPreparingPayment = (state = false, action) => {
   }
 };
 
+const purchase = (state = null, action) => {
+  switch (action.type) {
+    case PREPARE_PAYMENT_SUCCESS:
+      return action.payload;
+    case CLEAR_PURCHASE:
+      return null;
+    default:
+      return state;
+  }
+};
+
 export const checkout = combineCrossSliceReducers(
   {
     tickets,
@@ -143,6 +155,7 @@ export const checkout = combineCrossSliceReducers(
     currentTicketIndex,
     currentTicketCustomerInvalidFields,
     isValidatingCustomers,
-    isPreparingPayment
+    isPreparingPayment,
+    purchase
   }
 );

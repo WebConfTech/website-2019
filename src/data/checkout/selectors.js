@@ -9,6 +9,7 @@ export const getCurrentTicketCustomerInvalidFields = state =>
   state.checkout.currentTicketCustomerInvalidFields;
 export const isValidatingCustomers = state => state.checkout.isValidatingCustomers;
 export const isPreparingPayment = state => state.checkout.isPreparingPayment;
+export const getPurchase = state => state.checkout.purchase;
 
 export const getCurrentTicket = createSelector(
   [getCurrentTicketIndex, getTickets],
@@ -63,4 +64,8 @@ export const isCurrentTicketValid = createSelector(
 export const getNumberTickets = createSelector(
   [getTickets],
   R.length
+);
+export const isPurchaseCreated = createSelector(
+  [getPurchase],
+  R.complement(R.isNil)
 );

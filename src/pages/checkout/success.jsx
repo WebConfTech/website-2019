@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { clearTickets } from 'data/checkout/actions';
+import { clearTickets, clearPurchase } from 'data/checkout/actions';
 import Link from 'gatsby-link';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { Button } from 'lib/Button';
@@ -69,7 +69,10 @@ const CheckoutSuccessPage = ({ clear }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  clear: () => dispatch(clearTickets())
+  clear: () => {
+    dispatch(clearTickets());
+    dispatch(clearPurchase());
+  }
 });
 
 export default connect(

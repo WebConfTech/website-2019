@@ -1,9 +1,8 @@
-import * as R from 'ramda';
 import { navigate } from 'gatsby';
 import { PAYMENT_URL_TEMPLATE } from 'data/constants';
 import { CUSTOMER, TICKET, PURCHASE, get, post } from 'common/api';
 import { trackEvent } from 'common/ga';
-import { getTickets } from './selectors';
+import { getTickets, getPurchase } from './selectors';
 
 export const ADD_TICKET = 'checkout/add/ticket';
 export const CHANGE_TICKET = 'checkout/change/ticket';
@@ -17,6 +16,7 @@ export const VALIDATE_CUSTOMERS_FAILURE = 'customer/validate/failure';
 export const PREPARE_PAYMENT_REQUEST = 'payment/prepare/request';
 export const PREPARE_PAYMENT_SUCCESS = 'payment/prepare/success';
 export const PREPARE_PAYMENT_FAILURE = 'payment/prepare/failure';
+export const CLEAR_PURCHASE = 'checkout/purchase/clear';
 
 export const addTicket = () => ({
   type: ADD_TICKET
@@ -136,72 +136,98 @@ export const preparePayment = () => async (dispatch, getState) => {
   dispatch(preparePaymentRequest());
 
   const state = getState();
-  const tickets = getTickets(state);
+  let purchase = getPurchase(state);
 
-  try {
-    // create the customers
-    const customers = await Promise.all(
-      tickets.map(ticket =>
-        post(CUSTOMER, {
-          data: {
-            type: 'customer',
-            attributes: {
-              fullName: ticket.name,
-              emailAddress: ticket.email,
-              identificationType: 'DNI',
-              identificationNumber: ticket.dni
+  if (purchase == null) {
+    let tickets = getTickets(state);
+
+    try {
+      // create the customers
+      tickets = await Promise.all(
+        tickets.map(async (ticket, index) => {
+          const response = await post(CUSTOMER, {
+            data: {
+              type: 'customer',
+              attributes: {
+                fullName: ticket.name,
+                emailAddress: ticket.email,
+                identificationType: 'DNI',
+                identificationNumber: ticket.dni
+              }
             }
-          }
-        }).then(response => response.json())
-      )
-    );
+          });
+          const resource = await response.json();
 
-    // create the tickets
-    const reservedTickets = await Promise.all(
-      customers.map(customer =>
-        post(TICKET, {
-          data: {
-            type: 'ticket',
-            attributes: {},
-            relationships: {
-              customer: {
-                data: {
-                  id: customer.data.id,
-                  type: 'customer'
+          return {
+            ...ticket,
+            customer: resource.data.id
+          };
+        })
+      );
+
+      // create the tickets
+      tickets = await Promise.all(
+        tickets.map(async (ticket, index) => {
+          const response = await post(TICKET, {
+            data: {
+              type: 'ticket',
+              attributes: {},
+              relationships: {
+                customer: {
+                  data: {
+                    id: ticket.customer,
+                    type: 'customer'
+                  }
                 }
               }
             }
+          });
+          const resource = await response.json();
+
+          return {
+            ...ticket,
+            id: resource.data.id
+          };
+        })
+      );
+
+      // create the purchase
+      const purchaseResponse = await post(PURCHASE, {
+        data: {
+          type: 'purchase',
+          relationships: {
+            ticket: {
+              data: tickets.map(ticket => ({
+                type: 'ticket',
+                id: ticket.id
+              }))
+            },
+            customer: {
+              data: {
+                type: 'customer',
+                id: tickets[0].customer
+              }
+            }
           }
-        }).then(response => response.json())
-      )
-    );
-
-    // create the purchase
-    const purchase = await post(PURCHASE, {
-      data: {
-        type: 'purchase',
-        relationships: {
-          ticket: {
-            data: R.map(
-              R.compose(
-                R.pick(['type', 'id']),
-                R.prop('data')
-              )
-            )(reservedTickets)
-          },
-          customer: { data: R.pick(['type', 'id'])(customers[0].data) }
         }
-      }
-    }).then(response => response.json());
+      });
+      const purchaseResource = await purchaseResponse.json();
+      purchase = purchaseResource.data;
 
-    dispatch(preparePaymentSuccess(purchase));
-
-    // redirect to the payment page
-    trackEvent('purchase', 'prepare', 'success', purchase.data.id);
-    const paymentURL = PAYMENT_URL_TEMPLATE + purchase.data.attributes.externalId;
-    window.location = paymentURL;
-  } catch (e) {
-    trackEvent('purchase', 'prepare', 'error', e.message);
-    dispatch(preparePaymentFailure(e.message));
+      dispatch(preparePaymentSuccess(purchase));
+    } catch (e) {
+      trackEvent('purchase', 'prepare', 'error', e.message);
+      dispatch(preparePaymentFailure(e.message));
+      return;
+    }
   }
+
+  // redirect to the payment page
+  trackEvent('purchase', 'prepare', 'success', purchase.id);
+  const paymentURL = PAYMENT_URL_TEMPLATE + purchase.attributes.externalId;
+  window.location = paymentURL;
 };
+
+export const clearPurchase = () => ({
+  type: CLEAR_PURCHASE
+});
