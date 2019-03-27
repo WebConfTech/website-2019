@@ -34,17 +34,17 @@ const _TicketValidationMessage = ({
     if (isValid) {
       message = (
         <>
-          ¡Todo listo por aquí! Presioná{` `}
+          ¡Todo listo por aquí! Presioná&nbsp;
           <em>Quiero otra</em>
-          {` `}o{` `}
+          &nbsp;o&nbsp;
           <em>Pagar</em>
-          {` `}para continuar.
+          &nbsp;para continuar.
         </>
       );
     } else if (showValidations && customerInvalidFields.length === 1) {
       message = (
         <>
-          Parece que ya tenemos una entrada registrada con
+          Parece que ya tenemos una entrada registrada con&nbsp;
           {customerFieldDisplayNameMap[customerInvalidFields[0]]}.
           <br />
           ¿Perdiste tu entrada? ¡Contactanos por nuestras redes sociales y te ayudaremos!
@@ -53,8 +53,8 @@ const _TicketValidationMessage = ({
     } else if (showValidations && customerInvalidFields.length === 2) {
       message = (
         <>
-          Parece que ya tenemos una entrada registrada con
-          {customerFieldDisplayNameMap[customerInvalidFields[0]]} y
+          Parece que ya tenemos una entrada registrada con&nbsp;
+          {customerFieldDisplayNameMap[customerInvalidFields[0]]} y&nbsp;
           {customerFieldDisplayNameMap[customerInvalidFields[1]]}.
           <br />
           ¿Perdiste tu entrada? ¡Contactanos por nuestras redes sociales y te ayudaremos!
