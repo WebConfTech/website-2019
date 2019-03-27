@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { maskDni, unmaskDni } from 'common/utils';
+import { TICKET_PRICE } from 'data/constants';
 import { changeTicket, toggleValidations, validateCustomers } from 'data/checkout/actions';
 import {
   getCurrentTicketIndex,
@@ -118,7 +119,7 @@ const _TicketForm = ({
             </ul>
             <div className={styles.price}>
               <div className={styles.priceInfo}>Valor de la entrada</div>
-              <div className={styles.priceValue}>AR$ 750</div>
+              <div className={styles.priceValue}>AR$ {TICKET_PRICE}</div>
             </div>
             <CircleButton type="submit" className={styles.buyButton} isLoading={isValidating}>
               <span>Pagar</span>
