@@ -60,7 +60,7 @@ const CheckoutSuccessPage = ({ clear }) => {
             el 11 de Mayo!
           </p>
           <p className={styles.text}>
-            <Button as={Link} className={styles.button} to="/" large>
+            <Button as={Link} className={styles.button} to="/" large={1}>
               Volver al sitio
             </Button>
           </p>

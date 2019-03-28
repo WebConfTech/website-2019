@@ -61,7 +61,7 @@ const CheckoutErrorPage = ({ clear }) => {
             <br />e intentá nuevamente.
           </p>
           <p className={styles.text}>
-            <Button as={Link} className={styles.button} to="/checkout/review/" large>
+            <Button as={Link} className={styles.button} to="/checkout/review/" large={1}>
               Volver al principio
             </Button>
           </p>
