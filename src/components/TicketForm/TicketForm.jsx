@@ -78,6 +78,10 @@ const _TicketForm = ({
                   name="name"
                   onChange={changeHandler}
                   hasError={displayValidations && invalidFields.includes('name')}
+                  color="secondary"
+                  bold
+                  borderless
+                  transparent
                 />
               </li>
               <li className={styles.field}>
@@ -95,6 +99,10 @@ const _TicketForm = ({
                       isEmailDuplicated ||
                       customerInvalidFields.includes('email'))
                   }
+                  color="secondary"
+                  bold
+                  borderless
+                  transparent
                 />
               </li>
               <li className={`${styles.field} ${styles.Small}`}>
@@ -114,6 +122,10 @@ const _TicketForm = ({
                       isDniDuplicated ||
                       customerInvalidFields.includes('dni'))
                   }
+                  color="secondary"
+                  bold
+                  borderless
+                  transparent
                 />
               </li>
             </ul>
