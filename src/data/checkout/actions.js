@@ -133,12 +133,12 @@ const preparePaymentFailure = message => ({
 });
 
 export const preparePayment = () => async (dispatch, getState) => {
-  dispatch(preparePaymentRequest());
-
   const state = getState();
   let purchase = getPurchase(state);
 
   if (purchase == null) {
+    dispatch(preparePaymentRequest());
+
     let tickets = getTickets(state);
 
     try {
