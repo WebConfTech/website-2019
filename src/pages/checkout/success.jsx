@@ -25,7 +25,9 @@ const CHECKOUT_MENU = [
 ];
 
 const CheckoutSuccessPage = ({ clear }) => {
-  useEffect(clear, []);
+  useEffect(() => {
+    clear();
+  }, []);
 
   return (
     <SectionLayout
