@@ -32,7 +32,7 @@ const CheckoutPage = ({ alreadyInitiated }) => {
     }
   }, [alreadyInitiated]);
 
-  return (
+  return !alreadyInitiated ? (
     <SectionLayout
       title="Entradas"
       className={styles.section}
@@ -44,7 +44,7 @@ const CheckoutPage = ({ alreadyInitiated }) => {
         <TicketForm />
       </div>
     </SectionLayout>
-  );
+  ) : null;
 };
 
 const mapStateToProps = state => ({
