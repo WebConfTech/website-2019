@@ -1,14 +1,18 @@
 import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { maskDni, unmaskDni } from 'common/utils';
-import { changeTicket } from 'data/checkout/actions';
+import { TICKET_PRICE } from 'data/constants';
+import { changeTicket, toggleValidations, validateCustomers } from 'data/checkout/actions';
 import {
   getCurrentTicketIndex,
   getCurrentTicket,
+  isCurrentTicketValid,
   getCurrentTicketInvalidFields,
   isCurrentTicketDniDuplicated,
   isCurrentTicketEmailDuplicated,
-  shouldShowValidations
+  shouldShowValidations,
+  getCurrentTicketCustomerInvalidFields,
+  isValidatingCustomers
 } from 'data/checkout/selectors';
 import { Input, MaskedInput } from 'lib/Input';
 import { CircleButton } from 'lib/Button';
@@ -18,12 +22,17 @@ import styles from './styles.module.scss';
 const _TicketForm = ({
   ticketIndex,
   ticket,
+  isValid,
   invalidFields,
   isDniDuplicated,
   isEmailDuplicated,
-  showValidations,
+  displayValidations,
+  customerInvalidFields,
+  isValidating,
+  children,
   onChange,
-  children
+  showValidations,
+  validate
 }) => {
   const changeHandler = useCallback(
     ({ target }) => {
@@ -38,11 +47,24 @@ const _TicketForm = ({
     onChange
   ]);
 
+  const onSubmit = useCallback(
+    event => {
+      event.preventDefault();
+
+      if (isValid) {
+        validate();
+      } else {
+        showValidations();
+      }
+    },
+    [isValid, showValidations]
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.elements}>
         <div className={styles.formContainer}>
-          <form>
+          <form onSubmit={onSubmit}>
             <div className={styles.formTitle}>Completá los siguientes datos:</div>
             <div className={`${styles.formTitle} ${styles.MobileOnly}`}>Completá estos datos:</div>
             <ul className={styles.fields}>
@@ -55,7 +77,11 @@ const _TicketForm = ({
                   value={ticket.name}
                   name="name"
                   onChange={changeHandler}
-                  hasError={showValidations && invalidFields.includes('name')}
+                  hasError={displayValidations && invalidFields.includes('name')}
+                  color="secondary"
+                  bold
+                  borderless
+                  transparent
                 />
               </li>
               <li className={styles.field}>
@@ -68,8 +94,15 @@ const _TicketForm = ({
                   name="email"
                   onChange={changeHandler}
                   hasError={
-                    showValidations && (invalidFields.includes('email') || isEmailDuplicated)
+                    displayValidations &&
+                    (invalidFields.includes('email') ||
+                      isEmailDuplicated ||
+                      customerInvalidFields.includes('email'))
                   }
+                  color="secondary"
+                  bold
+                  borderless
+                  transparent
                 />
               </li>
               <li className={`${styles.field} ${styles.Small}`}>
@@ -83,15 +116,24 @@ const _TicketForm = ({
                   unmask={unmaskDni}
                   name="dni"
                   onChange={dniChangeHandler}
-                  hasError={showValidations && (invalidFields.includes('dni') || isDniDuplicated)}
+                  hasError={
+                    displayValidations &&
+                    (invalidFields.includes('dni') ||
+                      isDniDuplicated ||
+                      customerInvalidFields.includes('dni'))
+                  }
+                  color="secondary"
+                  bold
+                  borderless
+                  transparent
                 />
               </li>
             </ul>
             <div className={styles.price}>
               <div className={styles.priceInfo}>Valor de la entrada</div>
-              <div className={styles.priceValue}>AR$ 750</div>
+              <div className={styles.priceValue}>AR$ {TICKET_PRICE}</div>
             </div>
-            <CircleButton type="submit" className={styles.buyButton}>
+            <CircleButton type="submit" className={styles.buyButton} isLoading={isValidating}>
               <span>Pagar</span>
             </CircleButton>
           </form>
@@ -112,14 +154,19 @@ _TicketForm.displayName = 'TicketForm';
 const mapStateToProps = state => ({
   ticketIndex: getCurrentTicketIndex(state),
   ticket: getCurrentTicket(state),
+  isValid: isCurrentTicketValid(state),
   invalidFields: getCurrentTicketInvalidFields(state),
   isDniDuplicated: isCurrentTicketDniDuplicated(state),
   isEmailDuplicated: isCurrentTicketEmailDuplicated(state),
-  showValidations: shouldShowValidations(state)
+  displayValidations: shouldShowValidations(state),
+  customerInvalidFields: getCurrentTicketCustomerInvalidFields(state),
+  isValidating: isValidatingCustomers(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: (ticketIndex, change) => dispatch(changeTicket(ticketIndex, change))
+  onChange: (ticketIndex, change) => dispatch(changeTicket(ticketIndex, change)),
+  showValidations: () => dispatch(toggleValidations(true)),
+  validate: () => dispatch(validateCustomers())
 });
 
 export const TicketForm = connect(

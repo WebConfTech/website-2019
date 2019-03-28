@@ -4,6 +4,7 @@ import { ValidationMessage } from 'lib';
 import {
   shouldShowValidations,
   getCurrentTicketInvalidFields,
+  getCurrentTicketCustomerInvalidFields,
   isCurrentTicketDniDuplicated,
   isCurrentTicketEmailDuplicated,
   isCurrentTicketValid
@@ -14,9 +15,14 @@ const fieldDisplayNameMap = {
   dni: 'un número de documento',
   email: 'una dirección de correo electrónico'
 };
+const customerFieldDisplayNameMap = {
+  dni: 'este número de documento',
+  email: 'esta dirección de correo electrónico'
+};
 const _TicketValidationMessage = ({
   showValidations,
   invalidFields,
+  customerInvalidFields,
   isDniDuplicated,
   isEmailDuplicated,
   isValid,
@@ -28,11 +34,30 @@ const _TicketValidationMessage = ({
     if (isValid) {
       message = (
         <>
-          ¡Todo listo por aquí! Presioná{` `}
+          ¡Todo listo por aquí! Presioná&nbsp;
           <em>Quiero otra</em>
-          {` `}o{` `}
+          &nbsp;o&nbsp;
           <em>Pagar</em>
-          {` `}para continuar.
+          &nbsp;para continuar.
+        </>
+      );
+    } else if (showValidations && customerInvalidFields.length === 1) {
+      message = (
+        <>
+          Parece que ya tenemos una entrada registrada con&nbsp;
+          {customerFieldDisplayNameMap[customerInvalidFields[0]]}.
+          <br />
+          ¿Perdiste tu entrada? ¡Contactanos por nuestras redes sociales y te ayudaremos!
+        </>
+      );
+    } else if (showValidations && customerInvalidFields.length === 2) {
+      message = (
+        <>
+          Parece que ya tenemos una entrada registrada con&nbsp;
+          {customerFieldDisplayNameMap[customerInvalidFields[0]]} y&nbsp;
+          {customerFieldDisplayNameMap[customerInvalidFields[1]]}.
+          <br />
+          ¿Perdiste tu entrada? ¡Contactanos por nuestras redes sociales y te ayudaremos!
         </>
       );
     } else if (showValidations && isDniDuplicated) {
@@ -51,7 +76,7 @@ const _TicketValidationMessage = ({
     }
 
     return message;
-  }, [showValidations, invalidFields]);
+  }, [showValidations, invalidFields, customerInvalidFields]);
 
   return validationMessage ? (
     <ValidationMessage dark={dark ? 1 : 0} error={isValid ? 0 : 1}>
@@ -65,6 +90,7 @@ _TicketValidationMessage.displayName = 'TicketValidationMessage';
 const mapStateToProps = state => ({
   showValidations: shouldShowValidations(state),
   invalidFields: getCurrentTicketInvalidFields(state),
+  customerInvalidFields: getCurrentTicketCustomerInvalidFields(state),
   isDniDuplicated: isCurrentTicketDniDuplicated(state),
   isEmailDuplicated: isCurrentTicketEmailDuplicated(state),
   isValid: isCurrentTicketValid(state)

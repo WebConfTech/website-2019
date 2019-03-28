@@ -55,17 +55,19 @@
 }
 
 .ticket {
-  cursor: pointer;
+  text-decoration: none;
   font-family: inherit;
-  border-color: lighten($theme-palette-generics-black, 44%);
+  border: 1px solid lighten($theme-palette-generics-black, 44%);
   color: $theme-palette-generics-black;
   display: block;
   padding: 1rem 0.75rem;
   border-radius: 0.625rem;
   text-align: left;
   width: 100%;
+
   &:hover,
   &:focus {
+    text-decoration: none;
     border-color: $theme-palette-generics-black;
   }
 }
@@ -121,7 +123,7 @@
     position: absolute;
     z-index: 2;
     right: -1.75rem;
-    top: 21.225rem;
+    bottom: -3rem;
   }
 }
 
@@ -166,7 +168,7 @@
     &::after {
       content: '';
       background-color: $theme-palette-secondary;
-      height: 5.6875rem;
+      height: 7rem;
       position: absolute;
       z-index: -1;
       bottom: 0;
