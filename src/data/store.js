@@ -16,7 +16,10 @@ export function configureStore() {
 
   // create store
   const composeEnhancers =
-    (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+    (process.env.NODE_ENV !== 'production' &&
+      typeof window !== 'undefined' &&
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
   const store = createStore(
     appReducers,
     initialState,
