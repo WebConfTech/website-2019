@@ -16,7 +16,8 @@ const CHECKOUT_MENU = [
   },
   {
     title: 'Revisá tu compra',
-    enabled: false
+    url: '/checkout/review/',
+    enabled: true
   },
   {
     title: 'Ocurrió un problema',
@@ -26,7 +27,9 @@ const CHECKOUT_MENU = [
 ];
 
 const CheckoutErrorPage = ({ clear }) => {
-  useEffect(clear, []);
+  useEffect(() => {
+    clear();
+  }, []);
 
   return (
     <SectionLayout
@@ -58,7 +61,7 @@ const CheckoutErrorPage = ({ clear }) => {
             <br />e intentá nuevamente.
           </p>
           <p className={styles.text}>
-            <Button as={Link} className={styles.button} to="/checkout/" large>
+            <Button as={Link} className={styles.button} to="/checkout/review/" large>
               Volver al principio
             </Button>
           </p>
