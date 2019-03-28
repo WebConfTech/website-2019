@@ -8,7 +8,7 @@ export function configureStore() {
   const localStorageConf = {
     namespace: 'webconf',
     states: ['checkout'],
-    debounce: 500
+    debounce: 100
   };
 
   // initial state
