@@ -1,5 +1,9 @@
 export const MENU = [
   {
+    title: 'Entradas',
+    url: '/checkout/'
+  },
+  {
     title: 'La conferencia',
     url: '/about/'
   },

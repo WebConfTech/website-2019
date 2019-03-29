@@ -1,0 +1,14 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    align-items: flex-start;
+  }
+}
+
+.tickets {
+  @media (min-width: $theme-breakpoints-mobile) {
+    margin-left: 7rem;
+  }
+}
