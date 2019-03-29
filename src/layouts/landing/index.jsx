@@ -1,7 +1,7 @@
 import React from 'react';
 import { Logo } from 'components/Logo';
 import { Menu } from 'components/Menu';
-import { CFPButton } from 'components/CFPButton';
+import { BuyTicketButton } from 'components/BuyTicketButton';
 import { AddEmailForm } from 'components/AddEmailForm';
 import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
 import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
@@ -22,7 +22,7 @@ const LandingLayout = ({ seoProps, children }) => {
           <AddEmailForm className={styles.newsletterForm} />
           <SocialNetworkLinks />
         </div>
-        <CFPButton />
+        <BuyTicketButton />
       </Footer>
     </DefaultLayout>
   );

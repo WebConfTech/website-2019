@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Logo } from 'components/Logo';
 import { LogoSmall } from 'components/LogoSmall';
 import { Menu } from 'components/Menu';
-import { CFPButton } from 'components/CFPButton';
+import { BuyTicketButton } from 'components/BuyTicketButton';
 import { AddEmailForm } from 'components/AddEmailForm';
 import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
+import { BackButtonMobile } from 'lib/Button';
 import DefaultLayout, { Sidebar, Footer, Content } from 'layouts/default';
 import styles from './styles.module.scss';
 
@@ -14,27 +16,44 @@ export const SectionTitle = ({ className = '', children, ...props }) => (
   </h1>
 );
 
-const SectionLayout = ({ title, seoProps, className, children }) => {
+const SectionLayout = ({
+  title,
+  seoProps,
+  className,
+  newsletter = false,
+  cta = false,
+  hideFooterOnMobile = false,
+  hideMenuOnMobile = false,
+  hideSidebarOnMobile = false,
+  children,
+  menuComponent,
+  mobileBackButtonRoute
+}) => {
   const defaultLayoutProps = { seoProps };
   defaultLayoutProps.seoProps.subtitle = title;
 
   return (
     <DefaultLayout {...defaultLayoutProps}>
-      <Content className={styles.content}>
+      <Content className={`${styles.content} ${hideSidebarOnMobile ? styles.RemoveSpacing : ''}`}>
         <section className={className}>{children}</section>
       </Content>
-      <Sidebar className={styles.sidebar}>
+      <Sidebar className={`${styles.sidebar} ${hideSidebarOnMobile ? styles.HideOnMobile : ''}`}>
         <Logo className={styles.desktopLogo} />
-        <LogoSmall className={styles.mobileLogo} />
+        {mobileBackButtonRoute ? <BackButtonMobile as={Link} to={mobileBackButtonRoute} /> : null}
+        <LogoSmall className={styles.mobileLogo} disabled={!!mobileBackButtonRoute} />
         <h1 className={styles.titleMobile}>{title}</h1>
-        <Menu short />
+        {menuComponent ? (
+          menuComponent({ hideOnMobile: hideMenuOnMobile })
+        ) : (
+          <Menu short hideOnMobile={hideMenuOnMobile} />
+        )}
       </Sidebar>
-      <Footer className={styles.footer}>
+      <Footer className={`${styles.footer} ${hideFooterOnMobile ? styles.HideOnMobile : ''}`}>
         <div className={styles.contactContainer}>
-          <AddEmailForm className={styles.newsletterForm} />
+          {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
         </div>
-        <CFPButton className={styles.cfpButton} />
+        {cta ? <BuyTicketButton className={styles.ctaButton} /> : null}
       </Footer>
     </DefaultLayout>
   );

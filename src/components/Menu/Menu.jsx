@@ -6,10 +6,10 @@ import CloseNegativeIcon from 'lib/assets/icon-close-negative.svg';
 import styles from './styles.module.scss';
 import { MENU } from 'data/constants';
 
-export const Menu = ({ className, dark, short }) => (
+export const Menu = ({ className = '', dark, short, hideOnMobile }) => (
   <Location>
     {({ location }) => (
-      <div className={className}>
+      <div className={`${className} ${hideOnMobile ? styles.hideOnMobile : ''}`}>
         <div id="menu" className={styles.container}>
           <CloseIcon href="#" mobileOnly className={styles.close}>
             <img src={CloseNegativeIcon} alt="Cerrar menú" />
