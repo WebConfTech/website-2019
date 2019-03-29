@@ -54,7 +54,7 @@ const _PaymentReviewCard = ({ tickets, isPreparing, onTicketClick, onPayment }) 
               Pago para que indiques la forma de pago.
             </p>
             <p className={styles.infoText}>
-              Aceptamos todas las tarjetas de crédito y débito disponibles a través de Mercado Pago.
+              Aceptamos pagos a través de tarjetas de crédito y débito.
             </p>
             <p className={styles.infoText}>
               <strong className={styles.textHighlight}>El total a pagar es de:</strong>
