@@ -21,7 +21,7 @@ const SectionLayout = ({
   seoProps,
   className,
   newsletter = false,
-  cfp = false,
+  cta = false,
   hideFooterOnMobile = false,
   hideMenuOnMobile = false,
   hideSidebarOnMobile = false,
@@ -53,7 +53,7 @@ const SectionLayout = ({
           {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
         </div>
-        {cfp ? <BuyTicketButton className={styles.cfpButton} /> : null}
+        {cta ? <BuyTicketButton className={styles.ctaButton} /> : null}
       </Footer>
     </DefaultLayout>
   );

@@ -12,7 +12,7 @@ const VenuePage = () => {
   const [showMap, setShowMap] = useState(false);
 
   return (
-    <SectionLayout title="lugar" className={styles.section} newsletter cfp>
+    <SectionLayout title="lugar" className={styles.section} newsletter cta>
       <div className={styles.description}>
         <SectionTitle>Lugar</SectionTitle>
         <div className={styles.text}>
