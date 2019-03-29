@@ -50,7 +50,7 @@ const _PaymentReviewCard = ({ tickets, isPreparing, onTicketClick, onPayment }) 
             </h3>
             <p className={styles.infoText}>
               Utilizamos <strong>Mercado Pago</strong> para procesar los pagos de nuestras entradas.
-              Cuando hagas clic en el botón "Pagar", te redirigiremos al sitio seguro de Mercado
+              Cuando hagas clic en el botón "Comprar", te redirigiremos al sitio seguro de Mercado
               Pago para que indiques la forma de pago.
             </p>
             <p className={styles.infoText}>
