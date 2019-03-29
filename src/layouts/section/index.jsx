@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import { Logo } from 'components/Logo';
 import { LogoSmall } from 'components/LogoSmall';
 import { Menu } from 'components/Menu';
-import { CFPButton } from 'components/CFPButton';
+import { BuyTicketButton } from 'components/BuyTicketButton';
 import { AddEmailForm } from 'components/AddEmailForm';
 import { SocialNetworkLinks } from 'components/SocialNetworkLinks';
 import { BackButtonMobile } from 'lib/Button';
@@ -53,7 +53,7 @@ const SectionLayout = ({
           {newsletter ? <AddEmailForm className={styles.newsletterForm} /> : null}
           <SocialNetworkLinks />
         </div>
-        {cfp ? <CFPButton className={styles.cfpButton} /> : null}
+        {cfp ? <BuyTicketButton className={styles.cfpButton} /> : null}
       </Footer>
     </DefaultLayout>
   );
