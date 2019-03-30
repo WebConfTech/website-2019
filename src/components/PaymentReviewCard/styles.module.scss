@@ -49,13 +49,17 @@
 
 .ticket-container {
   margin-bottom: 0.75rem;
+
   &:last-child {
     margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
 .ticket {
-  text-decoration: none;
   font-family: inherit;
   border: 1px solid lighten($theme-palette-generics-black, 44%);
   color: $theme-palette-generics-black;
@@ -67,7 +71,6 @@
 
   &:hover,
   &:focus {
-    text-decoration: none;
     border-color: $theme-palette-generics-black;
   }
 }

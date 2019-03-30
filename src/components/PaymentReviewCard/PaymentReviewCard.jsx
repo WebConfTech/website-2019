@@ -1,16 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { TICKET_PRICE } from 'data/constants';
-import { getTickets, isPreparingPayment } from 'data/checkout/selectors';
+import { getTickets, isPreparingPayment, isPurchaseCreated } from 'data/checkout/selectors';
 import { selectTicket, preparePayment } from 'data/checkout/actions';
 import { Link } from 'gatsby';
 import { CircleButton } from 'lib/Button';
 import { Card } from 'lib/Card';
+import { Ticket } from './Ticket';
 import cashIcon from 'assets/images/icon-cash.svg';
 import ticketIcon from 'assets/images/icon-ticket.svg';
 import styles from './styles.module.scss';
 
-const _PaymentReviewCard = ({ tickets, isPreparing, onTicketClick, onPayment }) => {
+const _PaymentReviewCard = ({
+  tickets,
+  isPreparing,
+  alreadyInitiated,
+  onTicketClick,
+  onPayment
+}) => {
   const total = TICKET_PRICE * tickets.length;
 
   return (
@@ -24,21 +31,20 @@ const _PaymentReviewCard = ({ tickets, isPreparing, onTicketClick, onPayment }) 
               Entradas
             </h3>
             <p className={styles.ticketsInfo}>
-              Podés hacer clic en cualquier entrada para editarla o cancelarla.
+              {!alreadyInitiated
+                ? 'Podés hacer clic en cualquier entrada para editarla o cancelarla.'
+                : 'A continuación puedes ver los tickets incluidos en tu compra.'}
             </p>
             <ul className={styles.tickets}>
               {tickets.map((ticket, ticketIndex) => (
                 <li key={ticket.dni} className={styles.ticketContainer}>
-                  <Link
-                    to="/checkout/"
-                    onClick={() => onTicketClick(ticketIndex)}
-                    className={styles.ticket}
-                  >
-                    <span className={styles.ticketLabel}>{ticket.name}</span>
-                    <span className={styles.ticketDetail}>
-                      {ticket.dni} - {ticket.email}
-                    </span>
-                  </Link>
+                  {alreadyInitiated ? (
+                    <Ticket {...ticket} />
+                  ) : (
+                    <Link to="/checkout/" onClick={() => onTicketClick(ticketIndex)}>
+                      <Ticket {...ticket} />
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -82,7 +88,8 @@ _PaymentReviewCard.displayName = 'PaymentReviewCard';
 
 const mapStateToProps = state => ({
   tickets: getTickets(state),
-  isPreparing: isPreparingPayment(state)
+  isPreparing: isPreparingPayment(state),
+  alreadyInitiated: isPurchaseCreated(state)
 });
 
 const mapDispatchToProps = dispatch => ({
