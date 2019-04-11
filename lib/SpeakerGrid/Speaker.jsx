@@ -17,6 +17,10 @@ const SpeakerDescription = styled.div`
   background-color: ${({ theme }) => transparentize(0.5, theme.palette.generics.black)};
   color: ${({ theme }) => theme.palette.text};
   font-size: 0.8rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const SpeakerContainer = styled.div`
@@ -31,6 +35,11 @@ export const SpeakerContainer = styled.div`
     ${SpeakerDescription} {
       display: flex;
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    width: 18.75rem;
+    height: 28.5rem;
   }
 `;
 
@@ -51,6 +60,10 @@ export const SpeakerPhoto = styled.div`
 
   & > img {
     object-fit: cover;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    height: 21.9rem;
   }
 `;
 

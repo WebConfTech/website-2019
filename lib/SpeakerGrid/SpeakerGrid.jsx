@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { SpeakerContainer, SpeakerName } from './Speaker';
 
 export const SpeakerGrid = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 12.5rem);
+  grid-column-gap: 0.4rem;
+  grid-row-gap: 0.4rem;
 
   &:hover {
     ${SpeakerContainer} {
@@ -14,11 +15,6 @@ export const SpeakerGrid = styled.div`
         opacity: 1;
       }
     }
-  }
-
-  ${SpeakerContainer} {
-    margin-right: 0.4rem;
-    margin-bottom: 0.4rem;
   }
 
   ${SpeakerContainer}:nth-of-type(even) {
@@ -41,5 +37,11 @@ export const SpeakerGrid = styled.div`
     ${SpeakerName} {
       background-color: ${({ theme }) => theme.palette.primary};
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    grid-template-columns: repeat(auto-fill, 18.75rem);
+    grid-column-gap: 0.6rem;
+    grid-row-gap: 0.6rem;
   }
 `;
