@@ -5,9 +5,9 @@ import { SpeakerGrid, Speaker } from 'lib';
 import styles from './speakers.module.scss';
 
 const SpeakersPage = () => (
-  <SectionLayout title="disertantes">
+  <SectionLayout title="disertantes" className={styles.section}>
     <SectionTitle>Disertantes</SectionTitle>
-    <SpeakerGrid className={styles.speakersGrid}>
+    <SpeakerGrid className={styles.grid}>
       <Speaker
         firstName="Agus"
         lastName="Carrasco"

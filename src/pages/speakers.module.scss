@@ -1,4 +1,20 @@
-.speakers-grid {
-  margin-left: 5rem;
-  max-width: 52rem;
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  align-self: center;
+  margin: 1rem 0;
+  min-width: 25.4rem;
+
+  @media (min-width: $theme-breakpoints-mobile) {
+    align-self: flex-start;
+    margin: 0 0 0 5rem;
+    max-width: 52rem;
+  }
+
+  @media (min-width: $theme-breakpoints-smallScreen) {
+    max-width: 77rem;
+  }
 }
