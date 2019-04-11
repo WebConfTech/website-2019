@@ -112,7 +112,7 @@
   }
 
   @media (min-width: $theme-breakpoints-mobile) {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     padding-left: 3.125rem;
     flex-direction: column;
     justify-content: flex-end;
@@ -121,7 +121,7 @@
     .newsletter-form {
       display: block;
       margin-right: 0;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2rem;
     }
   }
 }
