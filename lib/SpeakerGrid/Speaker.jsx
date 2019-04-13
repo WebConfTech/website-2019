@@ -41,6 +41,7 @@ export const SpeakerContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  transition: all 0.5s ease-out;
 
   &:hover {
     ${SpeakerDescription} {
