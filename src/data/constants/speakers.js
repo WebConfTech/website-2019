@@ -26,7 +26,7 @@ presentar las herramientas que tenemos, las que se vienen y las que marcan el fu
     shortDescription: `
 Gonzalo es un React developer en The Next Ad, co-organizador en freeCodeCampBA.
 
-En **GG Easy con Cypress, testeando una app entera en media hora (no clickbait)** nos va a
+En **GG Easy con Cypress, testeando una app entera en media hora** nos va a
 explicar cuándo y por qué hacer tests de integración o unitarios, y qué ventajas tiene Cypress
 sobre Selenium o Puppeteer.
     `,
