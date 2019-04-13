@@ -19,13 +19,21 @@ const SpeakerDescription = styled.div`
   font-size: 0.8rem;
   font-stretch: 95%;
 
-  p:first-child {
-    margin-top: 0;
+  p {
+    margin: 0.3rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
     padding: 1rem;
     font-size: 1.15rem;
+
+    p {
+      margin: 0.75rem 0;
+    }
   }
 `;
 
