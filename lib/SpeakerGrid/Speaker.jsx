@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-import TwitterIcon from 'assets/icons/twitter.svg';
+import ReactMarkdown from 'react-markdown';
 
 const SpeakerDescription = styled.div`
   display: none;
@@ -13,12 +13,17 @@ const SpeakerDescription = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1.25rem;
+  padding: 0.75rem;
   background-color: ${({ theme }) => transparentize(0.5, theme.palette.generics.black)};
   color: ${({ theme }) => theme.palette.text};
   font-size: 0.8rem;
 
+  p:first-child {
+    margin-top: 0;
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    padding: 1rem;
     font-size: 1.2rem;
   }
 `;
@@ -45,12 +50,17 @@ export const SpeakerContainer = styled.div`
 
 export const SpeakerName = styled.div`
   height: 6.25rem;
-  padding: 0 1.25rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: bold;
   color: ${({ theme }) => theme.palette.text};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    padding: 0 1.5rem;
+    font-size: 2rem;
+  }
 `;
 
 export const SpeakerPhoto = styled.div`
@@ -59,6 +69,8 @@ export const SpeakerPhoto = styled.div`
   overflow: hidden;
 
   & > img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -67,21 +79,28 @@ export const SpeakerPhoto = styled.div`
   }
 `;
 
-export const SpeakerTwitterLink = styled.a`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: ${({ theme }) => theme.palette.text};
-  opacity: 0.5;
-  text-decoration: none;
-
-  & > img {
-    height: 1.25rem;
-    margin-right: 0.75rem;
+export const SpeakerShortDescription = styled.div`
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    display: none;
   }
 `;
 
-export const Speaker = ({ firstName, lastName, image, description, twitterHandle }) => (
+export const SpeakerLongDescription = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
+    display: block;
+  }
+`;
+
+export const Speaker = ({
+  firstName,
+  lastName,
+  image,
+  shortDescription,
+  longDescription,
+  twitterHandle
+}) => (
   <SpeakerContainer>
     <SpeakerName>
       {firstName}
@@ -91,13 +110,12 @@ export const Speaker = ({ firstName, lastName, image, description, twitterHandle
     <SpeakerPhoto>
       <img src={image} alt={`foto de ${firstName} ${lastName}`} />
       <SpeakerDescription>
-        <div>{description}</div>
-        {twitterHandle ? (
-          <SpeakerTwitterLink href={`https://twitter.com/${twitterHandle}`}>
-            <img alt="twitter icon" src={TwitterIcon} />
-            {twitterHandle}
-          </SpeakerTwitterLink>
-        ) : null}
+        <SpeakerShortDescription>
+          <ReactMarkdown>{shortDescription}</ReactMarkdown>
+        </SpeakerShortDescription>
+        <SpeakerLongDescription>
+          <ReactMarkdown>{longDescription}</ReactMarkdown>
+        </SpeakerLongDescription>
       </SpeakerDescription>
     </SpeakerPhoto>
   </SpeakerContainer>
@@ -107,7 +125,8 @@ Speaker.propTypes = {
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  shortDescription: PropTypes.string.isRequired,
+  longDescription: PropTypes.string.isRequired,
   twitterHandle: PropTypes.string,
   reverse: PropTypes.bool
 };
