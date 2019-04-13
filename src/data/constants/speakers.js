@@ -99,7 +99,7 @@ front-end, intentando explicar cómo este ámbito del desarrollo Web llegó a se
   },
   {
     firstName: 'Nabila',
-    lastName: 'Nahir Gudiño ',
+    lastName: 'Gudiño Ochoa',
     image: require('assets/images/speakers/nabila-gudino.jpg'),
     shortDescription: `
 Nabila es Ingeniera por elección, diseñadora por vocación. Le gusta mucho lo que hace, sobre todo
