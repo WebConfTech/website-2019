@@ -13,33 +13,30 @@ const SpeakerDescription = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0.75rem;
+  padding: 1rem;
   background-color: ${({ theme }) => transparentize(0.2, theme.palette.generics.black)};
   color: ${({ theme }) => theme.palette.text};
-  font-size: 0.8rem;
+  font-size: 1.15rem;
   font-stretch: 95%;
 
-  p {
-    margin: 0.3rem 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
-    padding: 1rem;
-    font-size: 1.15rem;
+  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
+      theme.breakpoints.smallScreen}) {
+    padding: 0.75rem;
+    font-size: 0.8rem;
 
     p {
-      margin: 0.75rem 0;
+      margin: 0.3rem 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 `;
 
 export const SpeakerContainer = styled.div`
-  width: 12.5rem;
-  height: 19rem;
+  width: 18.75rem;
+  height: 28.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,30 +48,32 @@ export const SpeakerContainer = styled.div`
     }
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
-    width: 18.75rem;
-    height: 28.5rem;
+  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
+      theme.breakpoints.smallScreen}) {
+    width: 12.5rem;
+    height: 19rem;
   }
 `;
 
 export const SpeakerName = styled.div`
   height: 6.25rem;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
-  font-size: 1.65rem;
+  font-size: 2rem;
   font-weight: bold;
   color: ${({ theme }) => theme.palette.text};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
-    padding: 0 1.5rem;
-    font-size: 2rem;
+  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
+      theme.breakpoints.smallScreen}) {
+    padding: 0 1rem;
+    font-size: 1.65rem;
   }
 `;
 
 export const SpeakerPhoto = styled.div`
   position: relative;
-  height: 12.35rem;
+  height: 21.9rem;
   overflow: hidden;
 
   & > img {
@@ -83,22 +82,27 @@ export const SpeakerPhoto = styled.div`
     object-fit: cover;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
-    height: 21.9rem;
+  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
+      theme.breakpoints.smallScreen}) {
+    height: 12.35rem;
   }
 `;
 
 export const SpeakerShortDescription = styled.div`
-  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
-    display: none;
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
+      theme.breakpoints.smallScreen}) {
+    display: block;
   }
 `;
 
 export const SpeakerLongDescription = styled.div`
-  display: none;
+  display: block;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
-    display: block;
+  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
+      theme.breakpoints.smallScreen}) {
+    display: none;
   }
 `;
 
