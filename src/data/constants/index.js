@@ -10,3 +10,4 @@ export {
   VENUE_MOBILE_DEFAULT_ZOOM,
   VENUE_MARKER
 } from './venue';
+export { SPEAKERS } from './speakers';
