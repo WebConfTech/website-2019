@@ -10,7 +10,11 @@
 .grid {
   align-self: center;
   margin: 1rem 0 0;
-  width: 25.4rem;
+  width: 12.5rem;
+
+  @media (min-width: $theme-breakpoints-potato) {
+    width: 25.4rem;
+  }
 
   @media (min-width: $theme-breakpoints-mobile) {
     width: 100%;
