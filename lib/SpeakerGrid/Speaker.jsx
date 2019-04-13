@@ -14,9 +14,10 @@ const SpeakerDescription = styled.div`
   left: 0;
   right: 0;
   padding: 0.75rem;
-  background-color: ${({ theme }) => transparentize(0.5, theme.palette.generics.black)};
+  background-color: ${({ theme }) => transparentize(0.2, theme.palette.generics.black)};
   color: ${({ theme }) => theme.palette.text};
   font-size: 0.8rem;
+  font-stretch: 95%;
 
   p:first-child {
     margin-top: 0;
@@ -24,7 +25,7 @@ const SpeakerDescription = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.smallScreen}) {
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 `;
 
