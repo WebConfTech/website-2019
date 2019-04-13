@@ -1,5 +1,4 @@
 import React from 'react';
-import Photo from 'assets/images/banner-background-mobile.png';
 import SectionLayout, { SectionTitle } from 'layouts/section';
 import { SpeakerGrid, Speaker } from 'lib';
 import { SPEAKERS } from 'data/constants';
