@@ -25,7 +25,7 @@
     width: 21.375rem;
   }
   &.-silver img {
-    width: 14.5rem;
+    width: 12.5rem;
   }
   &.-bronze img {
     width: 9.375rem;
@@ -33,7 +33,10 @@
 }
 
 .item {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: $theme-breakpoints-mobile) {
@@ -41,21 +44,39 @@
     &.-gold {
       flex-direction: column;
     }
-    &.-silver {
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+    &.-silver,
     &.-bronze {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
+      padding-top: 2.5rem;
     }
+  }
+  .list.-gold .item {
+    padding: 1.25rem 0;
+    &:first-child {
+      padding-top: 2.5rem;
+    }
+    &:last-child {
+      padding-bottom: 2.5rem;
+    }
+  }
+  .list.-silver .item {
+    height: 12.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .list.-bronze .item {
+    height: 9.375rem;
+    padding-bottom: 2.5rem;
   }
 }
 
 @media (max-width: $theme-breakpoints-mobile) {
   .list {
     flex-direction: column;
+    padding: 1.25rem 0;
+  }
+  .item {
+    padding: 1.25rem 0;
   }
 }
