@@ -6,14 +6,24 @@ export const SPONSORS = {
       url: 'https://virtualmind.com'
     },
     {
+      title: 'Acamica',
+      image: require('assets/images/sponsors/gold/acamica.png'),
+      url: 'https://acamica.com'
+    },
+    {
       title: 'Naranja',
       image: require('assets/images/sponsors/gold/naranja.png'),
       url: 'https://naranja.com'
     },
     {
       title: 'Olapic',
-      image: require('assets/images/sponsors/gold/olapic.svg'),
+      image: require('assets/images/sponsors/gold/olapic.png'),
       url: 'https://olapic.com'
+    },
+    {
+      title: 'Egghead',
+      image: require('assets/images/sponsors/gold/egghead.png'),
+      url: 'https://egghead.io'
     }
   ],
   silver: [
