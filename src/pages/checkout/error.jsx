@@ -11,17 +11,17 @@ import purchaseErrorImage from 'assets/images/purchase-error.svg';
 const CHECKOUT_MENU = [
   {
     title: 'Entradas',
-    url: '/checkout/',
+    url: '/checkout',
     enabled: true
   },
   {
     title: 'Revisá tu compra',
-    url: '/checkout/review/',
+    url: '/checkout/review',
     enabled: true
   },
   {
     title: 'Ocurrió un problema',
-    url: '/checkout/error/',
+    url: '/checkout/error',
     enabled: true
   }
 ];
