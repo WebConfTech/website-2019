@@ -117,17 +117,33 @@ en conjunto.
 `
   },
   {
-    firstName: 'TBA',
-    lastName: '',
-    image: require('assets/images/banner-background-mobile.png'),
-    shortDescription: 'TBA',
-    longDescription: 'TBA'
+    firstName: 'Marcos',
+    lastName: 'Pastoriza',
+    image: require('assets/images/speakers/marcos-pastoriza.jpg'),
+    shortDescription: `
+Marcos se dedica al desarrollo web desde hace 6 años y hoy trabaja en Naranja, como arquitecto frontend.
+
+En **Entendiendo las PWA, componentes y funcionalidades**, nos contará en qué consiste una Progressive Web App, desde service workers y manifests hasta Workbox.      
+`,
+    longDescription: `
+Marcos se dedica al desarrollo web desde hace aproximadamente 6 años y actualmente trabaja en Naranja, como arquitecto frontend.
+
+En **Entendiendo las PWA, componentes y funcionalidades**, nos va a contar parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.  
+  `
   },
   {
-    firstName: 'TBA',
-    lastName: '',
-    image: require('assets/images/banner-background-mobile.png'),
-    shortDescription: 'TBA',
-    longDescription: 'TBA'
+    firstName: 'Pablo',
+    lastName: 'Fernández',
+    image: require('assets/images/speakers/pablo-fernandez.jpg'),
+    shortDescription: `
+Pablo es Ingeniero en Sistemas y trabaja hace más de 10 años en diversas áreas de IT. Hincha de River, guitarrista y estrella de rock frustrada.
+
+En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático.    
+`,
+    longDescription: `
+Pablo es Ingeniero en Sistemas y trabaja hace más de 10 años en diversas áreas de IT (backend, frontend, UX y más). Hincha de River, guitarrista y estrella de rock frustrada.
+
+En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático y cómo su implementación contribuye a una mejora en la calidad del código.    
+`
   }
 ];

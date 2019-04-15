@@ -18,7 +18,7 @@ const IndexPage = () => (
     <div className={styles.middleSection}>
       <div className={styles.middleStrut} />
       <div className={styles.middleContent}>
-        <p className={styles.date}>Sábado 11/05, 09:00 hs.</p>
+        <p className={styles.date}>Sábado 11/05, 08:30 hs.</p>
         <p className={styles.venue}>
           Auditorio Diego de Torres (UCC)
           <br />
