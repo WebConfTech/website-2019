@@ -47,7 +47,7 @@ export const SPONSORS = {
     {
       title: 'Estudio jurídico Eroles - Saurralles & asociados',
       image: require('assets/images/sponsors/bronze/eroles-saurralles.png'),
-      url: 'https://google.com'
+      url: '#'
     }
   ]
 };
