@@ -1,24 +1,22 @@
 export const MENU = [
   {
     title: 'Entradas',
-    url: '/checkout/'
+    url: '/checkout'
   },
   {
     title: 'La conferencia',
-    url: '/about/'
+    url: '/about'
   },
   {
     title: 'Disertantes',
-    url: '/speakers/'
+    url: '/speakers'
   },
   {
     title: 'Lugar',
-    url: '/venue/'
+    url: '/venue'
+  },
+  {
+    title: 'Sponsors',
+    url: '/sponsors'
   }
-  /*
-   * {
-   *   title: 'Sponsors',
-   *   url: '/sponsors'
-   * },
-   */
 ];

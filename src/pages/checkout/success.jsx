@@ -19,7 +19,7 @@ const CHECKOUT_MENU = [
   },
   {
     title: '¡Listo!',
-    url: '/checkout/success/',
+    url: '/checkout/success',
     enabled: true
   }
 ];

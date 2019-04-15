@@ -19,7 +19,7 @@ const CHECKOUT_MENU = [
   },
   {
     title: '¡Listo!',
-    url: '/checkout/pending/',
+    url: '/checkout/pending',
     enabled: true
   }
 ];
