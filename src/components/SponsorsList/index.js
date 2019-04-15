@@ -1,0 +1,1 @@
+export { SponsorsList } from './SponsorsList';

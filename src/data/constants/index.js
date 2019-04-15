@@ -11,3 +11,4 @@ export {
   VENUE_MARKER
 } from './venue';
 export { SPEAKERS } from './speakers';
+export { SPONSORS } from './sponsors';

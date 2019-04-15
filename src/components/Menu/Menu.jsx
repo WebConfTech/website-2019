@@ -8,33 +8,36 @@ import { MENU } from 'data/constants';
 
 export const Menu = ({ className = '', dark, short, hideOnMobile }) => (
   <Location>
-    {({ location }) => (
-      <div className={`${className} ${hideOnMobile ? styles.hideOnMobile : ''}`}>
-        <div id="menu" className={styles.container}>
-          <CloseIcon href="#" mobileOnly className={styles.close}>
-            <img src={CloseNegativeIcon} alt="Cerrar menú" />
-          </CloseIcon>
-          <nav className={styles.nav}>
-            <ul className={styles.list}>
-              {MENU.map(item => (
-                <li key={item.url} className={styles.item}>
-                  <NavigationItem
-                    to={item.url}
-                    active={location.pathname === item.url ? 1 : 0}
-                    as={Link}
-                  >
-                    {item.title}
-                  </NavigationItem>
+    {({ location }) => {
+      const currentUrl = location.pathname.replace(/(?:\/)?$/, '');
+      return (
+        <div className={`${className} ${hideOnMobile ? styles.hideOnMobile : ''}`}>
+          <div id="menu" className={styles.container}>
+            <CloseIcon href="#" mobileOnly className={styles.close}>
+              <img src={CloseNegativeIcon} alt="Cerrar menú" />
+            </CloseIcon>
+            <nav className={styles.nav}>
+              <ul className={styles.list}>
+                {MENU.map(item => (
+                  <li key={item.url} className={styles.item}>
+                    <NavigationItem
+                      to={item.url}
+                      active={currentUrl === item.url ? 1 : 0}
+                      as={Link}
+                    >
+                      {item.title}
+                    </NavigationItem>
+                  </li>
+                ))}
+                <li className={styles.item}>
+                  <NavigationItem href="mailto:hola@webconf.tech">Escríbenos</NavigationItem>
                 </li>
-              ))}
-              <li className={styles.item}>
-                <NavigationItem href="mailto:hola@webconf.tech">Escríbenos</NavigationItem>
-              </li>
-            </ul>
-          </nav>
+              </ul>
+            </nav>
+          </div>
+          <MenuIconMobile dark={dark} short={short} href="#menu" />
         </div>
-        <MenuIconMobile dark={dark} short={short} href="#menu" />
-      </div>
-    )}
+      );
+    }}
   </Location>
 );

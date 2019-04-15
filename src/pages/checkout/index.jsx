@@ -11,12 +11,12 @@ import styles from './index.module.scss';
 const CHECKOUT_MENU = [
   {
     title: 'Entradas',
-    url: '/checkout/',
+    url: '/checkout',
     enabled: true
   },
   {
     title: 'Revisá tu compra',
-    url: '/checkout/review/',
+    url: '/checkout/review',
     enabled: false
   },
   {
