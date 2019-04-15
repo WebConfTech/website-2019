@@ -18,7 +18,13 @@ export const SponsorsList = ({ gold, silver, title, sponsors, className = '' }) 
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={sponsor.image} alt={sponsor.title} />
+              <img
+                src={sponsor.image}
+                alt={sponsor.title}
+                style={{
+                  maxWidth: sponsor.width
+                }}
+              />
             </OutboundLink>
           </li>
         ))}
