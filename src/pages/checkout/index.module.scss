@@ -11,4 +11,7 @@
   @media (min-width: $theme-breakpoints-mobile) {
     margin-left: 7rem;
   }
+  @media (max-width: $theme-breakpoints-mobile) {
+    padding-top: 1.25rem;
+  }
 }

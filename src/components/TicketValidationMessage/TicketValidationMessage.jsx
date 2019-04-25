@@ -35,8 +35,6 @@ const _TicketValidationMessage = ({
       message = (
         <>
           ¡Todo listo por aquí! Presioná&nbsp;
-          <em>Quiero otra</em>
-          &nbsp;o&nbsp;
           <em>Pagar</em>
           &nbsp;para continuar.
         </>
