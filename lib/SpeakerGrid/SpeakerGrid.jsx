@@ -39,10 +39,34 @@ export const SpeakerGrid = styled.div`
     }
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.potato}) and (max-width: ${({ theme }) =>
-      theme.breakpoints.smallScreen}) {
-    grid-template-columns: repeat(auto-fill, 12.5rem);
-    grid-column-gap: 0.4rem;
-    grid-row-gap: 0.4rem;
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    ${SpeakerContainer} {
+      flex-direction: column;
+      background-color: none;
+    }
+
+    ${SpeakerContainer}:nth-of-type(3n + 2) {
+      flex-direction: column-reverse;
+    }
+
+    ${SpeakerContainer}:nth-of-type(6n + 1),
+    ${SpeakerContainer}:nth-of-type(6n + 6) {
+      ${SpeakerName} {
+        background-color: ${({ theme }) => theme.palette.secondary};
+      }
+    }
+
+    ${SpeakerContainer}:nth-of-type(3n + 2) {
+      ${SpeakerName} {
+        background-color: ${({ theme }) => theme.palette.generics.black};
+      }
+    }
+
+    ${SpeakerContainer}:nth-of-type(6n + 3),
+    ${SpeakerContainer}:nth-of-type(6n + 4) {
+      ${SpeakerName} {
+        background-color: ${({ theme }) => theme.palette.primary};
+      }
+    }
   }
 `;
