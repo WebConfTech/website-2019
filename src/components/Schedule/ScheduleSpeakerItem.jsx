@@ -12,7 +12,7 @@ export const ScheduleSpeakerItem = ({ item, speaker }) => (
       <h3 className={styles.speaker}>
         {speaker.firstName} {speaker.lastName}
       </h3>
-      <p className={styles.text}>{speaker.longDescription}</p>
+      <p className={styles.text}>{speaker.scheduleDescription}</p>
     </div>
   </div>
 );

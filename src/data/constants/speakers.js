@@ -20,6 +20,9 @@ Villa Allende.
 En **Una historia de layouts** nos invita a recorrer la historia desde el punto de
 vista del desarrollador a la hora de implementar una nueva estructura o layout. Nos va a
 presentar las herramientas que tenemos, las que se vienen y las que marcan el futuro.
+    `,
+    scheduleDescription: `
+Vamos a recorrer la historia desde el punto de vista del desarrollador a la hora de implementar una nueva estructura o layout. Nos va a presentar las herramientas que tenemos, las que se vienen y las que marcan el futuro.
     `
   },
   {
@@ -43,6 +46,9 @@ mentorear, ayudar y los perritos.
 En **GG Easy con Cypress, testeando una app entera en media hora (no clickbait)** nos va a explicar
 cuándo y por qué hacer tests de integración o unitarios, y qué ventajas tiene Cypress sobre
 Selenium o Puppeteer.
+    `,
+    scheduleDescription: `
+Se va a explicar cuándo y por qué hacer tests de integración o unitarios, y qué ventajas tiene Cypress sobre Selenium o Puppeteer.
     `
   },
   {
@@ -65,7 +71,10 @@ experiencia. Además escribe en la página ProTecno.io
 En **Componentes web reutilizables e independientes del framework** nos invita a dejar de lado
 la guerra de frameworks y ver cómo implementar componentes reutilizables en casi cualquiera de
 ellos con Web Components.
-`
+    `,
+    scheduleDescription: `
+Dejemos de lado la guerra de frameworks y veamos cómo implementar componentes reutilizables en casi cualquiera de ellos con Web Components.
+    `
   },
   {
     id: 4,
@@ -88,6 +97,9 @@ Engineer en Mercado Libre.
 En **El mejor amigo para tu frontend - BFF** compartirá algunos aprendizajes obtenidos en la
 implementación del patrón BFF (Backend for Frontend). Se adentrará en los desafíos, decisiones
 importantes y tips a tener en cuenta.
+    `,
+    scheduleDescription: `
+Se compartirá algunos aprendizajes obtenidos en la implementación del patrón BFF (Backend for Frontend). Se adentrará en los desafíos, decisiones importantes y tips a tener en cuenta.
     `
   },
   {
@@ -110,7 +122,10 @@ Counterfactual. Amante de los videojuegos, la música, la ciencia ficción y los
 
 En **<Crecer Con=”La Web” />** nos va a contar una historia sobre la infancia y adolescencia del
 front-end, intentando explicar cómo este ámbito del desarrollo Web llegó a ser lo que es hoy.
-`
+    `,
+    scheduleDescription: `
+Una historia sobre la infancia y adolescencia del front-end, intentando explicar cómo este ámbito del desarrollo Web llegó a ser lo que es hoy.
+    `
   },
   {
     id: 6,
@@ -132,7 +147,10 @@ el fino arte de entender a los usuarios.
 En **Diseñando el código** nos va a contar que son los design systems, en qué consiste una style
 guide y como armar una component library, explorando como diseñadores y desarrolladores trabajan
 en conjunto.
-`
+    `,
+    scheduleDescription: `
+Veremos que son los design systems, en qué consiste una style guide y como armar una component library, explorando como diseñadores y desarrolladores trabajan en conjunto.
+    `
   },
   {
     id: 7,
@@ -150,6 +168,9 @@ En **Entendiendo las PWA, componentes y funcionalidades**, nos contará en qué 
 Marcos se dedica al desarrollo web desde hace aproximadamente 6 años y actualmente trabaja en Naranja, como arquitecto frontend.
 
 En **Entendiendo las PWA, componentes y funcionalidades**, nos va a contar parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.
+  `,
+    scheduleDescription: `
+Se vera parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.
   `
   },
   {
@@ -168,7 +189,10 @@ En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va 
 Pablo es Ingeniero en Sistemas y trabaja hace más de 10 años en diversas áreas de IT (backend, frontend, UX y más). Hincha de River, guitarrista y estrella de rock frustrada.
 
 En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático y cómo su implementación contribuye a una mejora en la calidad del código.
-`
+    `,
+    scheduleDescription: `
+Cuales son las fortalezas del tipado estático y cómo su implementación contribuye a una mejora en la calidad del código
+    `
   },
   {
     id: 9,
@@ -186,6 +210,9 @@ En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se comp
 Alexis es Ingeniero en Sistemas de Información. Empezó su carrera como desarrollador Front-end y desde entonces trabajó con tecnologías tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
 
 En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se compara con otras formas de definir una API en el backend.
-`
+    `,
+    scheduleDescription: `
+De que trata GraphQL y como se compara con otras formas de definir una API en el backend
+    `
   }
 ];
