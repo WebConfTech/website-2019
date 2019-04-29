@@ -22,7 +22,7 @@ vista del desarrollador a la hora de implementar una nueva estructura o layout. 
 presentar las herramientas que tenemos, las que se vienen y las que marcan el futuro.
     `,
     scheduleDescription: `
-Vamos a recorrer la historia desde el punto de vista del desarrollador a la hora de implementar una nueva estructura o layout. Nos va a presentar las herramientas que tenemos, las que se vienen y las que marcan el futuro.
+Vamos a recorrer la historia desde el punto de vista del desarrollador a la hora de implementar una nueva estructura o layout, descubriendo las herramientas que tenemos, las que se vienen y las que marcan el futuro.
     `
   },
   {
