@@ -12,7 +12,6 @@
   background-color: $theme-palette-secondary;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    position: initial;
     flex-direction: column;
     align-items: flex-start;
     margin: 3.25rem 0 0 3.125rem;
@@ -84,12 +83,15 @@
 }
 
 .footer {
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: flex-end;
 
   @media (min-width: $theme-breakpoints-mobile) {
+    position: fixed;
     flex-direction: column;
     align-items: flex-start;
   }
