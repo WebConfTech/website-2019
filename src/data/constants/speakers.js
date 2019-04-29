@@ -212,7 +212,7 @@ Alexis es Ingeniero en Sistemas de Información. Empezó su carrera como desarro
 En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se compara con otras formas de definir una API en el backend.
     `,
     scheduleDescription: `
-De que trata GraphQL y como se compara con otras formas de definir una API en el backend
+Veremos de qué se trata GraphQL y cómo se compara con otras formas de definir una API en el backend.
     `
   }
 ];
