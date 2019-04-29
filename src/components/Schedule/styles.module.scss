@@ -1,3 +1,9 @@
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .list {
   margin: 0;
   padding: 0;
@@ -59,8 +65,11 @@
 }
 
 @media (min-width: $theme-breakpoints-mobile) {
-  .list::before {
-    width: 5.1875rem;
+  .list {
+    max-width: 65%;
+    &::before {
+      width: 5.1875rem;
+    }
   }
   .item {
     &.-break {
