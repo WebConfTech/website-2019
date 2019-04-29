@@ -17,31 +17,34 @@ export const SpeakerGrid = styled.div`
     }
   }
 
-  @media not (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    ${SpeakerContainer}:nth-of-type(even) {
-      flex-direction: column-reverse;
-    }
+  ${SpeakerContainer}:nth-of-type(even) {
+    flex-direction: column-reverse;
+  }
 
-    ${SpeakerContainer}:nth-of-type(3n + 1) {
-      ${SpeakerName} {
-        background-color: ${({ theme }) => theme.palette.secondary};
-      }
+  ${SpeakerContainer}:nth-of-type(3n + 1) {
+    ${SpeakerName} {
+      background-color: ${({ theme }) => theme.palette.secondary};
     }
+  }
 
-    ${SpeakerContainer}:nth-of-type(3n + 2) {
-      ${SpeakerName} {
-        background-color: ${({ theme }) => theme.palette.generics.black};
-      }
+  ${SpeakerContainer}:nth-of-type(3n + 2) {
+    ${SpeakerName} {
+      background-color: ${({ theme }) => theme.palette.generics.black};
     }
+  }
 
-    ${SpeakerContainer}:nth-of-type(3n + 3) {
-      ${SpeakerName} {
-        background-color: ${({ theme }) => theme.palette.primary};
-      }
+  ${SpeakerContainer}:nth-of-type(3n + 3) {
+    ${SpeakerName} {
+      background-color: ${({ theme }) => theme.palette.primary};
     }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    ${SpeakerContainer} {
+      flex-direction: column;
+      background-color: none;
+    }
+
     ${SpeakerContainer}:nth-of-type(3n + 2) {
       flex-direction: column-reverse;
     }

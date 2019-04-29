@@ -18,6 +18,14 @@ const SpeakerDescription = styled.div`
   color: ${({ theme }) => theme.palette.text};
   font-size: 1.15rem;
   font-stretch: 95%;
+
+  p {
+    margin: 0.3rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 `;
 
 export const SpeakerContainer = styled.div`
