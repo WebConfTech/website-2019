@@ -36,9 +36,6 @@
   align-items: flex-end;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     flex-direction: column;
     align-items: flex-start;
   }
