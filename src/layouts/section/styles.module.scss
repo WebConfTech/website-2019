@@ -12,11 +12,10 @@
   background-color: $theme-palette-secondary;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    right: unset;
+    position: initial;
     flex-direction: column;
     align-items: flex-start;
     margin: 3.25rem 0 0 3.125rem;
-    padding: 0;
     background-color: transparent;
   }
 
@@ -32,6 +31,8 @@
 
   @media (min-width: $theme-breakpoints-mobile) {
     margin-top: 0;
+    height: 100vh;
+    overflow-y: auto;
   }
 
   @media (max-width: $theme-breakpoints-mobile) {
@@ -91,9 +92,6 @@
   align-items: flex-end;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     flex-direction: column;
     align-items: flex-start;
   }

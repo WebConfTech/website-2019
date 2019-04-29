@@ -5,9 +5,6 @@
   margin: 2.375rem 1.75rem 2.5rem;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    position: fixed;
-    top: 0;
-    left: 0;
     flex-direction: column;
     margin: 3.25rem 0 0 3.125rem;
   }
@@ -26,7 +23,9 @@
   align-items: flex-end;
 
   @media (min-width: $theme-breakpoints-mobile) {
+    height: 100vh;
     justify-content: center;
+    overflow-y: auto;
   }
 }
 
