@@ -151,12 +151,12 @@ En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va 
     lastName: 'Monsech Páez',
     image: require('assets/images/speakers/alexis-monsech-paez.jpg'),
     shortDescription: `
-Alexis es Ingeniero en Sistemas de Información. Empezó su carrera laboral como desarrollador Front-end y desde entonces trabajó con múltiples tecnologías, tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
+Alexis es Ingeniero en Sistemas de Información. Empezó su carrera como desarrollador Front-end y desde entonces trabajó con tecnologías tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
 
 En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se compara con otras formas de definir una API en el backend.
 `,
     longDescription: `
-Alexis es Ingeniero en Sistemas de Información. Empezó su carrera laboral como desarrollador Front-end y desde entonces trabajó con múltiples tecnologías, tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
+Alexis es Ingeniero en Sistemas de Información. Empezó su carrera como desarrollador Front-end y desde entonces trabajó con tecnologías tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
 
 En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se compara con otras formas de definir una API en el backend.
 `
