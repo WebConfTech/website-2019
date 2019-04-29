@@ -13,9 +13,8 @@
   width: 18.75rem;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    width: 100%;
-    align-self: flex-start;
     margin: 0 0 0 5rem;
-    max-width: 57.45rem;
+    width: 57.45rem;
+    align-self: flex-start;
   }
 }
