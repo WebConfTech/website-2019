@@ -123,12 +123,12 @@ en conjunto.
     shortDescription: `
 Marcos se dedica al desarrollo web desde hace 6 años y hoy trabaja en Naranja, como arquitecto frontend.
 
-En **Entendiendo las PWA, componentes y funcionalidades**, nos contará en qué consiste una Progressive Web App, desde service workers y manifests hasta Workbox.      
+En **Entendiendo las PWA, componentes y funcionalidades**, nos contará en qué consiste una Progressive Web App, desde service workers y manifests hasta Workbox.
 `,
     longDescription: `
 Marcos se dedica al desarrollo web desde hace aproximadamente 6 años y actualmente trabaja en Naranja, como arquitecto frontend.
 
-En **Entendiendo las PWA, componentes y funcionalidades**, nos va a contar parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.  
+En **Entendiendo las PWA, componentes y funcionalidades**, nos va a contar parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.
   `
   },
   {
@@ -138,12 +138,27 @@ En **Entendiendo las PWA, componentes y funcionalidades**, nos va a contar parte
     shortDescription: `
 Pablo es Ingeniero en Sistemas y trabaja hace más de 10 años en diversas áreas de IT. Hincha de River, guitarrista y estrella de rock frustrada.
 
-En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático.    
+En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático.
 `,
     longDescription: `
 Pablo es Ingeniero en Sistemas y trabaja hace más de 10 años en diversas áreas de IT (backend, frontend, UX y más). Hincha de River, guitarrista y estrella de rock frustrada.
 
-En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático y cómo su implementación contribuye a una mejora en la calidad del código.    
+En su charla **Irrepresentabilidad de estados inválidos** en JavaScript nos va a contar acerca de las fortalezas del tipado estático y cómo su implementación contribuye a una mejora en la calidad del código.
+`
+  },
+  {
+    firstName: 'Alexis',
+    lastName: 'Monsech Páez',
+    image: require('assets/images/speakers/alexis-monsech-paez.jpg'),
+    shortDescription: `
+Alexis es Ingeniero en Sistemas de Información. Empezó su carrera laboral como desarrollador Front-end y desde entonces trabajó con múltiples tecnologías, tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
+
+En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se compara con otras formas de definir una API en el backend.
+`,
+    longDescription: `
+Alexis es Ingeniero en Sistemas de Información. Empezó su carrera laboral como desarrollador Front-end y desde entonces trabajó con múltiples tecnologías, tanto Front como Back. En la actualidad, se desempeña como líder de equipo en Virtualmind.
+
+En su charla **GraphQL 101** nos va a contar de que trata GraphQL y como se compara con otras formas de definir una API en el backend.
 `
   }
 ];
