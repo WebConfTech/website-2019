@@ -1,15 +1,13 @@
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 2.375rem 1.75rem 2.5rem;
 
   @media (min-width: $theme-breakpoints-mobile) {
-    right: unset;
+    position: fixed;
+    top: 0;
+    left: 0;
     flex-direction: column;
     margin: 3.25rem 0 0 3.125rem;
   }
