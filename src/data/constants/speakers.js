@@ -48,7 +48,7 @@ cuándo y por qué hacer tests de integración o unitarios, y qué ventajas tien
 Selenium o Puppeteer.
     `,
     scheduleDescription: `
-Se va a explicar cuándo y por qué hacer tests de integración o unitarios, y qué ventajas tiene Cypress sobre Selenium o Puppeteer.
+Vamos a explicar cuándo y por qué hacer tests de integración o unitarios, y qué ventajas tiene Cypress sobre Selenium o Puppeteer.
     `
   },
   {
