@@ -5,8 +5,9 @@ import styles from './styles.module.scss';
 
 const _TeaserText = ({ wasSaved, className = '' }) => (
   <p className={`${styles.teaser} ${className} ${wasSaved ? styles.HideOnMobile : ''}`}>
-    Estamos preparándonos para la primer conferencia de front-end y tecnologías Web del interior del
-    país. <strong>¿Te la vas a perder?</strong>
+    Somos la primer conferencia de front-end y tecnologías Web del interior del país.
+    <br />
+    <strong>¡Sumate a esta nueva experiencia!</strong>
   </p>
 );
 

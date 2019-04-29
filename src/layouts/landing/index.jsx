@@ -15,7 +15,17 @@ const LandingLayout = ({ seoProps, children }) => {
       <Content className={styles.content}>{children}</Content>
       <Sidebar className={styles.sidebar}>
         <Logo className={styles.logo} />
-        <Menu dark />
+        <div className={styles.right}>
+          <Menu dark className={styles.menu} />
+          <div className={styles.info}>
+            <div className={styles.date}>Sáb. 11/05, 08:30 hs</div>
+            <div className={styles.address}>
+              Auditorio Diego de Torres (UCC)
+              <br />
+              Obispo Trejo 323
+            </div>
+          </div>
+        </div>
       </Sidebar>
       <Footer className={styles.footer}>
         <div className={styles.contactContainer}>
