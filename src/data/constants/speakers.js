@@ -99,7 +99,7 @@ implementación del patrón BFF (Backend for Frontend). Se adentrará en los des
 importantes y tips a tener en cuenta.
     `,
     scheduleDescription: `
-Se compartirá algunos aprendizajes obtenidos en la implementación del patrón BFF (Backend for Frontend). Se adentrará en los desafíos, decisiones importantes y tips a tener en cuenta.
+Compartiremos algunos aprendizajes obtenidos en la implementación del patrón BFF (Backend for Frontend), adentrándonos en los desafíos, decisiones importantes y tips a tener en cuenta.
     `
   },
   {
