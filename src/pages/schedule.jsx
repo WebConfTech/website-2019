@@ -7,7 +7,7 @@ import { SCHEDULE, SPEAKERS } from 'data/constants';
 const speakersById = SPEAKERS.reduce((acc, speaker) => ({ ...acc, [speaker.id]: speaker }), {});
 
 const SchedulePage = () => (
-  <SectionLayout title="Cronograma" className={styles.section} cta>
+  <SectionLayout title="Cronograma" className={styles.section} cta newsletter>
     <div className={styles.container}>
       <ScheduleList>
         {SCHEDULE.map(item =>
