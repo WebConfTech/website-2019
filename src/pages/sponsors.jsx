@@ -5,7 +5,7 @@ import { SponsorsList } from 'components/SponsorsList';
 import { SPONSORS } from 'data/constants';
 
 const SponsorsPage = () => (
-  <SectionLayout title="Sponsors" className={styles.section} hideFooterOnMobile>
+  <SectionLayout title="Sponsors" className={styles.section} hideFooterOnMobile cta>
     <div className={styles.container}>
       <div className={styles.texts}>
         <p className={styles.text}>
