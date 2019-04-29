@@ -170,7 +170,7 @@ Marcos se dedica al desarrollo web desde hace aproximadamente 6 años y actualme
 En **Entendiendo las PWA, componentes y funcionalidades**, nos va a contar parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.
   `,
     scheduleDescription: `
-Se vera parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.
+Veremos parte por parte cómo se constituye una Progressive Web App, desde service workers y manifests hasta Workbox.
   `
   },
   {
