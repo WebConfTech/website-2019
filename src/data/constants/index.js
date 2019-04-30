@@ -11,4 +11,5 @@ export {
   VENUE_MARKER
 } from './venue';
 export { SPEAKERS } from './speakers';
+export { SCHEDULE } from './schedule';
 export { SPONSORS } from './sponsors';

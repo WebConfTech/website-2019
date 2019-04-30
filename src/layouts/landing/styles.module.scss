@@ -2,11 +2,46 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 2.375rem 1.75rem 2.5rem;
+  margin: 2.375rem 1.75rem 1rem;
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .menu {
+    margin-bottom: 1.5rem;
+  }
+
+  .info {
+    text-align: right;
+    color: $theme-palette-primary;
+  }
+
+  .date {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 500;
+  }
+
+  .address {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+  }
 
   @media (min-width: $theme-breakpoints-mobile) {
     flex-direction: column;
     margin: 3.25rem 0 0 3.125rem;
+
+    .right {
+      align-items: flex-start;
+    }
+
+    .info {
+      display: none;
+    }
   }
 }
 
@@ -17,13 +52,16 @@
 }
 
 .content {
+  justify-self: flex-end;
+  width: 100%;
+  max-width: 58rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
 
   @media (min-width: $theme-breakpoints-mobile) {
+    height: 100vh;
     justify-content: center;
+    overflow-y: auto;
   }
 }
 
@@ -42,7 +80,7 @@
 .contact-container {
   align-self: stretch;
   display: flex;
-  margin: 2.5rem 1.875rem 1rem 0.5rem;
+  margin: 0 1.875rem 1rem 0.5rem;
 
   .newsletter-form {
     display: none;

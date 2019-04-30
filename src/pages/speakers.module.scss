@@ -12,18 +12,9 @@
   margin: 1rem 0 0;
   width: 18.75rem;
 
-  @media (min-width: $theme-breakpoints-potato) {
-    width: 25.4rem;
-  }
-
   @media (min-width: $theme-breakpoints-mobile) {
-    width: 100%;
-    align-self: flex-start;
     margin: 0 0 0 5rem;
-    max-width: 52rem;
-  }
-
-  @media (min-width: $theme-breakpoints-smallScreen) {
-    max-width: 77rem;
+    width: 57.45rem;
+    align-self: flex-start;
   }
 }
