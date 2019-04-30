@@ -12,6 +12,10 @@ export const MENU = [
     url: '/speakers'
   },
   {
+    title: 'Cronograma',
+    url: '/schedule'
+  },
+  {
     title: 'Lugar',
     url: '/venue'
   },
