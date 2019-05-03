@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 export const SponsorsList = ({ gold, silver, title, sponsors, className = '' }) => {
   const type = (gold && styles.Gold) || (silver && styles.Silver) || styles.Bronze;
   return (
-    <div className={`${styles.container} ${className}`}>
+    <div className={`${styles.container} ${className} ${type}`}>
       <h2 className={styles.title}>
         <span>{title}</span>
       </h2>

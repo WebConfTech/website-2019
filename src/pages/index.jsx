@@ -19,13 +19,13 @@ const IndexPage = () => (
       <div className={styles.topLeft}>
         <TeaserText className={styles.teaser} />
         <EventCountdown className={styles.countdown} />
-        <Button as={Link} to="schedule" large className={styles.schedule}>
+        <Button as={Link} to="/schedule" large={1} className={styles.schedule}>
           Descubrí la Agenda
         </Button>
       </div>
       <div className={styles.topRight}>
         <img src={SpeakersImage} alt="speakers" />
-        <Link to="schedule" className={styles.agenda}>
+        <Link to="/schedule" className={styles.agenda}>
           Agenda
         </Link>
       </div>
