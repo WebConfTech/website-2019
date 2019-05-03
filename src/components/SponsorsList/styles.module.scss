@@ -21,15 +21,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  &.-gold img {
-    width: 21.375rem;
-  }
-  &.-silver img {
-    width: 12.5rem;
-  }
-  &.-bronze img {
-    width: 9.375rem;
-  }
+  flex-wrap: wrap;
 }
 
 .item {
@@ -61,13 +53,23 @@
       padding-bottom: 2.5rem;
     }
   }
-  .list.-silver .item {
-    height: 12.5rem;
+  .list.-silver {
     padding-bottom: 2.5rem;
+    .item {
+      height: 7.1875rem;
+    }
   }
-  .list.-bronze .item {
-    height: 9.375rem;
+  .list.-bronze {
+    width: 80%;
     padding-bottom: 2.5rem;
+    align-self: center;
+    .item {
+      height: 5.375rem;
+    }
+  }
+  .container.-bronze {
+    display: flex;
+    flex-direction: column;
   }
 }
 
