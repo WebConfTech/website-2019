@@ -45,6 +45,11 @@ export const SpeakerGrid = styled.div`
       background-color: none;
     }
 
+    ${SpeakerContainer}:nth-of-type(even) {
+      flex-direction: column;
+      background-color: none;
+    }
+
     ${SpeakerContainer}:nth-of-type(3n + 2) {
       flex-direction: column-reverse;
     }
