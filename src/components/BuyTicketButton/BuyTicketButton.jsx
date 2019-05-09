@@ -1,17 +1,18 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { CTALeafLike } from 'lib';
+
+const AsDiv = props => <div {...props}>{props.children}</div>;
 
 export const BuyTicketButton = ({ className = '' }) => (
   <CTALeafLike
     title="Quiero mi entrada"
-    as={Link}
-    to="/checkout/"
+    as={AsDiv}
     color="secondary"
     className={className}
+    hideArrow
   >
-    Quiero
+    Entradas
     <br />
-    mi entrada
+    agotadas
   </CTALeafLike>
 );
