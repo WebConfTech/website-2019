@@ -7,7 +7,6 @@ import LandingLayout from 'layouts/landing';
 
 // Components
 import { TeaserText } from 'components/TeaserText';
-import { EventCountdown } from 'components/EventCountdown';
 
 // Assets
 import SpeakersImage from 'assets/images/speakershome.png';
@@ -18,7 +17,6 @@ const IndexPage = () => (
     <div className={styles.topSection}>
       <div className={styles.topLeft}>
         <TeaserText className={styles.teaser} />
-        <EventCountdown className={styles.countdown} />
         <Button as={Link} to="/schedule" large={1} className={styles.schedule}>
           Descubrí la Agenda
         </Button>
