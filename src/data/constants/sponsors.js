@@ -55,6 +55,13 @@ export const SPONSORS = {
       image: require('assets/images/sponsors/silver/desafio-latam.svg'),
       url: 'https://desafiolatam.com',
       width: '11.5rem'
+    },
+    {
+      title: 'Hexacta',
+      image: require('assets/images/sponsors/silver/hexacta.svg'),
+      url: 'https://www.hexacta.com/',
+      width: '16.5rem',
+      height: '69px'
     }
   ],
   bronze: [

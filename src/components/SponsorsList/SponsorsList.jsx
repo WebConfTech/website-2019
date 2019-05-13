@@ -22,7 +22,8 @@ export const SponsorsList = ({ gold, silver, title, sponsors, className = '' }) 
                 src={sponsor.image}
                 alt={sponsor.title}
                 style={{
-                  maxWidth: sponsor.width
+                  maxWidth: sponsor.width,
+                  ...(sponsor.height ? { height: sponsor.height } : {})
                 }}
               />
             </OutboundLink>
