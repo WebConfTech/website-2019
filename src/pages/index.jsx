@@ -1,42 +1,23 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Button } from 'lib/Button';
 
 // Layouts
 import LandingLayout from 'layouts/landing';
 
-// Components
-import { TeaserText } from 'components/TeaserText';
-
-// Assets
-import SpeakersImage from 'assets/images/speakershome.png';
 import styles from './index.module.scss';
 
 const IndexPage = () => (
   <LandingLayout>
-    <div className={styles.topSection}>
-      <div className={styles.topLeft}>
-        <TeaserText className={styles.teaser} />
-        <Button as={Link} to="/schedule" large={1} className={styles.schedule}>
-          Descubrí la Agenda
-        </Button>
-      </div>
-      <div className={styles.topRight}>
-        <img src={SpeakersImage} alt="speakers" />
-        <Link to="/schedule" className={styles.agenda}>
-          Agenda
-        </Link>
-      </div>
-    </div>
-    <div className={styles.middleSection}>
-      <div className={styles.middleStrut} />
-      <div className={styles.middleContent}>
-        <p className={styles.date}>Sáb. 11/05, 08:30 hs.</p>
-        <p className={styles.venue}>
-          Auditorio Diego de Torres (UCC)
-          <br />
-          Obispo Trejo 323
-        </p>
+    <div class={styles.videoBackground}>
+      <div class={styles.videoForeground}>
+        <iframe
+          title="resumen"
+          frameborder="0"
+          height="100%"
+          width="100%"
+          src="https://youtube.com/embed/h6sbrtMnMzM?version=3&autoplay=1&loop=1&controls=1&playlist=h6sbrtMnMzM"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        />
       </div>
     </div>
   </LandingLayout>
