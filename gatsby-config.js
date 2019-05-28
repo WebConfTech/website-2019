@@ -56,6 +56,13 @@ module.exports = {
         trackingId: 'UA-135888476-1',
         cookieDomain: 'webconf.tech'
       }
+    },
+    {
+      resolve: `facebook-photos-source`,
+      options: {
+        albums: ['444299313054410'],
+        token: process.env.FACEBOOK_GRAPH_TOKEN
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
