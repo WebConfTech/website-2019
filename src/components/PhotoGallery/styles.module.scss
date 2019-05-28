@@ -1,0 +1,85 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.current-photo-container {
+  position: fixed;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+}
+
+.current-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preloading {
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.picker {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 1.25rem;
+  position: relative;
+
+  .shadow {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -10;
+    background-color: black;
+    opacity: 0.3;
+  }
+
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .arrow-disabled {
+    img {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  .arrow-left {
+    padding-right: 1.875rem;
+  }
+
+  .arrow-right {
+    padding-left: 1.875rem;
+  }
+
+  .thumbnails {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .thumbnail {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0.625rem white;
+
+    img {
+      display: block;
+      object-fit: cover;
+    }
+  }
+}
