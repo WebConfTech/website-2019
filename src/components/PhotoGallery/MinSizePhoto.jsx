@@ -1,6 +1,7 @@
 import * as R from 'ramda';
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { ImagePropTypes } from './propTypes';
 
 const findBiggerImage = R.curry((minSize, images) => {
@@ -13,7 +14,7 @@ const findBiggerImage = R.curry((minSize, images) => {
 export const MinSizePhoto = ({ minSize, images, alt, ...props }) => {
   const { source } = useMemo(() => findBiggerImage(minSize, images), [minSize, images]);
 
-  return <img src={source} alt={alt} {...props} />;
+  return <LazyLoadImage src={source} alt={alt} {...props} threshold={1000} />;
 };
 
 MinSizePhoto.propTypes = {

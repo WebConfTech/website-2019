@@ -2,14 +2,27 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: stretch;
+
+  @media (min-width: $theme-breakpoints-smallScreen) {
+    flex-direction: column-reverse;
+  }
 }
 
 .current-photo-container {
-  position: fixed;
-  z-index: -100;
   width: 100%;
-  height: 100%;
+  max-height: 50%;
+  margin-bottom: 0.625rem;
+
+  @media (min-width: $theme-breakpoints-smallScreen) {
+    position: fixed;
+    z-index: -100;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
 }
 
 .current-photo {
@@ -25,10 +38,19 @@
 }
 
 .picker {
-  display: flex;
-  flex-direction: row;
-  padding: 2rem 1.25rem;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr 1fr;
+  grid-row-gap: 1rem;
+  grid-column-gap: 1rem;
+  overflow-y: auto;
+
+  @media (min-width: $theme-breakpoints-smallScreen) {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 1.25rem;
+    position: relative;
+  }
 
   .shadow {
     position: absolute;
@@ -72,14 +94,24 @@
     flex-direction: row;
     justify-content: space-between;
   }
+}
 
-  .thumbnail {
+.thumbnail {
+  img {
+    display: block;
+    object-fit: cover;
+  }
+
+  @media (max-width: $theme-breakpoints-smallScreen - 1) {
+    img {
+      min-height: 8.25rem;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $theme-breakpoints-smallScreen) {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 0.625rem white;
-
-    img {
-      display: block;
-      object-fit: cover;
-    }
   }
 }

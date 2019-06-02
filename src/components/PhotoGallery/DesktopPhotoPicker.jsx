@@ -16,7 +16,7 @@ const photosRange = R.curry((range, offset, photos) =>
   )(photos)
 );
 
-export const PhotoPicker = ({ photos, range, onSelect }) => {
+export const DesktopPhotoPicker = ({ photos, range, onSelect }) => {
   // offset handling callbacks
   const [offset, setOffset] = useState(0);
   const increaseOffset = useCallback(
@@ -48,11 +48,9 @@ export const PhotoPicker = ({ photos, range, onSelect }) => {
     const thumbnailsWidth = thumbnailsRef.current.offsetWidth;
     const availableWidth = thumbnailsWidth - GUTTER * (range - 1);
     const width = availableWidth / range;
-    console.log(thumbnailsWidth, availableWidth, width);
 
     setThumbWidth(width);
   }, [thumbnailsRef, range, setThumbWidth]);
-  console.log(offset);
 
   return (
     <>
@@ -109,13 +107,12 @@ export const PhotoPicker = ({ photos, range, onSelect }) => {
   );
 };
 
-PhotoPicker.propTypes = {
+DesktopPhotoPicker.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.shape(PhotoPropTypes)).isRequired,
   onSelect: PropTypes.func.isRequired,
-  range: PropTypes.number,
-  gutter: PropTypes.number
+  range: PropTypes.number
 };
 
-PhotoPicker.defaultProps = {
+DesktopPhotoPicker.defaultProps = {
   range: 6
 };
