@@ -9,7 +9,9 @@
       "config": { "distDir": "public" }
     }
   ],
-  "env": {
-    "FACEBOOK_GRAPH_TOKEN": "@website-facebook-graph-token"
+  "build": {
+    "env": {
+      "FACEBOOK_GRAPH_TOKEN": "@website-facebook-graph-token"
+    }
   }
 }
