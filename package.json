@@ -37,11 +37,11 @@
     "deploy": "now alias $(now --name=$NOW_NAME --team=$NOW_TEAM) $NOW_INSTANCE_NAME --token=$NOW_TOKEN --team=$NOW_TEAM",
     "dev": "gatsby develop",
     "scale": "now scale $NOW_INSTANCE_NAME.now.sh sfo 1 --token=$NOW_TOKEN --team=$NOW_TEAM",
-    "build": "gatsby build",
+    "build": "yarn --cwd plugins/facebook-photos-source && gatsby build",
     "start": "npm run dev",
     "serve": "gatsby serve",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "now-build": "npm run build",
+    "now-build": "yarn build",
     "lambdas": "now-lambda"
   },
   "repository": {
