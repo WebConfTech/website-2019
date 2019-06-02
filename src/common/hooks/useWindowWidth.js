@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
-import theme from 'lib/theme';
 
 export const useWindowWidth = () => {
-  const [width, setWidth] = useState(
-    typeof window !== 'undefined' ? window.innerWidth : theme.breakpoints.smallScreen
-  );
+  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1280);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
