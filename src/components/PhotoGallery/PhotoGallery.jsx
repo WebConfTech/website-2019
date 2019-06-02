@@ -1,6 +1,7 @@
 import * as R from 'ramda';
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import theme from 'lib/theme';
 import { useWindowWidth } from 'common/hooks';
 import { PhotoPropTypes } from './propTypes';
 import { MinSizePhoto } from './MinSizePhoto';
@@ -16,7 +17,7 @@ export const PhotoGallery = ({ photos }) => {
   let pickerRange = 5;
   let PickerComponent = DesktopPhotoPicker;
 
-  if (windowWidth > 1280) {
+  if (windowWidth > theme.breakpoints.smallScreen) {
     pickerRange = 6;
   } else {
     PickerComponent = MobilePhotoPicker;
