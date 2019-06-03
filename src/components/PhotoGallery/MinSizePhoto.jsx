@@ -11,14 +11,23 @@ const findBiggerImage = R.curry((minSize, images) => {
   return R.defaultTo(R.last(sortedImages))(biggerImage);
 });
 
-export const MinSizePhoto = ({ minSize, images, alt, ...props }) => {
+export const MinSizePhoto = ({ minSize, images, alt, lazy, ...props }) => {
   const { source } = useMemo(() => findBiggerImage(minSize, images), [minSize, images]);
 
-  return <LazyLoadImage src={source} alt={alt} {...props} threshold={1000} />;
+  return lazy ? (
+    <LazyLoadImage src={source} alt={alt} threshold={300} effect="opacity" {...props} />
+  ) : (
+    <img src={source} alt={alt} {...props} />
+  );
 };
 
 MinSizePhoto.propTypes = {
   minSize: PropTypes.number.isRequired,
   images: PropTypes.arrayOf(PropTypes.shape(ImagePropTypes)).isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
+  lazy: PropTypes.bool
+};
+
+MinSizePhoto.defaultProps = {
+  lazy: false
 };

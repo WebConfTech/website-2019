@@ -102,14 +102,6 @@
     object-fit: cover;
   }
 
-  @media (max-width: $theme-breakpoints-smallScreen - 1) {
-    img {
-      min-height: 8.25rem;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
   @media (min-width: $theme-breakpoints-smallScreen) {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 0.625rem white;
