@@ -2,8 +2,6 @@
 .video-background {
   height: 100%;
   width: 100%;
-  margin: 4rem 0 6rem;
-
   @media (min-width: $theme-breakpoints-mobile) {
     background: #000;
     position: fixed;
@@ -19,22 +17,4 @@
 .video-foreground {
   width: 100%;
   height: 100%;
-
-  @media (min-width: $theme-breakpoints-mobile) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-    pointer-events: none;
-
-    @media (min-aspect-ratio: 16/9) {
-      height: 300%;
-      top: -100%;
-    }
-
-    @media (max-aspect-ratio: 16/9) {
-      width: 300%;
-      left: -100%;
-    }
-  }
 }
