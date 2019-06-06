@@ -1,2 +1,3 @@
+export { deferred } from './deferred';
 export { maskDni, unmaskDni } from './dniMask';
-export { deferred, waitForGlobal } from './waitForGlobal';
+export { waitForGlobal } from './waitForGlobal';
