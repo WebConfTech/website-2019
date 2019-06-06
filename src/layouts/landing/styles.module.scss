@@ -1,3 +1,7 @@
+.container {
+  background: transparent;
+}
+
 .sidebar {
   display: flex;
   flex-direction: row;
@@ -33,7 +37,10 @@
 
   @media (min-width: $theme-breakpoints-mobile) {
     flex-direction: column;
-    margin: 3.25rem 0 0 3.125rem;
+    width: 15rem;
+    margin: 0;
+    padding: 3.25rem 0 0 3.125rem;
+    background-color: rgba(255, 255, 255, 0.8);
 
     .right {
       align-items: flex-start;
@@ -72,6 +79,8 @@
   align-items: flex-end;
 
   @media (min-width: $theme-breakpoints-mobile) {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 18.125rem;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -88,7 +97,7 @@
   }
 
   @media (min-width: $theme-breakpoints-mobile) {
-    margin: 0 0 1rem;
+    margin: 0 0 2.5rem;
     padding-left: 3.125rem;
     flex-direction: column;
     justify-content: flex-end;

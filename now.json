@@ -8,5 +8,10 @@
       "use": "@now/static-build",
       "config": { "distDir": "public" }
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "FACEBOOK_GRAPH_TOKEN": "@website-facebook-graph-token"
+    }
+  }
 }

@@ -31,7 +31,7 @@ export const Footer = ({ children, className, ...props }) => (
   </footer>
 );
 
-const DefaultLayout = ({ children, seoProps }) => {
+const DefaultLayout = ({ children, seoProps = {}, className = '' }) => {
   const _seoProps = {
     ...SEO_DATA,
     ...seoProps
@@ -46,16 +46,12 @@ const DefaultLayout = ({ children, seoProps }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${className}`}>
         <SEO {..._seoProps} />
         {children}
       </div>
     </ThemeProvider>
   );
-};
-
-DefaultLayout.defaultProps = {
-  seoProps: {}
 };
 
 export default DefaultLayout;
