@@ -1,0 +1,10 @@
+.container {
+  position: absolute;
+  width: 1em;
+  @media (min-width: $theme-breakpoints-mobile) {
+    display: block;
+  }
+  @media (max-width: $theme-breakpoints-mobile) {
+    display: none;
+  }
+}

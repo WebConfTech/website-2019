@@ -1,17 +1,4 @@
-export const deferred = () => {
-  let resolve;
-  let reject;
-  const promise = new Promise((presolve, preject) => {
-    resolve = presolve;
-    reject = preject;
-  });
-
-  return {
-    promise,
-    resolve,
-    reject
-  };
-};
+import { deferred } from './deferred';
 
 export const waitForGlobal = (name, intervalTime = 600, attempts = 5) => {
   const defer = deferred();

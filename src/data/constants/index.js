@@ -4,6 +4,7 @@ export { CFP } from './cfp';
 export { MENU } from './menu';
 export { MIN_TICKETS, MAX_TICKETS, TICKET_PRICE, PAYMENT_URL_TEMPLATE } from './checkout';
 export { EVENT_DATE } from './event';
+export { HOME_VIDEO } from './homeVideo';
 export {
   VENUE_LAT_LNG,
   VENUE_DESKTOP_DEFAULT_ZOOM,

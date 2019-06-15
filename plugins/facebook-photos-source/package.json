@@ -1,0 +1,13 @@
+{
+  "name": "facebook-photos-source",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Agustin Carrasco <asermax@gmail.com>",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "dependencies": {
+    "fbgraph": "^1.4.4"
+  }
+}
