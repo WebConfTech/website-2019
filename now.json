@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "website-2019",
-  "alias": ["webconf.tech", "www.webconf.tech"],
+  "alias": ["2019.webconf.tech", "www.2019.webconf.tech"],
   "builds": [
     {
       "src": "package.json",
